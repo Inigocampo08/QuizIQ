@@ -1,85 +1,131 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+// import { RouterLink, RouterView } from 'vue-router'
+/* Componentes*/
+import CabeceraInicio from './components/CabeceraInicio.vue';
+import LoginRegister from './components/LoginRegister.vue';
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+<CabeceraInicio />
+  <main>
+    <div class="contenido">
+      <LoginRegister />
     </div>
-  </header>
 
-  <RouterView />
+  </main>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+<style>
+:root {
+  /*Paleta de colores*/
+  --verdeLima: #A4C400;
+  --rojo: #E70000;
+  --azul: #00A4E4;
+  --amarillo: #FFD100;
+  --naranja: #FF8700;
+  --rosa: #FF41B4;
+  --blanco: #F2F2F2;
+  --grisClaro: #EEE9E9;
+  --gris: #CCCCCC;
+  --grisOscuro: #666666;
+  --negro: #333333;
+  /*Tipografia*/
+  --encabezado: 'Gluten', cursive;
+  --parrafo: 'Josefin Sans', sans-serif;
+
+
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+
 }
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+body {
+  /**Tipografia*/
+  margin: 0;
+  padding: 0;
+  font-family: var(--parrafo);
+  font-size: 1.6rem;
+  background-color: var(--blanco);
+
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+/*Encabezados*/
+h1 {
+  font-size: 6rem;
 }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+h2 {
+  font-size: 5rem;
 }
 
-nav a:first-of-type {
-  border: 0;
+h3 {
+  font-size: 4.2re;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+h4 {
+  font-size: 3.4rem;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--encabezado);
+  color: var(--negro);
+  font-weight: bold;
+  text-transform: uppercase;
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+/* Estilo para los enlaces */
+a {
+  color: var(--grisOscuro);
+  text-decoration: none;
+  transition: color 3ms ease-in-out;
+}
 
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
+a:hover {
+  color: var(--naranja);
+}
 
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+/* Estilo para los botones */
+.boton {
+  padding: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  border-radius: 1rem ;
+  color: white;
+  animation: anim 6s infinite;
+}
+@keyframes anim{
+  0% {background-color: var(--amarillo);} 
+  10% {background-color: var(--verdeLima);} 
+  20% {background-color: var(--azul);} 
+  30% {background-color: var(--rosa);} 
+  40% {background-color: var(--rojo);} 
+ 50% {background-color: var(--naranja);} 
+ 60% {background-color: var(--rojo)}
+ 70% {background-color:var(--rosa)} 
+80% {background-color:var(--azul)} 
+90% {background-color:var(--verdeLima)} 
+100% {background-color:var(--amarillo)} 
+
+}
+
+/* Estilo para los contenido */
+.contenido {
+  width: 90%;
+  max-width: 120rem;
+  margin: 0 auto;
 }
 </style>
