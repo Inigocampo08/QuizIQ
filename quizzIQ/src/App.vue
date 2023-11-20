@@ -1,18 +1,19 @@
 <script setup>
 // import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 /* Componentes*/
 import CabeceraInicio from './components/CabeceraInicio.vue';
-import LoginRegister from './components/LoginRegister.vue';
+
+// Variables
+const logged= false;
 </script>
 
 <template>
-<CabeceraInicio />
-  <main>
+<CabeceraInicio v-if="logged" />
     <div class="contenido">
-      <LoginRegister />
+      <RouterView />
     </div>
 
-  </main>
 </template>
 
 <style>
