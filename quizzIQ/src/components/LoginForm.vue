@@ -4,7 +4,7 @@
 
 <template>
     <!-- Creame -->
-    <div class="contenido-login">
+    <div @submit.prevent class="contenido-login">
         <form class="login">
             <div class="campos">
                 <label for="usuario">Usuario: </label>
@@ -12,7 +12,7 @@
             </div>
             <div class="campos">
                 <label for="password">Contraseña: </label>
-                <input type="text" name="password" class="password" placeholder="Ecriba su codigo secreto">
+                <input type="password" name="password" class="password" placeholder="Ecriba su codigo secreto">
             </div>
             <input class="boton" type="submit" value="Iniciar Sesión">
         </form>

@@ -4,18 +4,18 @@
 
 <template>
     <!-- Creame -->
-    <form class="login">
+    <form @submit.prevent class="login">
         <div class="campos">
             <label for="usuario">Usuario: </label>
             <input type="text" name="usuario" class="usuario" placeholder="Ej. Manolo">
         </div>
         <div class="campos">
             <label for="password">Contraseña: </label>
-            <input type="text" name="password" class="password" placeholder="Ecriba su codigo secreto">
+            <input type="password" name="password" class="password" placeholder="Ecriba su codigo secreto">
         </div>
         <div class="campos">
             <label for="password2">Contraseña: </label>
-            <input type="text" name="password2" class="password" placeholder="Confirme su contraseña">
+            <input type="password" name="password2" class="password" placeholder="Confirme su contraseña">
         </div>
         <input class="boton" type="submit" value="Iniciar Sesión">
     </form>
