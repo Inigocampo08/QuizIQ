@@ -46,7 +46,6 @@ const access = useAccessStore();
 
 .form-title {
     text-align: center;
-    color: var(--negro);
 
 }
 
@@ -59,28 +58,25 @@ const access = useAccessStore();
 .input-container input,
 .form button {
     outline: none;
-    border: 1px solid var(--gris);
+    border: none;
     margin: 8px 0;
 }
 
 .input-container input {
-    background-color: var(--gris);
+    background-color: var(--blanco);
     padding: 2rem;
     width: 100%;
     border-radius: 0.5rem;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-.input-container input::placeholder {
-    color: var(--negro);
-}
+
 
 .submit {
     width: 100%;
 }
 
 .signup-link {
-    color: var(--grisOscuro);
     text-align: center;
 }
 

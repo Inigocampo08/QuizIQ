@@ -54,22 +54,25 @@
 .respuestas {
     width: 100%;
     padding: 5rem;
-    background-color: var(--naranja);
+    background-color: var(--color4);
     font-size: 3rem;
+    border-radius: 5rem;
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 
 }
 
-.respuestas:hover {
+.respuestas:hover  {
     cursor: pointer;
-    background-color: var(--amarillo);
-    border: 4px solid var(--negro);
+    background-color: var(--color2);
+    color: var(--blanco);
+    transform:scale(1.05);
 }
 
 .respuestas span {
     font-weight: 900;
     font-size: 2.5rem;
-    color: var(--grisOscuro);
-    opacity: 0.8;
+    opacity: 0.6;
     font-family: var(--encabezado);
 
 }</style>

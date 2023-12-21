@@ -9,7 +9,8 @@ const access = useAccessStore();
 <template>
     <header>
         <div class="contenedor header">
-            <RouterLink class="btn--primary" :to="{ name: 'home' }"> Volver
+            <RouterLink  :to="{ name: 'home' }"> 
+                <button class="btn--primary"> Volver</button> 
 
             </RouterLink>
         </div>

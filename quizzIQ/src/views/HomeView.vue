@@ -4,9 +4,9 @@
 <template>
     <header>
         <div class="contenedor header__container">
-            <h1>Logo</h1>
+            <img class="logo" src="/public/logo.jpg" alt="logo QuizIQ">
             <nav>
-                <RouterLink class="boton btn--secondary" :to="{ name: 'access' }">Iniciar sesion</RouterLink>
+                <RouterLink :to="{ name: 'access' }"> <button class=" btn--secondary">Iniciar sesion</button></RouterLink>
             </nav>
         </div>
     </header>
@@ -27,19 +27,36 @@
 
 }
 
+.logo {
+    max-width: 10rem;
+    width: 100%;
+    border-radius: 50%;
+}
+
 .btn__jugar {
     position: absolute;
     top: 40vh;
     left: 50vw;
-    transform: translate(-50%, -50%) scale(.5);
-    transition: 0.5s;
-
+    transform: translate(-50%, -50%);
+    animation: infinite animation 1.2s;
 }
 
 .btn__jugar:hover {
     padding: 5rem;
-    transform: translate(-50%, -50%) scale(2);
-    transition: 0.5s;
 
 }
-</style>
+
+@keyframes animation {
+    0% {
+        transform: translate(-50%, -50%) scale(.5);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(2);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(.5);
+
+    }
+}</style>
