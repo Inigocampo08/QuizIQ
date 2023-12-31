@@ -59,6 +59,8 @@
     border-radius: 5rem;
     transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    text-shadow:3px 5px 2px rgba(0, 0, 0, 0.15) ;
+
 
 }
 
@@ -67,6 +69,11 @@
     background-color: var(--color2);
     color: var(--blanco);
     transform:scale(1.05);
+    transition: all .3s;
+}
+.respuestas:active  {
+    background-color: var(--color3-active);
+    transition: all .1s;
 }
 
 .respuestas span {

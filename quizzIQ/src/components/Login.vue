@@ -1,15 +1,21 @@
 <script setup>
+import { ref } from 'vue';
 import { useAccessStore } from '../stores/access';
-
 const access = useAccessStore();
-const formData = {
+
+const formData = ref({
     email: '',
-    password:'' 
+    password: ''
+});
+
+const submit = () => {
+    // Validación de datos aquí (si es necesario)
+    access.login(formData.value);
 }
 </script>
- 
+
 <template>
-    <form class="form" @submit.prevent="access.loginValidate(formData)">
+    <form class="form" @submit.prevent="submit">
         <h2 class="form-title">Inicia Sesión Con su cuenta</h2>
         <div class="input-container">
             <input v-model="formData.email" type="email" name="email" id="email" placeholder="Correo Electronico">
@@ -67,7 +73,6 @@ const formData = {
     border-radius: 0.5rem;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
-
 
 
 .submit {
