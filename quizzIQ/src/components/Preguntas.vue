@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useDemoGameStore } from '@/stores/demoGame';
+
 const demoGameStore = useDemoGameStore();
 const respuestaUsuario = ref(null);
 const opcionesHabilitadas = ref(true);

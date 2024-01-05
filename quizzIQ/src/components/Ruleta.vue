@@ -1,9 +1,9 @@
 <script setup>
 import { ref } from 'vue';
 import { Roulette } from "vue3-roulette";
-import { useDemoGameStore } from '@/stores/demoGame';
+import { useRuletaStore } from '@/stores/ruleta';
 
-const demoGameStore = useDemoGameStore();
+const ruletaStore = useRuletaStore();
 const wheel = ref(null);
 const launchWheel = () => {
     wheel.value.launchWheel()
@@ -11,8 +11,8 @@ const launchWheel = () => {
 </script>
  
 <template>
-    <Roulette class="ruleta" ref="wheel" size="500" :items="demoGameStore.items"
-        @click="launchWheel" @wheel-end="demoGameStore.wheelEndedCallback" />
+    <Roulette class="ruleta" ref="wheel" size="500" :items="ruletaStore.items" @click="launchWheel"
+        @wheel-end="ruletaStore.wheelEndedCallback" />
 </template>
 <style scoped>
 .ruleta {
