@@ -21,11 +21,11 @@ const volver = () => {
     <header class="header">
         <div class="contenedor header__container">
             <div class="salir">
-                    <button @click="volver" class=" button">
-                        <span class="X"></span>
-                        <span class="Y"></span>
-                    </button>
-                </div>
+                <button @click="volver" class=" button">
+                    <span class="X"></span>
+                    <span class="Y"></span>
+                </button>
+            </div>
             <div class="marcador">
                 <div class="flip-card">
                     <div class="flip-card-inner">
@@ -43,7 +43,7 @@ const volver = () => {
             <div class="user__info">
                 <div class="vidas">
                     Vidas</div>
-                <div>
+                <div class="contador">
                     <Contador />
                 </div>
             </div>
@@ -64,13 +64,13 @@ const volver = () => {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     /* Sombra suave */
     position: relative;
-    
+
 }
 
 .header__container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .button {
@@ -81,7 +81,7 @@ const volver = () => {
     background: transparent;
     border-radius: 5px;
     transition: all 800ms ease;
-    
+
 
 }
 
@@ -124,7 +124,7 @@ const volver = () => {
 
 
 .user__info {
-    
+
     text-align: center;
     position: relative;
     /* Para posicionar el botón de salida de manera absoluta */
@@ -132,10 +132,22 @@ const volver = () => {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 5rem;
     border-radius: 0.5rem;
     font-size: 2rem;
     color: var(--color3);
+
+}
+
+.contador {
+    width: 12rem;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.5);
+    border-radius: 1rem;
+    font-family: var(--parrafo);
 
 }
 

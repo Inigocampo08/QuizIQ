@@ -12,7 +12,6 @@ export const useDemoGameStore = defineStore('demoGame', () => {
         segundosRestantes.value--
       } else {
         clearInterval(intervalo) // Detener el intervalo cuando el contador llega a 0
-        console.log('Tiempo agotado') // Emitir evento cuando el tiempo se agota
       }
     }, 1000) // Actualizar cada segundo
   }
@@ -69,10 +68,7 @@ export const useDemoGameStore = defineStore('demoGame', () => {
   ]
 
   function wheelEndedCallback(item) {
-    console.log('wheel ended !', item)
     categoria.value = item
-    console.log(categoria.value.id)
-
     preguntasVue()
   }
 
@@ -87,21 +83,18 @@ export const useDemoGameStore = defineStore('demoGame', () => {
       .then((response) => {
         // Datos obtenidos
         const triviaData = response.data
-        console.log(triviaData)
 
         // Acceder a las preguntas de una categoría específica (por ejemplo, Historia)
         const preguntasJson = triviaData.find(
           (cat) => cat.categoria.toUpperCase() === categoria.value.name.toUpperCase()
         )
 
-        console.log(preguntasJson.preguntas)
-
         // Randomizar la selección de una pregunta
         const indiceAleatorio = Math.floor(Math.random() * preguntasJson.preguntas.length)
         preguntasAleatoria.value = preguntasJson.preguntas[indiceAleatorio]
-        console.log(preguntasAleatoria.value.pregunta)
 
         isActiveRoulette()
+        iniciarContador()
       })
       .catch((error) => {
         // Manejar el error
@@ -110,9 +103,13 @@ export const useDemoGameStore = defineStore('demoGame', () => {
   }
 
   const getPreguntaAleatoria = computed(() => {
-    return preguntasAleatoria.value
+    return {
+      pregunta: preguntasAleatoria.value.pregunta,
+      opciones: preguntasAleatoria.value.opciones,
+      respuestaCorrecta: preguntasAleatoria.value.respuesta_correcta // Asegúrate de incluir esto en tus datos de preguntas
+    }
   })
-  
+
   //? *************************************************/
 
   return {

@@ -1,6 +1,28 @@
 <script setup>
+import { ref } from 'vue';
 import { useDemoGameStore } from '@/stores/demoGame';
 const demoGameStore = useDemoGameStore();
+const respuestaUsuario = ref(null);
+const opcionesHabilitadas = ref(true);
+
+const error = ref();
+const errorMsg = ref('');
+
+function validarRespuesta(opcion) {
+    respuestaUsuario.value = opcion;
+    opcionesHabilitadas.value = false;
+    if (respuestaUsuario.value === demoGameStore.getPreguntaAleatoria.respuestaCorrecta) {
+        // La respuesta es correcta
+        error.value = false;
+
+        errorMsg.value = '¡Respuesta correcta!';
+        // Aquí puedes añadir más lógica como mostrar un mensaje, sumar puntos, etc.
+    } else {
+        // La respuesta es incorrecta
+        error.value = true;
+        errorMsg.value = '¡Respuesta incorrecta!';
+    }
+}
 </script>
  
 <template>
@@ -10,11 +32,17 @@ const demoGameStore = useDemoGameStore();
         </div>
         <div class="respuestas__container">
             <ul class="respuestas__list">
-                <div v-for="opcion in demoGameStore.getPreguntaAleatoria.opciones" class="respuestas">
-                    <li><span>a)</span> {{ opcion }}</li>
+                <div :class="{
+                    'respuesta-incorrecta': error && opcion === respuestaUsuario,
+                    'respuesta-correcta': !error && opcion === respuestaUsuario
+                }" :style="opcionesHabilitadas ? {} : { 'pointer-events': 'none' }"
+                    v-for="opcion in demoGameStore.getPreguntaAleatoria.opciones" class="respuestas"
+                    @click="validarRespuesta(opcion)">
+                    <li> {{ opcion }}</li>
                 </div>
             </ul>
         </div>
+        <span v-if="error != null">{{ errorMsg }}</span>
     </div>
 </template>
 <style scoped>
@@ -50,19 +78,36 @@ const demoGameStore = useDemoGameStore();
     border-radius: 5rem;
     transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    text-shadow:3px 5px 2px rgba(0, 0, 0, 0.15) ;
+    text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.15);
 
 
 }
 
-.respuestas:hover  {
+.respuestas:hover {
     cursor: pointer;
     background-color: var(--color2);
     color: var(--blanco);
-    transform:scale(1.05);
+    transform: scale(1.05);
     transition: all .3s;
 }
-.respuestas:active  {
+
+.respuesta-incorrecta {
+    background-color: red;
+
+}
+
+.respuesta-correcta {
+    background-color: chartreuse;
+
+}
+
+.respuesta-incorrecta,
+.respuesta-correcta {
+    transition: all .3s;
+    pointer-events: none;
+}
+
+.respuestas:active {
     background-color: var(--color3-active);
     transition: all .1s;
 }
@@ -73,4 +118,5 @@ const demoGameStore = useDemoGameStore();
     opacity: 0.6;
     font-family: var(--encabezado);
 
-}</style>
+}
+</style>
