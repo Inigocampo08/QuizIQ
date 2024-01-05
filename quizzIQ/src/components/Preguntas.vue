@@ -1,29 +1,60 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, watchEffect } from 'vue';
 import { useRuletaStore } from '@/stores/ruleta';
+import { useContadorStore } from '@/stores/contador'
 
+const contadorStore = useContadorStore()
 const ruletaStore = useRuletaStore();
+
 const respuestaUsuario = ref(null);
 const opcionesHabilitadas = ref(true);
 
 const error = ref();
 const errorMsg = ref('');
 
+
+watchEffect(() => {
+    if (contadorStore.segundosRestantes === 0) {
+        error.value = true;
+        errorMsg.value = 'Se terminó el tiempo!';
+        opcionesHabilitadas.value = false;
+        
+
+    } else {
+        error.value = false;
+        errorMsg.value = '';
+    }
+});
 function validarRespuesta(opcion) {
+
     respuestaUsuario.value = opcion;
     opcionesHabilitadas.value = false;
+    contadorStore.detenerContador()
     if (respuestaUsuario.value === ruletaStore.getPreguntaAleatoria.respuestaCorrecta) {
         // La respuesta es correcta
         error.value = false;
-
         errorMsg.value = '¡Respuesta correcta!';
+        const tiempoRestante = contadorStore.segundosRestantes
+        console.log(tiempoRestante);
+        ruletaStore.puntos = ruletaStore.puntos + tiempoRestante * 10
+        console.log(ruletaStore.puntos);
+        
+        
         // Aquí puedes añadir más lógica como mostrar un mensaje, sumar puntos, etc.
     } else {
         // La respuesta es incorrecta
         error.value = true;
         errorMsg.value = '¡Respuesta incorrecta!';
+        ruletaStore.vidas--
+        console.log(ruletaStore.vidas);
+        
     }
+    setTimeout(() => {
+        ruletaStore.isActiveRoulette()
+        contadorStore.resetearContador()
+    },3000)
 }
+
 </script>
  
 <template>

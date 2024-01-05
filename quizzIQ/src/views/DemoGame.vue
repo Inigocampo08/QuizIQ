@@ -1,4 +1,5 @@
 <script setup>
+import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router'
 import { useRuletaStore } from '@/stores/ruleta';
 import Contador from '@/components/Contador.vue';
@@ -7,6 +8,11 @@ import Ruleta from '@/components/Ruleta.vue';
 
 const router = useRouter()
 const ruletaStore = useRuletaStore();
+
+onMounted(() => {
+    ruletaStore.vidas = 5
+    ruletaStore.puntos = 0
+})
 const volver = () => {
     if (confirm("¿Seguro que quieres volver?")) {
         router.push({ name: 'home' })
@@ -31,18 +37,21 @@ const volver = () => {
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <!-- Contenido de la cara frontal -->
+
                             <span>Puntos</span>
                         </div>
                         <div class="flip-card-back">
                             <!-- Contenido de la cara trasera -->
-                            <span><font-awesome-icon icon="award" /> 0</span>
+                            <span><font-awesome-icon icon="award" /> {{ ruletaStore.puntos }}</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="user__info">
                 <div class="vidas">
-                    Vidas</div>
+                    <font-awesome-icon icon="heart" class="icon" />
+                    <p>{{ ruletaStore.vidas }}</p>
+                </div>
                 <div class="contador">
                     <Contador />
                 </div>
@@ -51,7 +60,7 @@ const volver = () => {
     </header>
     <main>
         <div v-if="ruletaStore.acitveRoulette" class="ruleta">
-            <Ruleta />
+            <Ruleta  />
         </div>
         <Preguntas v-else />
     </main>
@@ -131,14 +140,29 @@ const volver = () => {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     gap: 5rem;
     border-radius: 0.5rem;
     font-size: 2rem;
     color: var(--color3);
 
 }
+.vidas{
+position: relative;
+display: inline-block;
+text-align: center;
+}
+.vidas .icon{
+    font-size: 6rem;
+}
+.vidas p{
+position: absolute;
+margin: 0;
+top: 50%;
+left: 50%;
+color: white ;
+transform: translate(-50%, -50%);
 
+}
 .contador {
     width: 12rem;
     height: 5rem;

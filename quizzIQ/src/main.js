@@ -16,8 +16,9 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 /* import specific icons */
 import { faAward } from '@fortawesome/free-solid-svg-icons'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 /* add icons to the library */
-library.add(faAward)
+library.add(faAward, faHeart)
 
 //Componente de ruleta
 import { Roulette } from 'vue3-roulette'

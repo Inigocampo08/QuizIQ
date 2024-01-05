@@ -8,6 +8,8 @@ const contadorStore = useContadorStore()
 export const useRuletaStore = defineStore('ruleta', () => {
   const acitveRoulette = ref(true)
   const categoria = ref('')
+  const vidas = ref("")
+  const puntos = ref("")
 
   function isActiveRoulette() {
     acitveRoulette.value = !acitveRoulette.value
@@ -88,8 +90,10 @@ export const useRuletaStore = defineStore('ruleta', () => {
   return {
     acitveRoulette,
     items,
+    getPreguntaAleatoria,
+    vidas,
+    puntos,
     isActiveRoulette,
-    wheelEndedCallback,
-    getPreguntaAleatoria
+    wheelEndedCallback
   }
 })

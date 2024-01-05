@@ -1,10 +1,10 @@
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useContadorStore = defineStore('contador', () => {
 
     //************* CONTADOR  *************/
-    const segundosRestantes = ref(60) // Inicializamos el contador en 60 segundos
+    const segundosRestantes = ref(10) // Inicializamos el contador en 60 segundos
     let intervalo
     function iniciarContador() {
         intervalo = setInterval(() => {
@@ -20,12 +20,16 @@ export const useContadorStore = defineStore('contador', () => {
     }
     function resetearContador() {
         clearInterval(intervalo)
-        segundosRestantes.value = 60
-        iniciarContador()
+        segundosRestantes.value = 10
     }
+
+    const segundos = computed(() => {
+        return segundosRestantes.value
+    })
 
     return {
         //COUNTADOR
+        segundos,
         segundosRestantes,
         iniciarContador,
         detenerContador,
