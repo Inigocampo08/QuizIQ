@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from 'vue';
-import { useDemoGameStore } from '@/stores/demoGame';
+import { useRuletaStore } from '@/stores/ruleta';
 
-const demoGameStore = useDemoGameStore();
+const ruletaStore = useRuletaStore();
 const respuestaUsuario = ref(null);
 const opcionesHabilitadas = ref(true);
 
@@ -12,7 +12,7 @@ const errorMsg = ref('');
 function validarRespuesta(opcion) {
     respuestaUsuario.value = opcion;
     opcionesHabilitadas.value = false;
-    if (respuestaUsuario.value === demoGameStore.getPreguntaAleatoria.respuestaCorrecta) {
+    if (respuestaUsuario.value === ruletaStore.getPreguntaAleatoria.respuestaCorrecta) {
         // La respuesta es correcta
         error.value = false;
 
@@ -29,7 +29,7 @@ function validarRespuesta(opcion) {
 <template>
     <div class="contenedor">
         <div class="preguntas">
-            <p>{{ demoGameStore.getPreguntaAleatoria.pregunta }}</p>
+            <p>{{ ruletaStore.getPreguntaAleatoria.pregunta }}</p>
         </div>
         <div class="respuestas__container">
             <ul class="respuestas__list">
@@ -37,7 +37,7 @@ function validarRespuesta(opcion) {
                     'respuesta-incorrecta': error && opcion === respuestaUsuario,
                     'respuesta-correcta': !error && opcion === respuestaUsuario
                 }" :style="opcionesHabilitadas ? {} : { 'pointer-events': 'none' }"
-                    v-for="opcion in demoGameStore.getPreguntaAleatoria.opciones" class="respuestas"
+                    v-for="opcion in ruletaStore.getPreguntaAleatoria.opciones" class="respuestas"
                     @click="validarRespuesta(opcion)">
                     <li> {{ opcion }}</li>
                 </div>
