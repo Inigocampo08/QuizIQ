@@ -51,7 +51,6 @@ const volver = () => {
     </header>
     <main>
         <div v-if="demoGameStore.acitveRoulette" class="ruleta">
-        
             <Ruleta />
         </div>
         <Preguntas v-else />
