@@ -1,12 +1,13 @@
 import { initializeApp } from 'firebase/app'
 
-const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID
-}
+  const firebaseConfig = {
+    apiKey: "AIzaSyAztY33_VLedn8FGj4fibFiH3KgForHYQA",
+    authDomain: "quiziq-cf21e.firebaseapp.com",
+    projectId: "quiziq-cf21e",
+    storageBucket: "quiziq-cf21e.appspot.com",
+    messagingSenderId: "380231797761",
+    appId: "1:380231797761:web:7d03a5253054a35b458400"
+  };
+
 
 export const firebaseApp = initializeApp(firebaseConfig)
