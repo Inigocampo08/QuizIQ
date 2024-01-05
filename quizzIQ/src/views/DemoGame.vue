@@ -1,13 +1,11 @@
 <script setup>
 import { useRouter } from 'vue-router'
-// import { useDemoGameStore } from '@/stores/demoGame';
 import { useRuletaStore } from '@/stores/ruleta';
 import Contador from '@/components/Contador.vue';
 import Preguntas from '@/components/Preguntas.vue'
 import Ruleta from '@/components/Ruleta.vue';
 
 const router = useRouter()
-// const demoGameStore = useDemoGameStore();
 const ruletaStore = useRuletaStore();
 const volver = () => {
     if (confirm("¿Seguro que quieres volver?")) {
