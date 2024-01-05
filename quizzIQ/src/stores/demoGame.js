@@ -1,8 +1,9 @@
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import axios from 'axios'
 import { defineStore } from 'pinia'
 
 export const useDemoGameStore = defineStore('demoGame', () => {
-  //************* COUNTADOR  *************/
+  //************* CONTADOR  *************/
   const segundosRestantes = ref(60) // Inicializamos el contador en 60 segundos
   let intervalo
   function iniciarContador() {
@@ -25,12 +26,9 @@ export const useDemoGameStore = defineStore('demoGame', () => {
   }
   //? *************************************************/
 
-  // ************* PREGUNTAS *************/
-  //? *************************************************/
-
   // ************* RULETA *************/
   const acitveRoulette = ref(true)
-  const result = ref('')
+  const categoria = ref('')
 
   function isActiveRoulette() {
     acitveRoulette.value = !acitveRoulette.value
@@ -70,12 +68,51 @@ export const useDemoGameStore = defineStore('demoGame', () => {
     { id: 7, name: 'ciencia', htmlContent: 'Ciencia', textColor: 'white', background: 'green' }
   ]
 
-  const wheelEndedCallback = (item) => {
+  function wheelEndedCallback(item) {
     console.log('wheel ended !', item)
-    result.value = item
-    console.log(result.value.id)
-    acitveRoulette.value = !acitveRoulette.value
+    categoria.value = item
+    console.log(categoria.value.id)
+
+    preguntasVue()
   }
+
+  //? *************************************************/
+
+  // ************* PREGUNTAS *************/
+  const preguntasAleatoria = ref({})
+  function preguntasVue() {
+    // Hacer la solicitud GET
+    axios
+      .get('../../src/assets/json/preguntas.json')
+      .then((response) => {
+        // Datos obtenidos
+        const triviaData = response.data
+        console.log(triviaData)
+
+        // Acceder a las preguntas de una categoría específica (por ejemplo, Historia)
+        const preguntasJson = triviaData.find(
+          (cat) => cat.categoria.toUpperCase() === categoria.value.name.toUpperCase()
+        )
+
+        console.log(preguntasJson.preguntas)
+
+        // Randomizar la selección de una pregunta
+        const indiceAleatorio = Math.floor(Math.random() * preguntasJson.preguntas.length)
+        preguntasAleatoria.value = preguntasJson.preguntas[indiceAleatorio]
+        console.log(preguntasAleatoria.value.pregunta)
+
+        isActiveRoulette()
+      })
+      .catch((error) => {
+        // Manejar el error
+        console.error('Error al obtener los datos:', error)
+      })
+  }
+
+  const getPreguntaAleatoria = computed(() => {
+    return preguntasAleatoria.value
+  })
+  
   //? *************************************************/
 
   return {
@@ -88,6 +125,8 @@ export const useDemoGameStore = defineStore('demoGame', () => {
     acitveRoulette,
     items,
     isActiveRoulette,
-    wheelEndedCallback
+    wheelEndedCallback,
+    //PREGUNTAS
+    getPreguntaAleatoria
   }
 })

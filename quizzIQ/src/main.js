@@ -31,7 +31,6 @@ app.use(VueFire, {
 
 app.use(createPinia())
 app.use(router)
-
 app.component('roulette', Roulette)
 app.use('font-awesome-icon', FontAwesomeIcon)
 app.component('font-awesome-icon', FontAwesomeIcon)

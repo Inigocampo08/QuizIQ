@@ -1,279 +1,332 @@
-{
-    "preguntas": [
-        {
-            "categoria": "Historia",
-            "preguntas": [
-                {
-                    "pregunta": "¿Quién fue el primer presidente de Estados Unidos?",
-                    "opciones": [
-                        "George Washington",
-                        "Abraham Lincoln",
-                        "Thomas Jefferson",
-                        "John Adams"
-                    ],
-                    "respuesta_correcta": "George Washington"
-                },
-                {
-                    "pregunta": "¿En qué año comenzó la Primera Guerra Mundial?",
-                    "opciones": [
-                        "1914",
-                        "1918",
-                        "1939",
-                        "1905"
-                    ],
-                    "respuesta_correcta": "1914"
-                },
-                {
-                    "pregunta": "¿Qué líder político escribió 'Mi Lucha'?",
-                    "opciones": [
-                        "Joseph Stalin",
-                        "Winston Churchill",
-                        "Adolf Hitler",
-                        "Benito Mussolini"
-                    ],
-                    "respuesta_correcta": "Adolf Hitler"
-                },
-                {
-                    "pregunta": "¿Quién fue el primer emperador romano?",
-                    "opciones": [
-                        "Julio César",
-                        "Augusto",
-                        "Nerón",
-                        "Tiberio"
-                    ],
-                    "respuesta_correcta": "Augusto"
-                },
-                {
-                    "pregunta": "¿En qué año se firmó la Declaración de Independencia de Estados Unidos?",
-                    "opciones": [
-                        "1776",
-                        "1789",
-                        "1804",
-                        "1754"
-                    ],
-                    "respuesta_correcta": "1776"
-                }
-            ]
-        },
-        {
-            "categoria": "Ciencia",
-            "preguntas": [
-                {
-                    "pregunta": "¿Cuál es el elemento más abundante en la Tierra?",
-                    "opciones": [
-                        "Hierro",
-                        "Oxígeno",
-                        "Carbono",
-                        "Hidrógeno"
-                    ],
-                    "respuesta_correcta": "Oxígeno"
-                },
-                {
-                    "pregunta": "¿Qué unidad se utiliza para medir la electricidad?",
-                    "opciones": [
-                        "Vatio",
-                        "Ohmio",
-                        "Julio",
-                        "Amperio"
-                    ],
-                    "respuesta_correcta": "Amperio"
-                },
-                {
-                    "pregunta": "¿Cuál es la molécula responsable de la transmisión genética?",
-                    "opciones": [
-                        "ARN",
-                        "ADN",
-                        "ARNt",
-                        "ARNm"
-                    ],
-                    "respuesta_correcta": "ADN"
-                },
-                {
-                    "pregunta": "¿Qué planeta tiene el día más largo?",
-                    "opciones": [
-                        "Marte",
-                        "Venus",
-                        "Mercurio",
-                        "Júpiter"
-                    ],
-                    "respuesta_correcta": "Júpiter"
-                },
-                {
-                    "pregunta": "¿Qué científico formuló la teoría de la relatividad?",
-                    "opciones": [
-                        "Isaac Newton",
-                        "Albert Einstein",
-                        "Stephen Hawking",
-                        "Galileo Galilei"
-                    ],
-                    "respuesta_correcta": "Albert Einstein"
-                }
-            ]
-        },
-        {
-            "categoria": "Geografía",
-            "preguntas": [
-                {
-                    "pregunta": "¿Cuál es la capital de Brasil?",
-                    "opciones": [
-                        "Sao Paulo",
-                        "Brasilia",
-                        "Río de Janeiro",
-                        "Buenos Aires"
-                    ],
-                    "respuesta_correcta": "Brasilia"
-                },
-                {
-                    "pregunta": "¿En qué continente se encuentra el desierto del Sahara?",
-                    "opciones": [
-                        "Asia",
-                        "África",
-                        "América",
-                        "Europa"
-                    ],
-                    "respuesta_correcta": "África"
-                },
-                {
-                    "pregunta": "¿Qué río es el más largo del mundo?",
-                    "opciones": [
-                        "Amazonas",
-                        "Nilo",
-                        "Misisipi",
-                        "Yangtsé"
-                    ],
-                    "respuesta_correcta": "Amazonas"
-                },
-                {
-                    "pregunta": "¿Cuál es el país más pequeño del mundo?",
-                    "opciones": [
-                        "Vaticano",
-                        "Mónaco",
-                        "Maldivas",
-                        "San Marino"
-                    ],
-                    "respuesta_correcta": "Vaticano"
-                },
-                {
-                    "pregunta": "¿Qué montaña es la más alta del mundo?",
-                    "opciones": [
-                        "Monte Everest",
-                        "Monte Kilimanjaro",
-                        "Monte Fuji",
-                        "Monte McKinley"
-                    ],
-                    "respuesta_correcta": "Monte Everest"
-                }
-            ]
-        },
-        {
-            "categoria": "Arte",
-            "preguntas": [
-                {
-                    "pregunta": "¿Quién pintó la obra 'La noche estrellada'?",
-                    "opciones": [
-                        "Pablo Picasso",
-                        "Claude Monet",
-                        "Vincent van Gogh",
-                        "Leonardo da Vinci"
-                    ],
-                    "respuesta_correcta": "Vincent van Gogh"
-                },
-                {
-                    "pregunta": "¿Qué movimiento artístico es conocido por sus formas geométricas y colores primarios?",
-                    "opciones": [
-                        "Cubismo",
-                        "Impresionismo",
-                        "Renacimiento",
-                        "Barroco"
-                    ],
-                    "respuesta_correcta": "Cubismo"
-                },
-                {
-                    "pregunta": "¿Cuál es el instrumento musical más antiguo?",
-                    "opciones": [
-                        "Flauta",
-                        "Tambor",
-                        "Arpa",
-                        "Lira"
-                    ],
-                    "respuesta_correcta": "Flauta"
-                },
-                {
-                    "pregunta": "¿Qué escultura representa a un hombre desnudo sosteniendo una lanza?",
-                    "opciones": [
-                        "La Piedad",
-                        "David",
-                        "El Pensador",
-                        "La Victoria de Samotracia"
-                    ],
-                    "respuesta_correcta": "El Pensador"
-                },
-                {
-                    "pregunta": "¿Qué artista es conocido por sus pinturas de latas de sopa y retratos de celebridades?",
-                    "opciones": [
-                        "Andy Warhol",
-                        "Salvador Dalí",
-                        "Frida Kahlo",
-                        "Jackson Pollock"
-                    ],
-                    "respuesta_correcta": "Andy Warhol"
-                }
-            ]
-        },
-        {
-            "categoria": "Deportes",
-            "preguntas": [
-                {
-                    "pregunta": "¿Qué deporte se juega en un campo llamado 'court'?",
-                    "opciones": [
-                        "Fútbol",
-                        "Béisbol",
-                        "Tenis",
-                        "Baloncesto"
-                    ],
-                    "respuesta_correcta": "Tenis"
-                },
-                {
-                    "pregunta": "¿Qué equipo ha ganado más campeonatos de la NBA?",
-                    "opciones": [
-                        "Chicago Bulls",
-                        "Los Angeles Lakers",
-                        "Boston Celtics",
-                        "Golden State Warriors"
-                    ],
-                    "respuesta_correcta": "Boston Celtics"
-                },
-                {
-                    "pregunta": "¿En qué país se originó el deporte del cricket?",
-                    "opciones": [
-                        "India",
-                        "Inglaterra",
-                        "Australia",
-                        "Sudáfrica"
-                    ],
-                    "respuesta_correcta": "Inglaterra"
-                },
-                {
-                    "pregunta": "¿Cuál es el deporte nacional de Japón?",
-                    "opciones": [
-                        "Karate",
-                        "Sumo",
-                        "Judo",
-                        "Kendo"
-                    ],
-                    "respuesta_correcta": "Sumo"
-                },
-                {
-                    "pregunta": "¿Quién es considerado el mejor jugador de fútbol de todos los tiempos?",
-                    "opciones": [
-                        "Pelé",
-                        "Diego Maradona",
-                        "Lionel Messi",
-                        "Cristiano Ronaldo"
-                    ],
-                    "respuesta_correcta": "Pelé"
-                }
-            ]
-        }
-    ]
-}
+[
+    {
+        "categoria": "Historia",
+        "preguntas": [
+            {
+                "pregunta": "¿Quién fue el primer presidente de Estados Unidos?",
+                "opciones": [
+                    "George Washington",
+                    "Abraham Lincoln",
+                    "Thomas Jefferson",
+                    "John Adams"
+                ],
+                "respuesta_correcta": "George Washington"
+            },
+            {
+                "pregunta": "¿En qué año comenzó la Primera Guerra Mundial?",
+                "opciones": [
+                    "1914",
+                    "1918",
+                    "1939",
+                    "1905"
+                ],
+                "respuesta_correcta": "1914"
+            },
+            {
+                "pregunta": "¿Qué líder político escribió 'Mi Lucha'?",
+                "opciones": [
+                    "Joseph Stalin",
+                    "Winston Churchill",
+                    "Adolf Hitler",
+                    "Benito Mussolini"
+                ],
+                "respuesta_correcta": "Adolf Hitler"
+            },
+            {
+                "pregunta": "¿Quién fue el primer emperador romano?",
+                "opciones": [
+                    "Julio César",
+                    "Augusto",
+                    "Nerón",
+                    "Tiberio"
+                ],
+                "respuesta_correcta": "Augusto"
+            },
+            {
+                "pregunta": "¿En qué año se firmó la Declaración de Independencia de Estados Unidos?",
+                "opciones": [
+                    "1776",
+                    "1789",
+                    "1804",
+                    "1754"
+                ],
+                "respuesta_correcta": "1776"
+            }
+        ]
+    },
+    {
+        "categoria": "Ciencia",
+        "preguntas": [
+            {
+                "pregunta": "¿Cuál es el elemento más abundante en la Tierra?",
+                "opciones": [
+                    "Hierro",
+                    "Oxígeno",
+                    "Carbono",
+                    "Hidrógeno"
+                ],
+                "respuesta_correcta": "Oxígeno"
+            },
+            {
+                "pregunta": "¿Qué unidad se utiliza para medir la electricidad?",
+                "opciones": [
+                    "Vatio",
+                    "Ohmio",
+                    "Julio",
+                    "Amperio"
+                ],
+                "respuesta_correcta": "Amperio"
+            },
+            {
+                "pregunta": "¿Cuál es la molécula responsable de la transmisión genética?",
+                "opciones": [
+                    "ARN",
+                    "ADN",
+                    "ARNt",
+                    "ARNm"
+                ],
+                "respuesta_correcta": "ADN"
+            },
+            {
+                "pregunta": "¿Qué planeta tiene el día más largo?",
+                "opciones": [
+                    "Marte",
+                    "Venus",
+                    "Mercurio",
+                    "Júpiter"
+                ],
+                "respuesta_correcta": "Júpiter"
+            },
+            {
+                "pregunta": "¿Qué científico formuló la teoría de la relatividad?",
+                "opciones": [
+                    "Isaac Newton",
+                    "Albert Einstein",
+                    "Stephen Hawking",
+                    "Galileo Galilei"
+                ],
+                "respuesta_correcta": "Albert Einstein"
+            }
+        ]
+    },
+    {
+        "categoria": "Geografia",
+        "preguntas": [
+            {
+                "pregunta": "¿Cuál es la capital de Brasil?",
+                "opciones": [
+                    "Sao Paulo",
+                    "Brasilia",
+                    "Río de Janeiro",
+                    "Buenos Aires"
+                ],
+                "respuesta_correcta": "Brasilia"
+            },
+            {
+                "pregunta": "¿En qué continente se encuentra el desierto del Sahara?",
+                "opciones": [
+                    "Asia",
+                    "África",
+                    "América",
+                    "Europa"
+                ],
+                "respuesta_correcta": "África"
+            },
+            {
+                "pregunta": "¿Qué río es el más largo del mundo?",
+                "opciones": [
+                    "Amazonas",
+                    "Nilo",
+                    "Misisipi",
+                    "Yangtsé"
+                ],
+                "respuesta_correcta": "Amazonas"
+            },
+            {
+                "pregunta": "¿Cuál es el país más pequeño del mundo?",
+                "opciones": [
+                    "Vaticano",
+                    "Mónaco",
+                    "Maldivas",
+                    "San Marino"
+                ],
+                "respuesta_correcta": "Vaticano"
+            },
+            {
+                "pregunta": "¿Qué montaña es la más alta del mundo?",
+                "opciones": [
+                    "Monte Everest",
+                    "Monte Kilimanjaro",
+                    "Monte Fuji",
+                    "Monte McKinley"
+                ],
+                "respuesta_correcta": "Monte Everest"
+            }
+        ]
+    },
+    {
+        "categoria": "Arte",
+        "preguntas": [
+            {
+                "pregunta": "¿Quién pintó la obra 'La noche estrellada'?",
+                "opciones": [
+                    "Pablo Picasso",
+                    "Claude Monet",
+                    "Vincent van Gogh",
+                    "Leonardo da Vinci"
+                ],
+                "respuesta_correcta": "Vincent van Gogh"
+            },
+            {
+                "pregunta": "¿Qué movimiento artístico es conocido por sus formas geométricas y colores primarios?",
+                "opciones": [
+                    "Cubismo",
+                    "Impresionismo",
+                    "Renacimiento",
+                    "Barroco"
+                ],
+                "respuesta_correcta": "Cubismo"
+            },
+            {
+                "pregunta": "¿Cuál es el instrumento musical más antiguo?",
+                "opciones": [
+                    "Flauta",
+                    "Tambor",
+                    "Arpa",
+                    "Lira"
+                ],
+                "respuesta_correcta": "Flauta"
+            },
+            {
+                "pregunta": "¿Qué escultura representa a un hombre desnudo sosteniendo una lanza?",
+                "opciones": [
+                    "La Piedad",
+                    "David",
+                    "El Pensador",
+                    "La Victoria de Samotracia"
+                ],
+                "respuesta_correcta": "El Pensador"
+            },
+            {
+                "pregunta": "¿Qué artista es conocido por sus pinturas de latas de sopa y retratos de celebridades?",
+                "opciones": [
+                    "Andy Warhol",
+                    "Salvador Dalí",
+                    "Frida Kahlo",
+                    "Jackson Pollock"
+                ],
+                "respuesta_correcta": "Andy Warhol"
+            }
+        ]
+    },
+    {
+        "categoria": "Deportes",
+        "preguntas": [
+            {
+                "pregunta": "¿Qué deporte se juega en un campo llamado 'court'?",
+                "opciones": [
+                    "Fútbol",
+                    "Béisbol",
+                    "Tenis",
+                    "Baloncesto"
+                ],
+                "respuesta_correcta": "Tenis"
+            },
+            {
+                "pregunta": "¿Qué equipo ha ganado más campeonatos de la NBA?",
+                "opciones": [
+                    "Chicago Bulls",
+                    "Los Angeles Lakers",
+                    "Boston Celtics",
+                    "Golden State Warriors"
+                ],
+                "respuesta_correcta": "Boston Celtics"
+            },
+            {
+                "pregunta": "¿En qué país se originó el deporte del cricket?",
+                "opciones": [
+                    "India",
+                    "Inglaterra",
+                    "Australia",
+                    "Sudáfrica"
+                ],
+                "respuesta_correcta": "Inglaterra"
+            },
+            {
+                "pregunta": "¿Cuál es el deporte nacional de Japón?",
+                "opciones": [
+                    "Karate",
+                    "Sumo",
+                    "Judo",
+                    "Kendo"
+                ],
+                "respuesta_correcta": "Sumo"
+            },
+            {
+                "pregunta": "¿Quién es considerado el mejor jugador de fútbol de todos los tiempos?",
+                "opciones": [
+                    "Pelé",
+                    "Diego Maradona",
+                    "Lionel Messi",
+                    "Cristiano Ronaldo"
+                ],
+                "respuesta_correcta": "Pelé"
+            }
+        ]
+    },
+    {
+        "categoria": "Entretenimiento",
+        "preguntas": [
+            {
+                "pregunta": "¿Qué actor interpretó a Iron Man en las películas de Marvel?",
+                "opciones": [
+                    "Chris Evans",
+                    "Chris Hemsworth",
+                    "Robert Downey Jr.",
+                    "Mark Ruffalo"
+                ],
+                "respuesta_correcta": "Robert Downey Jr."
+            },
+            {
+                "pregunta": "¿Qué banda de rock lanzó el álbum 'The Dark Side of the Moon'?",
+                "opciones": [
+                    "The Rolling Stones",
+                    "Led Zeppelin",
+                    "Pink Floyd",
+                    "The Beatles"
+                ],
+                "respuesta_correcta": "Pink Floyd"
+            },
+            {
+                "pregunta": "¿Cuál es la película con más premios Óscar de la historia?",
+                "opciones": [
+                    "Titanic",
+                    "El Señor de los Anillos: El Retorno del Rey",
+                    "Ben-Hur",
+                    "La La Land"
+                ],
+                "respuesta_correcta": "El Señor de los Anillos: El Retorno del Rey"
+            },
+            {
+                "pregunta": "¿Quién es el creador de la serie de televisión 'Los Simpson'?",
+                "opciones": [
+                    "Seth MacFarlane",
+                    "Matt Groening",
+                    "Seth Green",
+                    "Mike Judge"
+                ],
+                "respuesta_correcta": "Matt Groening"
+            },
+            {
+                "pregunta": "¿Qué juego de mesa utiliza un tablero con casillas como 'Salida', 'Cárcel' y 'Estacionamiento gratuito'?",
+                "opciones": [
+                    "Monopoly",
+                    "Scrabble",
+                    "Risk",
+                    "Trivial"
+                ],
+                "respuesta_correcta": "Monopoly"
+            }
+        ]
+    }
+]

@@ -1,26 +1,17 @@
 <script setup>
-
+import { useDemoGameStore } from '@/stores/demoGame';
+const demoGameStore = useDemoGameStore();
 </script>
  
 <template>
     <div class="contenedor">
         <div class="preguntas">
-            <p>¿Cual es la capital de Costa Rica?</p>
+            <p>{{ demoGameStore.getPreguntaAleatoria.pregunta }}</p>
         </div>
         <div class="respuestas__container">
             <ul class="respuestas__list">
-
-                <div class="respuestas">
-                    <li><span>a)</span> Valladolid</li>
-                </div>
-                <div class="respuestas">
-                    <li><span>b)</span> San José</li>
-                </div>
-                <div class="respuestas">
-                    <li><span>c)</span> Barcelona</li>
-                </div>
-                <div class="respuestas">
-                    <li><span>d)</span> Bogota</li>
+                <div v-for="opcion in demoGameStore.getPreguntaAleatoria.opciones" class="respuestas">
+                    <li><span>a)</span> {{ opcion }}</li>
                 </div>
             </ul>
         </div>
