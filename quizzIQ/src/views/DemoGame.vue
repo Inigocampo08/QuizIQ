@@ -3,12 +3,12 @@
 import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { useRuletaStore } from '@/stores/ruleta';
-import { useContadorStore } from '../stores/contador';
+import { useContadorStore } from '@/stores/contador';
 import Contador from '@/components/Contador.vue';
 import Preguntas from '@/components/Preguntas.vue';
 import Ruleta from '@/components/Ruleta.vue';
 import CoronaPopup from '@/components/CoronaPopup.vue';
-import Popup from '../components/Popup.vue';
+import Popup from '@/components/Popup.vue';
 
 // Inicialización de Vue Router y stores
 const router = useRouter();
@@ -18,7 +18,7 @@ const contadorStore = useContadorStore();
 // Lógica que se ejecuta después de que el componente se monta
 onMounted(() => {
     // Inicialización de valores iniciales
-    ruletaStore.vidas = 3;
+    ruletaStore.vidas = 1;
     ruletaStore.puntos = 0;
     ruletaStore.activeRoulette = true;
     contadorStore.resetearContador();
@@ -70,10 +70,7 @@ const volver = () => {
 
     <main>
         <CoronaPopup v-if="ruletaStore.showPopup" />
-        <Popup v-if="ruletaStore.mostrarPopupFinVidas">
-            <h2>Perdiste</h2>
-            <span>Te quedaste sin Vidas</span>
-        </Popup>
+        <Popup v-if="ruletaStore.mostrarPopupFinVidas" />
         <div v-if="ruletaStore.activeRoulette" class="ruleta">
             <Ruleta />
         </div>

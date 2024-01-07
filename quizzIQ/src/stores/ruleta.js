@@ -67,12 +67,6 @@ export const useRuletaStore = defineStore('ruleta', () => {
       // Mostrar el popup y desactivar el desplazamiento del cuerpo
       mostrarPopupFinVidas.value = true
       document.body.classList.add('no-scroll')
-      // Redireccionar al usuario a la página de inicio después de 5 segundos
-      setTimeout(() => {
-        mostrarPopupFinVidas.value = false
-        document.body.classList.remove('no-scroll')
-        router.push({ name: 'home' })
-      }, 5000)
     }
   })
 

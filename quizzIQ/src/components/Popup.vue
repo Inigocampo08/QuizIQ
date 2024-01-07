@@ -1,14 +1,34 @@
+<script setup>
+import { useRouter } from 'vue-router';
+import { useRuletaStore } from '@/stores/ruleta';
+const ruletaStore = useRuletaStore();
+
+const router = useRouter();
+
+const volver = () => {
+    if (confirm("¿Seguro que quieres volver?")) {
+        window.location.reload()
+    }
+};
+
+</script>
 <template>
     <div class="popup">
         <div class="popup--inner">
-            <slot></slot>
+            <h2>Perdiste <span>Te quedaste sin vidas</span></h2>
+            <h3>Tus puntos fueron: <span>{{ ruletaStore.puntos }}</span></h3>
+
+            <div class="btn--container">
+                <button @click="volver" class="btn--primary">Volver</button>
+                <button @click="router.push({ name: 'access' })" class="btn--primary">Seguir jugando</button>
+            </div>
 
         </div>
 
     </div>
 </template>
 <style scoped>
-.popup{
+.popup {
     position: fixed;
     top: 0;
     left: 0;
@@ -19,6 +39,7 @@
     overflow: hidden;
     /* Evita el desplazamiento */
 }
+
 .popup--inner {
     position: absolute;
     top: 50%;
@@ -37,4 +58,24 @@
 
 }
 
+h2 span {
+    color: var(--color3);
+    font-family: var(--parrafo);
+    font-size: 2rem;
+}
+
+;
+
+h3 span {
+    color: var(--color2);
+    font-family: var(--parrafo);
+    font-size: 2rem;
+}
+.btn--container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15rem;
+    margin-top: 10rem;
+}
 </style>
