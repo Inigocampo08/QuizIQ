@@ -1,68 +1,82 @@
 <script setup>
+// Importación de módulos y stores necesarios
 import { ref, watchEffect } from 'vue';
 import { useRuletaStore } from '@/stores/ruleta';
 import { useContadorStore } from '@/stores/contador'
 
+// Inicialización de stores
 const contadorStore = useContadorStore()
 const ruletaStore = useRuletaStore();
 
+// Variables reactivas
 const respuestaUsuario = ref(null);
 const opcionesHabilitadas = ref(true);
 
+// Variables para manejo de errores
 const error = ref();
 const errorMsg = ref('');
 
-
+// Watcher efectivo para observar cambios en segundosRestantes del contador
 watchEffect(() => {
     if (contadorStore.segundosRestantes === 0) {
+        // Si el tiempo se ha agotado
         error.value = true;
         errorMsg.value = 'Se terminó el tiempo!';
         opcionesHabilitadas.value = false;
-
-
+         ruletaStore.vidas--;
+        setTimeout(() => {
+            ruletaStore.isActiveRoulette();
+            contadorStore.resetearContador();
+        }, 3000);
     } else {
+        // Si el tiempo no se ha agotado
         error.value = false;
         errorMsg.value = '';
     }
 });
+
+// Función para validar la respuesta seleccionada por el usuario
 function validarRespuesta(opcion) {
+    // Asignación de la respuesta del usuario y deshabilitación de opciones
     respuestaUsuario.value = opcion;
     opcionesHabilitadas.value = false;
-    contadorStore.detenerContador()
+    contadorStore.detenerContador();
+
     if (respuestaUsuario.value === ruletaStore.getPreguntaAleatoria.respuestaCorrecta) {
-        // La respuesta es correcta
+        // Si la respuesta es correcta
         error.value = false;
         errorMsg.value = '¡Respuesta correcta!';
-        const tiempoRestante = contadorStore.segundosRestantes
-        console.log(tiempoRestante);
-        ruletaStore.puntos = ruletaStore.puntos + tiempoRestante * 10
-        console.log(ruletaStore.puntos);
 
+        // Cálculo de puntos basado en el tiempo restante y actualización del store
+        const tiempoRestante = contadorStore.segundosRestantes;
+        ruletaStore.puntos = ruletaStore.puntos + tiempoRestante * 10;
 
         // Aquí puedes añadir más lógica como mostrar un mensaje, sumar puntos, etc.
     } else {
-        // La respuesta es incorrecta
+        // Si la respuesta es incorrecta
         error.value = true;
         errorMsg.value = '¡Respuesta incorrecta!';
-        ruletaStore.vidas--
-        console.log(ruletaStore.vidas);
 
+        // Reducción del número de vidas en el store
+        ruletaStore.vidas--;
     }
-    setTimeout(() => {
-        ruletaStore.isActiveRoulette()
-        contadorStore.resetearContador()
-    }, 3000)
-}
 
+    // Reinicio de la ruleta y el contador después de 3 segundos
+    setTimeout(() => {
+        ruletaStore.isActiveRoulette();
+        contadorStore.resetearContador();
+    }, 3000);
+}
 </script>
+
  
 <template>
     <div class="contenedor">
         <div class="preguntas">
             <p>{{ ruletaStore.getPreguntaAleatoria.pregunta }}</p>
             <span v-if="error === true" class="incorrecto">{{ errorMsg }}</span>
-                <span v-else-if="error === false" class="correcto">{{ errorMsg }}</span>
-                <span v-else>{{ errorMsg }}</span>
+            <span v-else-if="error === false" class="correcto">{{ errorMsg }}</span>
+            <span v-else>{{ errorMsg }}</span>
         </div>
         <div class="respuestas__container">
             <ul class="respuestas__list">
@@ -76,7 +90,7 @@ function validarRespuesta(opcion) {
                 </div>
             </ul>
         </div>
-        
+
     </div>
 </template>
 <style scoped>
@@ -124,6 +138,7 @@ function validarRespuesta(opcion) {
     transform: scale(1.05);
     transition: all .3s;
 }
+
 .respuestas:active {
     background-color: var(--color3-active);
     transition: all .1s;
@@ -154,17 +169,20 @@ function validarRespuesta(opcion) {
 
 }
 
-.correcto, .incorrecto {
+.correcto,
+.incorrecto {
     padding: 2rem;
     border-radius: 2rem;
     font-weight: 900;
     font-size: 2.5rem;
     font-family: var(--encabezado);
-    
+
 }
+
 .correcto {
     color: green;
 }
+
 .incorrecto {
     color: red;
 }

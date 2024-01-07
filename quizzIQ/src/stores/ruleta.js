@@ -1,13 +1,17 @@
+// Importación de librerías y módulos necesarios
 import { ref, computed, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { defineStore } from 'pinia'
 import axios from 'axios'
 import { useContadorStore } from './contador'
 
+// Inicialización de router y contadorStore
 const router = useRouter()
 const contadorStore = useContadorStore()
 
+// Definición del store 'ruleta' con Pinia
 export const useRuletaStore = defineStore('ruleta', () => {
+  // Definición de referencias reactivas
   const activeRoulette = ref(true)
   const preguntasAleatoria = ref({})
   const categoria = ref('')
@@ -16,6 +20,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
   const showPopup = ref(false)
   const mostrarPopupFinVidas = ref(false)
 
+  // Definición de ítems para la ruleta
   const items = [
     { id: 1, name: 'corona', htmlContent: 'Corona', textColor: 'white', background: 'purple' },
     {
@@ -56,28 +61,32 @@ export const useRuletaStore = defineStore('ruleta', () => {
     }
   ]
 
+  // Watcher para observar cambios en 'vidas'
   watch(vidas, (newValue) => {
     if (newValue === 0) {
-      mostrarPopupFinVidas.value = true // Mostrar el popup
-      document.body.classList.add('no-scroll') 
-      // Esperar 5 segundos antes de recargar la página
+      // Mostrar el popup y desactivar el desplazamiento del cuerpo
+      mostrarPopupFinVidas.value = true
+      document.body.classList.add('no-scroll')
+      // Redireccionar al usuario a la página de inicio después de 5 segundos
       setTimeout(() => {
-        mostrarPopupFinVidas.value = false // Mostrar el popup
+        mostrarPopupFinVidas.value = false
         document.body.classList.remove('no-scroll')
         router.push({ name: 'home' })
       }, 5000)
     }
   })
 
+  // Función para cambiar el estado de 'activeRoulette'
   function isActiveRoulette() {
     activeRoulette.value = !activeRoulette.value
   }
+  // Callback para cuando la rueda termina
   function wheelEndedCallback(item) {
     categoria.value = item
 
     categoria.value.name === 'corona' ? openPopup() : preguntasVue()
   }
-
+  // Función para cargar preguntas
   function preguntasVue() {
     // Hacer la solicitud GET
     axios
@@ -104,15 +113,17 @@ export const useRuletaStore = defineStore('ruleta', () => {
       })
   }
 
+  // Función para mostrar el popup
   function openPopup() {
     showPopup.value = true
     document.body.classList.add('no-scroll') // Añadir clase para evitar desplazamiento
   }
-
+  // Función para cerrar el popup
   function closePopup() {
     showPopup.value = false
     document.body.classList.remove('no-scroll') // Eliminar clase para permitir desplazamiento
   }
+  // Función para seleccionar una categoría
   function selectCategory(category) {
     categoria.value = category
     console.log(`Categoría seleccionada: ${categoria.value}`)
@@ -143,7 +154,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
         console.error('Error al obtener los datos:', error)
       })
   }
-
+  // Propiedad computada para obtener pregunta aleatoria
   const getPreguntaAleatoria = computed(() => {
     return {
       pregunta: preguntasAleatoria.value.pregunta,
@@ -151,6 +162,8 @@ export const useRuletaStore = defineStore('ruleta', () => {
       respuestaCorrecta: preguntasAleatoria.value.respuesta_correcta
     }
   })
+
+  // Retorno de todas las propiedades y funciones del store
   return {
     activeRoulette,
     items,

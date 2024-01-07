@@ -1,30 +1,35 @@
 <script setup>
+// Importaciones de Vue y otros módulos
 import { onMounted } from 'vue';
-import { useRouter } from 'vue-router'
+import { useRouter } from 'vue-router';
 import { useRuletaStore } from '@/stores/ruleta';
 import { useContadorStore } from '../stores/contador';
 import Contador from '@/components/Contador.vue';
-import Preguntas from '@/components/Preguntas.vue'
+import Preguntas from '@/components/Preguntas.vue';
 import Ruleta from '@/components/Ruleta.vue';
 import CoronaPopup from '@/components/CoronaPopup.vue';
 import Popup from '../components/Popup.vue';
 
-const router = useRouter()
+// Inicialización de Vue Router y stores
+const router = useRouter();
 const ruletaStore = useRuletaStore();
 const contadorStore = useContadorStore();
 
+// Lógica que se ejecuta después de que el componente se monta
 onMounted(() => {
-    ruletaStore.vidas = 3
-    ruletaStore.puntos = 0
-    ruletaStore.activeRoulette = true
-    contadorStore.resetearContador()
+    // Inicialización de valores iniciales
+    ruletaStore.vidas = 3;
+    ruletaStore.puntos = 0;
+    ruletaStore.activeRoulette = true;
+    contadorStore.resetearContador();
+});
 
-})
+// Función para volver atrás
 const volver = () => {
     if (confirm("¿Seguro que quieres volver?")) {
-        router.push({ name: 'home' })
+        router.push({ name: 'home' });
     }
-}
+};
 </script>
  
 <template>
@@ -244,4 +249,5 @@ const volver = () => {
     /* Inicialmente oculto, girado 180 grados */
     font-size: 2rem;
 
-}</style>
+}
+</style>

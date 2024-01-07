@@ -1,9 +1,3 @@
-<script setup>
-import { useRuletaStore } from '@/stores/ruleta'; // Asegúrate de importar el store correctamente
-
-const ruletaStore = useRuletaStore();
-</script>
- 
 <template>
     <div class="popup">
         <div class="popup--inner">
