@@ -7,7 +7,8 @@ const router = useRouter();
 
 const volver = () => {
     if (confirm("¿Seguro que quieres volver?")) {
-        window.location.reload()
+        router.push({ name: 'home' });
+        window.reload()
     }
 };
 

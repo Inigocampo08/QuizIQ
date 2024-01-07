@@ -148,6 +148,9 @@ export const useRuletaStore = defineStore('ruleta', () => {
         console.error('Error al obtener los datos:', error)
       })
   }
+
+  
+
   // Propiedad computada para obtener pregunta aleatoria
   const getPreguntaAleatoria = computed(() => {
     return {
@@ -156,6 +159,9 @@ export const useRuletaStore = defineStore('ruleta', () => {
       respuestaCorrecta: preguntasAleatoria.value.respuesta_correcta
     }
   })
+
+
+  
 
   // Retorno de todas las propiedades y funciones del store
   return {
@@ -168,6 +174,6 @@ export const useRuletaStore = defineStore('ruleta', () => {
     mostrarPopupFinVidas,
     isActiveRoulette,
     wheelEndedCallback,
-    selectCategory
+    selectCategory,
   }
 })
