@@ -18,7 +18,7 @@ watchEffect(() => {
         error.value = true;
         errorMsg.value = 'Se terminó el tiempo!';
         opcionesHabilitadas.value = false;
-        
+
 
     } else {
         error.value = false;
@@ -26,7 +26,6 @@ watchEffect(() => {
     }
 });
 function validarRespuesta(opcion) {
-
     respuestaUsuario.value = opcion;
     opcionesHabilitadas.value = false;
     contadorStore.detenerContador()
@@ -38,8 +37,8 @@ function validarRespuesta(opcion) {
         console.log(tiempoRestante);
         ruletaStore.puntos = ruletaStore.puntos + tiempoRestante * 10
         console.log(ruletaStore.puntos);
-        
-        
+
+
         // Aquí puedes añadir más lógica como mostrar un mensaje, sumar puntos, etc.
     } else {
         // La respuesta es incorrecta
@@ -47,12 +46,12 @@ function validarRespuesta(opcion) {
         errorMsg.value = '¡Respuesta incorrecta!';
         ruletaStore.vidas--
         console.log(ruletaStore.vidas);
-        
+
     }
     setTimeout(() => {
         ruletaStore.isActiveRoulette()
         contadorStore.resetearContador()
-    },3000)
+    }, 3000)
 }
 
 </script>
@@ -61,6 +60,9 @@ function validarRespuesta(opcion) {
     <div class="contenedor">
         <div class="preguntas">
             <p>{{ ruletaStore.getPreguntaAleatoria.pregunta }}</p>
+            <span v-if="error === true" class="incorrecto">{{ errorMsg }}</span>
+                <span v-else-if="error === false" class="correcto">{{ errorMsg }}</span>
+                <span v-else>{{ errorMsg }}</span>
         </div>
         <div class="respuestas__container">
             <ul class="respuestas__list">
@@ -74,7 +76,7 @@ function validarRespuesta(opcion) {
                 </div>
             </ul>
         </div>
-        <span v-if="error != null">{{ errorMsg }}</span>
+        
     </div>
 </template>
 <style scoped>
@@ -122,6 +124,10 @@ function validarRespuesta(opcion) {
     transform: scale(1.05);
     transition: all .3s;
 }
+.respuestas:active {
+    background-color: var(--color3-active);
+    transition: all .1s;
+}
 
 .respuesta-incorrecta {
     background-color: red;
@@ -139,10 +145,6 @@ function validarRespuesta(opcion) {
     pointer-events: none;
 }
 
-.respuestas:active {
-    background-color: var(--color3-active);
-    transition: all .1s;
-}
 
 .respuestas span {
     font-weight: 900;
@@ -150,5 +152,20 @@ function validarRespuesta(opcion) {
     opacity: 0.6;
     font-family: var(--encabezado);
 
+}
+
+.correcto, .incorrecto {
+    padding: 2rem;
+    border-radius: 2rem;
+    font-weight: 900;
+    font-size: 2.5rem;
+    font-family: var(--encabezado);
+    
+}
+.correcto {
+    color: green;
+}
+.incorrecto {
+    color: red;
 }
 </style>

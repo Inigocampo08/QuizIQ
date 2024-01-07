@@ -1,26 +1,30 @@
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onMounted } from 'vue';
 import { useRouter } from 'vue-router'
 import { useRuletaStore } from '@/stores/ruleta';
+import { useContadorStore } from '../stores/contador';
 import Contador from '@/components/Contador.vue';
 import Preguntas from '@/components/Preguntas.vue'
 import Ruleta from '@/components/Ruleta.vue';
+import CoronaPopup from '@/components/CoronaPopup.vue';
+import Popup from '../components/Popup.vue';
 
 const router = useRouter()
 const ruletaStore = useRuletaStore();
+const contadorStore = useContadorStore();
 
 onMounted(() => {
-    ruletaStore.vidas = 5
+    ruletaStore.vidas = 3
     ruletaStore.puntos = 0
+    ruletaStore.activeRoulette = true
+    contadorStore.resetearContador()
+
 })
 const volver = () => {
     if (confirm("¿Seguro que quieres volver?")) {
         router.push({ name: 'home' })
     }
 }
-
-
-
 </script>
  
 <template>
@@ -58,9 +62,15 @@ const volver = () => {
             </div>
         </div>
     </header>
+
     <main>
-        <div v-if="ruletaStore.acitveRoulette" class="ruleta">
-            <Ruleta  />
+        <CoronaPopup v-if="ruletaStore.showPopup" />
+        <Popup v-if="ruletaStore.mostrarPopupFinVidas">
+            <h2>Perdiste</h2>
+            <span>Te quedaste sin Vidas</span>
+        </Popup>
+        <div v-if="ruletaStore.activeRoulette" class="ruleta">
+            <Ruleta />
         </div>
         <Preguntas v-else />
     </main>
@@ -146,23 +156,27 @@ const volver = () => {
     color: var(--color3);
 
 }
-.vidas{
-position: relative;
-display: inline-block;
-text-align: center;
+
+.vidas {
+    position: relative;
+    display: inline-block;
+    text-align: center;
 }
-.vidas .icon{
+
+.vidas .icon {
     font-size: 6rem;
 }
-.vidas p{
-position: absolute;
-margin: 0;
-top: 50%;
-left: 50%;
-color: white ;
-transform: translate(-50%, -50%);
+
+.vidas p {
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    color: white;
+    transform: translate(-50%, -50%);
 
 }
+
 .contador {
     width: 12rem;
     height: 5rem;
@@ -176,7 +190,6 @@ transform: translate(-50%, -50%);
 }
 
 .marcador {
-    flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -231,5 +244,4 @@ transform: translate(-50%, -50%);
     /* Inicialmente oculto, girado 180 grados */
     font-size: 2rem;
 
-}
-</style>
+}</style>

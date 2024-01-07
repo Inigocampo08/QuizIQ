@@ -49,6 +49,10 @@ body {
   border: solid 1px var(--negro);
   min-height: 100vh;
 }
+body.no-scroll {
+    overflow: hidden;
+}
+
 header {
   height: 20vh;
   display: flex;
