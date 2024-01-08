@@ -106,7 +106,6 @@ export const useAccessStore = defineStore('access', () => {
         console.log(user.uid)
         router.push({ name: 'index', params: { id: user.uid } })
         logedUser.value = user
-        
       })
       .catch((error) => {
         errorMsg.value = errorCodes[error.code] || 'Error desconocido'
@@ -123,6 +122,7 @@ export const useAccessStore = defineStore('access', () => {
   //RETURN
   return {
     haveAccount,
+    logedUser,
     errorMsg,
     hasError,
     login,
