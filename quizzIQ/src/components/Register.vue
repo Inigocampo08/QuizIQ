@@ -29,7 +29,8 @@ const submit = () => {
             <input v-model="formData.password" type="password" name="password" id="password" placeholder="Contraseña">
         </div>
         <div class="input-container">
-            <input v-model="formData.password2" type="password" name="password2" id="password2" placeholder="Repetir Contraseña">
+            <input v-model="formData.password2" type="password" name="password2" id="password2"
+                placeholder="Repetir Contraseña">
         </div>
         <button type="submit" class="btn--primary submit">
             Crear cuenta

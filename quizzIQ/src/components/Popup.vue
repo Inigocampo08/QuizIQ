@@ -8,8 +8,15 @@ const router = useRouter();
 const volver = () => {
     if (confirm("¿Seguro que quieres volver?")) {
         router.push({ name: 'home' });
-        window.reload()
+      document.body.classList.remove('no-scroll')
+
     }
+};
+const seguir = () => {
+    router.push({ name: 'access' })
+      document.body.classList.remove('no-scroll')
+
+    
 };
 
 </script>
@@ -21,7 +28,7 @@ const volver = () => {
 
             <div class="btn--container">
                 <button @click="volver" class="btn--primary">Volver</button>
-                <button @click="router.push({ name: 'access' })" class="btn--primary">Seguir jugando</button>
+                <button @click="seguir" class="btn--primary">Seguir jugando</button>
             </div>
 
         </div>

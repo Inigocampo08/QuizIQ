@@ -103,8 +103,10 @@ export const useAccessStore = defineStore('access', () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user
-        console.log(user)
-        // Aquí puedes agregar la lógica para redirigir al usuario a la página correspondiente
+        console.log(user.uid)
+        router.push({ name: 'index', params: { id: user.uid } })
+        logedUser.value = user
+        
       })
       .catch((error) => {
         errorMsg.value = errorCodes[error.code] || 'Error desconocido'
