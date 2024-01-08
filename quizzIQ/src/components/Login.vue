@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
-import Alerta from './Alerta.vue';
-import { useAccessStore } from '../stores/access';
+import Alerta from '@/components/Alerta.vue';
+import { useAccessStore } from '@/stores/access';
 const accessStore = useAccessStore();
 
 const formData = ref({
@@ -28,7 +28,7 @@ const submit = () => {
             <input v-model="formData.password" type="password" name="password" id="password" placeholder="Contraseña">
         </div>
         <button type="submit" class="btn--primary submit">
-            Iniciar Sesion
+            Iniciar Sesión
         </button>
 
         <p class="signup-link">

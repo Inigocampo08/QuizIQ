@@ -1,25 +1,35 @@
 <script setup>
-import { useAccessStore } from '../stores/access';
+import { ref } from 'vue';
+import Alerta from '@/components/Alerta.vue';
 
-const access = useAccessStore();
+import { useAccessStore } from '../stores/access';
+const accessStore = useAccessStore();
+
+const formData = ref({
+    email: '',
+    password: '',
+    password2: '',
+});
+
+const submit = () => {
+    // Validación de datos aquí (si es necesario)
+    accessStore.validateRegister(formData.value);
+}
 </script>
  
 <template>
-    <form class="form">
+    <form class="form" @submit.prevent="submit">
         <h2 class="form-title">Crear una nueva Cuenta</h2>
+        <Alerta v-if="accessStore.hasError">{{ accessStore.errorMsg }}</Alerta>
+
         <div class="input-container">
-            <input type="text" name="username" id="username" placeholder="Usuario">
+            <input v-model="formData.email" type="email" name="email" id="email" placeholder="Correo Electronico">
         </div>
         <div class="input-container">
-            <input type="email" name="email" id="email" placeholder="Correo Electronico">
-            <span>
-            </span>
+            <input v-model="formData.password" type="password" name="password" id="password" placeholder="Contraseña">
         </div>
         <div class="input-container">
-            <input type="password" name="password" id="password" placeholder="Contraseña">
-        </div>
-        <div class="input-container">
-            <input type="password" name="password2" id="password2" placeholder="Repetir Contraseña">
+            <input v-model="formData.password2" type="password" name="password2" id="password2" placeholder="Repetir Contraseña">
         </div>
         <button type="submit" class="btn--primary submit">
             Crear cuenta
@@ -27,7 +37,7 @@ const access = useAccessStore();
 
         <p class="signup-link">
             ¿Ya tienes tu cuenta?
-            <a @click="access.setHaveAccount">Inicia Sesión</a>
+            <a @click="accessStore.setHaveAccount">Inicia Sesión</a>
         </p>
     </form>
 </template>

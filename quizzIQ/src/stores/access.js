@@ -1,5 +1,5 @@
 import { ref, computed, onMounted } from 'vue'
-import { useRouter,useRoute } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { defineStore } from 'pinia'
 
 import { useFirebaseAuth } from 'vuefire'
@@ -23,10 +23,17 @@ export const useAccessStore = defineStore('access', () => {
   const auth = useFirebaseAuth()
   const errorCodes = {
     'auth/user-not-found': 'Usuario no encontrado',
-    'auth/invalid-email': 'Correo electronico invalido',
-    'auth/invalid-credential': 'Contraseña incorrecta',
+    'auth/invalid-email': 'Correo electrónico inválido',
+    'auth/invalid-credential': 'Credencial inválida',
     'auth/missing-password': 'La contraseña es obligatoria',
-    'auth/wrong-password': 'Contraseña incorrecta'
+    'auth/wrong-password': 'Contraseña incorrecta',
+    'auth/weak-password':
+      'La contraseña es débil. Debe tener al menos 8 caracteres, una mayúscula, un número y un carácter especial.',
+    'auth/email-already-in-use': 'El correo electrónico ya está en uso',
+    'auth/requires-recent-login': 'Necesitas iniciar sesión de nuevo para realizar esta acción',
+    'auth/user-disabled': 'La cuenta de usuario ha sido deshabilitada',
+    'auth/operation-not-allowed': 'Operación no permitida'
+    // Puedes añadir más códigos de error y mensajes aquí según lo necesites
   }
   //Functions
   function setHaveAccount() {
@@ -46,7 +53,7 @@ export const useAccessStore = defineStore('access', () => {
       .then((userCredential) => {
         const user = userCredential.user
         logedUser.value = user
-        console.log(user.uid);
+        console.log(user.uid)
         router.push({ name: 'index', params: { id: user.uid } })
       })
       .catch((error) => {
@@ -67,6 +74,46 @@ export const useAccessStore = defineStore('access', () => {
       })
   }
 
+  function validateRegister({ email, password, password2 }) {
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&@#()=¡¿*^+,-./\\])[A-Za-z\d@$!%*?&@#()=¡¿*^+,-./\\]{8,}$/
+
+    if (password !== password2) {
+      errorMsg.value = 'Las contraseñas no coinciden'
+      setTimeout(() => {
+        errorMsg.value = ''
+      }, 3000)
+      return
+    }
+
+    if (!passwordRegex.test(password)) {
+      errorMsg.value =
+        'La contraseña debe tener al menos 8 caracteres, una mayúscula, un número y un signo especial'
+      setTimeout(() => {
+        errorMsg.value = ''
+      }, 3000)
+      return
+    }
+
+    register(email, password)
+  }
+
+  function register(email, password) {
+    // Asegúrate de que 'auth' y 'errorCodes' estén correctamente definidos y accesibles aquí
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user
+        console.log(user)
+        // Aquí puedes agregar la lógica para redirigir al usuario a la página correspondiente
+      })
+      .catch((error) => {
+        errorMsg.value = errorCodes[error.code] || 'Error desconocido'
+        setTimeout(() => {
+          errorMsg.value = ''
+        }, 3000)
+      })
+  }
+
   const hasError = computed(() => {
     return errorMsg.value
   })
@@ -78,6 +125,7 @@ export const useAccessStore = defineStore('access', () => {
     hasError,
     login,
     logout,
+    validateRegister,
     setHaveAccount
   }
 })
