@@ -1,7 +1,8 @@
 <script setup>
 import { ref } from 'vue';
+import Alerta from './Alerta.vue';
 import { useAccessStore } from '../stores/access';
-const access = useAccessStore();
+const accessStore = useAccessStore();
 
 const formData = ref({
     email: '',
@@ -10,13 +11,14 @@ const formData = ref({
 
 const submit = () => {
     // Validación de datos aquí (si es necesario)
-    access.login(formData.value);
+    accessStore.login(formData.value);
 }
 </script>
 
 <template>
     <form class="form" @submit.prevent="submit">
         <h2 class="form-title">Inicia Sesión Con su cuenta</h2>
+        <Alerta v-if="accessStore.hasError">{{ accessStore.errorMsg }}</Alerta>
         <div class="input-container">
             <input v-model="formData.email" type="email" name="email" id="email" placeholder="Correo Electronico">
             <span>
@@ -31,7 +33,7 @@ const submit = () => {
 
         <p class="signup-link">
             ¿Aun no tienes una cuenta?
-            <a @click="access.setHaveAccount">Registrarse</a>
+            <a @click="accessStore.setHaveAccount">Registrarse</a>
         </p>
     </form>
 </template>
