@@ -70,7 +70,7 @@ const volver = () => {
     </header>
 
     <main>
-        <CoronaPopup v-if="ruletaStore.showPopup" />
+        <CoronaPopup v-if="ruletaStore.showCoronaPopup" />
         <Popup v-if="ruletaStore.mostrarPopupFinVidas" />
         <div v-if="ruletaStore.activeRoulette" class="ruleta">
             <Ruleta />

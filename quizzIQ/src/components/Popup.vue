@@ -8,7 +8,7 @@ const router = useRouter();
 const volver = () => {
     if (confirm("¿Seguro que quieres volver?")) {
         router.push({ name: 'home' });
-      document.body.classList.remove('no-scroll')
+        document.body.classList.remove('no-scroll')
 
     }
 };
