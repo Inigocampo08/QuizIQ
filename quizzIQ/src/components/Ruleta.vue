@@ -12,7 +12,7 @@ const launchWheel = () => {
  
 <template>
     <div class="center-container">
-        <h1>¡Toca para jugar! </h1>
+        <span>Girar </span>
         <Roulette base-display base-size="100" base-display-shadow base-display-indicator base-background="white"
             class="ruleta" ref="wheel" size="450" display-shadow indicator-position="top" display-indicator display-border
             :items="ruletaStore.items" @click="launchWheel" @wheel-end="ruletaStore.wheelEndedCallback" />
@@ -27,9 +27,21 @@ const launchWheel = () => {
     align-items: center;
     /* Centra el contenido verticalmente */
     text-align: center;
+    position: relative;
+    padding-top:10rem;
 
 }
-
+span {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 1;
+    font-family: var(--encabezado);
+    font-size: 2rem;
+    color: var(--negro);
+    
+    
+}
 .ruleta {
     margin-left: auto;
     /* Establece el margen izquierdo a auto */
