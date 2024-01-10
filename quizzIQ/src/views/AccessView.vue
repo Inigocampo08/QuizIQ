@@ -9,8 +9,8 @@ const access = useAccessStore();
 <template>
     <header>
         <div class="contenedor header">
-            <RouterLink  :to="{ name: 'home' }"> 
-                <button class="btn--primary"> Volver</button> 
+            <RouterLink :to="{ name: 'home' }">
+                <button class="btn--primary"> Volver</button>
 
             </RouterLink>
         </div>
@@ -26,12 +26,17 @@ const access = useAccessStore();
 </template>
 <style scoped>
 .fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s ease-out;
+}
+
+.fade-enter,
 .fade-leave-to {
     opacity: 0;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity 0.5s ease-out;
+.fade-enter-to,
+.fade-leave {
+    opacity: 1;
 }
 </style>

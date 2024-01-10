@@ -2,51 +2,43 @@
 import { useNotificacionStore } from '@/stores/notificacion';
 const notificacionStore = useNotificacionStore();
 </script>
- 
-<template>
-    <transition name="fade">
-        <div v-if="notificacionStore.show">
-            <div>
-                <p><strong>
-                        {{ notificacionStore.notificacion }}
-                    </strong>
-                    {{ notificacionStore.texto }}
-                </p>
-                <span class="closebtn">&times;</span>
-            </div>
-        </div>
-    </transition>
-</template>
-<style scoped>
-div {
-    /* Estilo base de la notificación */
-    background-color: #f2f2f2;
-    /* Color grisáceo */
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 4px;
 
-    /* Transición */
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    opacity: 1;
-    /* Valor por defecto */
-    transform: translateY(0);
-    /* Valor por defecto */
+<template>
+    <Transition name="fade">
+        <div class="notificacion__container" v-if="notificacionStore.show">
+            <p><strong>{{ notificacionStore.notificacion }}</strong></p>
+            <p>{{ notificacionStore.texto }}</p>
+
+        </div>
+    </Transition>
+</template>
+
+<style scoped>
+.notificacion__container {
+    background-color: var(--color4);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    width: 25rem;
+    height: auto;
 }
 
 .fade-enter-active,
 .fade-leave-active {
-    /* Transición para ambas entradas y salidas */
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transition: all .5s ease;
 }
 
 .fade-enter,
 .fade-leave-to
 
-/* .fade-leave-active para Vue < 2.1.8 */
+/* .slide-fade-leave-active below version 2.1.8 */
     {
-    /* Estilos al inicio y al final de la transición */
+    transform: translateX(10px);
     opacity: 0;
-    transform: translateY(-10px);
 }</style>

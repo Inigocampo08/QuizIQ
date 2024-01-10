@@ -10,9 +10,14 @@ import {
   signOut
 } from 'firebase/auth'
 
+
+import { useNotificacionStore } from './notificacion'
+
 export const useAccessStore = defineStore('access', () => {
   //Variables
   const router = useRouter()
+
+  const notificacionStore = useNotificacionStore()
 
   const logedUser = ref(null)
   const haveAccount = ref(true)
@@ -53,7 +58,11 @@ export const useAccessStore = defineStore('access', () => {
         const user = userCredential.user
         logedUser.value = user
         console.log(user.uid)
-        router.push({ name: 'home'})
+        router.push({ name: 'home' })
+        //Notificaciones Login
+        notificacionStore.notificacion = 'Bienvenido'
+        notificacionStore.texto = 'Has iniciado sesión'
+        notificacionStore.show = true
       })
       .catch((error) => {
         errorMsg.value = errorCodes[error.code]
@@ -67,6 +76,11 @@ export const useAccessStore = defineStore('access', () => {
       .then(() => {
         logedUser.value = null
         router.push({ name: 'home' })
+
+        //Notificaciones Logout
+        notificacionStore.notificacion = 'Se ha cerrado la sesión'
+        notificacionStore.texto = '¡Muchas gracias por jugar!'
+        notificacionStore.show = true
       })
       .catch((error) => {
         console.log(error)
@@ -76,7 +90,6 @@ export const useAccessStore = defineStore('access', () => {
   function validateRegister({ email, password, password2 }) {
     const passwordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&@#()=¡¿*^+,-./\\])[A-Za-z\d@$!%*?&@#()=¡¿*^+,-./\\]{8,}$/
-
     if (password !== password2) {
       errorMsg.value = 'Las contraseñas no coinciden'
       setTimeout(() => {
@@ -84,7 +97,6 @@ export const useAccessStore = defineStore('access', () => {
       }, 3000)
       return
     }
-
     if (!passwordRegex.test(password)) {
       errorMsg.value =
         'La contraseña debe tener al menos 8 caracteres, una mayúscula, un número y un signo especial'
@@ -93,7 +105,6 @@ export const useAccessStore = defineStore('access', () => {
       }, 3000)
       return
     }
-
     register(email, password)
   }
 
@@ -105,6 +116,11 @@ export const useAccessStore = defineStore('access', () => {
         console.log(user.uid)
         router.push({ name: 'home' })
         logedUser.value = user
+
+        //Notificaciones Register
+        notificacionStore.notificacion = 'Bienvenido '
+        notificacionStore.texto = 'Tu cuenta ha sido creada correctamente'
+        notificacionStore.show = true
       })
       .catch((error) => {
         errorMsg.value = errorCodes[error.code] || 'Error desconocido'
@@ -118,7 +134,7 @@ export const useAccessStore = defineStore('access', () => {
     return errorMsg.value
   })
 
-  const isAuth = computed(()=>{
+  const isAuth = computed(() => {
     return logedUser.value
   })
   //RETURN
