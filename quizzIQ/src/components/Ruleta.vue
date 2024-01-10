@@ -11,12 +11,25 @@ const launchWheel = () => {
 </script>
  
 <template>
-    <Roulette class="ruleta" ref="wheel" size="500" :items="ruletaStore.items" @click="launchWheel"
-        @wheel-end="ruletaStore.wheelEndedCallback" />
+    <div class="center-container">
+        <Roulette class="ruleta" ref="wheel" size="450" display-shadow indicator-position="top" display-indicator display-border
+            :items="ruletaStore.items" @click="launchWheel" @wheel-end="ruletaStore.wheelEndedCallback" />
+    </div>
 </template>
 <style scoped>
-.ruleta {
-    display: block;
-    margin: 10rem;
+.center-container {
+    display: flex;
+    justify-content: center;
+    /* Centra el contenido horizontalmente */
+    align-items: center;
+    padding: 10rem;
+    /* Centra el contenido verticalmente */
 }
-</style>
+
+.ruleta {
+    text-align: center;
+    margin-left: auto;
+    /* Establece el margen izquierdo a auto */
+    margin-right: auto;
+    /* Establece el margen derecho a auto */
+}</style>
