@@ -24,7 +24,7 @@ watchEffect(() => {
         errorMsg.value = 'Se terminó el tiempo!';
         opcionesHabilitadas.value = false;
         ruletaStore.vidas--;
-         ruletaStore.coronaPoints =0
+        ruletaStore.coronaPoints = 0
         setTimeout(() => {
             ruletaStore.isActiveRoulette();
             contadorStore.resetearContador();
@@ -51,7 +51,7 @@ function validarRespuesta(opcion) {
         // Cálculo de puntos basado en el tiempo restante y actualización del store
         const tiempoRestante = contadorStore.segundosRestantes;
         ruletaStore.puntos = ruletaStore.puntos + tiempoRestante * 10;
-         ruletaStore.coronaPoints++
+        ruletaStore.coronaPoints++
 
 
         // Aquí puedes añadir más lógica como mostrar un mensaje, sumar puntos, etc.
@@ -62,7 +62,7 @@ function validarRespuesta(opcion) {
 
         // Reducción del número de vidas en el store
         ruletaStore.vidas--;
-         ruletaStore.coronaPoints = 0
+        ruletaStore.coronaPoints = 0
 
     }
 
@@ -117,9 +117,10 @@ function validarRespuesta(opcion) {
 
 .respuestas__list {
     display: grid;
-    grid-template: 1fr / auto auto;
+    grid-template: 1fr / 50% 50%;
     justify-items: center;
     gap: 2rem;
+    text-align: center;
 
 }
 

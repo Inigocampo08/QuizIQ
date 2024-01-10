@@ -45,7 +45,7 @@ a:hover{
     color: var(--blanco);
     background-color: var(--color2-hover);
     padding: 2rem 3rem;
-    border-radius: 0.2rem;
+    border-radius: 2rem;
     
 }
 </style>
