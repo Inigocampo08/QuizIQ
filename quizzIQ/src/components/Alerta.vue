@@ -1,11 +1,16 @@
 <script setup>
-
+import { useAccessStore } from '@/stores/access';
+const accessStore = useAccessStore();
 </script>
  
 <template>
     <div class="alert">
-        <p><strong>Error! </strong> <slot></slot> </p>
-        <span class="closebtn">&times;</span>
+        <p><strong>
+                <slot name="error"></slot>
+            </strong>
+            <slot name="mensaje"></slot>
+        </p>
+        <span @click="accessStore.errorMsg = ''" class="closebtn">&times;</span>
     </div>
 </template>
 <style scoped>
@@ -33,5 +38,4 @@
 
 .closebtn:hover {
     color: var(--color1-hover);
-}
-</style>
+}</style>

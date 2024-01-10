@@ -1,5 +1,5 @@
 import { ref, computed, onMounted } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 import { defineStore } from 'pinia'
 
 import { useFirebaseAuth } from 'vuefire'
@@ -13,7 +13,6 @@ import {
 export const useAccessStore = defineStore('access', () => {
   //Variables
   const router = useRouter()
-  const route = useRoute()
 
   const logedUser = ref(null)
   const haveAccount = ref(true)
@@ -54,7 +53,7 @@ export const useAccessStore = defineStore('access', () => {
         const user = userCredential.user
         logedUser.value = user
         console.log(user.uid)
-        router.push({ name: 'index', params: { id: user.uid } })
+        router.push({ name: 'home'})
       })
       .catch((error) => {
         errorMsg.value = errorCodes[error.code]
@@ -104,7 +103,7 @@ export const useAccessStore = defineStore('access', () => {
       .then((userCredential) => {
         const user = userCredential.user
         console.log(user.uid)
-        router.push({ name: 'index', params: { id: user.uid } })
+        router.push({ name: 'home' })
         logedUser.value = user
       })
       .catch((error) => {
@@ -119,12 +118,16 @@ export const useAccessStore = defineStore('access', () => {
     return errorMsg.value
   })
 
+  const isAuth = computed(()=>{
+    return logedUser.value
+  })
   //RETURN
   return {
     haveAccount,
     logedUser,
     errorMsg,
     hasError,
+    isAuth,
     login,
     logout,
     validateRegister,

@@ -1,8 +1,14 @@
 <script setup>
+import AdminHeader from '@/components/admin/Header.vue';
+import Notificacion from '@/components/Notificacion.vue';
+import { useAccessStore } from '@/stores/access';
+const accessStore = useAccessStore();
+
 </script>
  
 <template>
-    <header>
+    <AdminHeader v-if="accessStore.isAuth"/>
+    <header v-else>
         <div class="contenedor header__container">
             <img class="logo" src="/public/logo.jpg" alt="logo QuizIQ">
             <nav>
@@ -11,9 +17,10 @@
         </div>
     </header>
 
+<Notificacion />
     <main>
         <div class="contenedor">
-            <RouterLink :to="{ name: 'demo-game' }" class="btn--primary btn__jugar">Juega a nuestra demo</RouterLink>
+            <RouterLink :to="{ name: 'demo-game' }" class="btn--primary btn__play">Juega a nuestra demo</RouterLink>
 
         </div>
     </main>
@@ -33,7 +40,7 @@
     border-radius: 50%;
 }
 
-.btn__jugar {
+.btn__play {
     position: absolute;
     top: 40vh;
     left: 50vw;
@@ -41,7 +48,7 @@
     animation: infinite animation 1.2s;
 }
 
-.btn__jugar:hover {
+.btn__play:hover {
     padding: 5rem;
 
 }

@@ -18,7 +18,15 @@ const submit = () => {
 <template>
     <form class="form" @submit.prevent="submit">
         <h2 class="form-title">Inicia Sesión Con su cuenta</h2>
-        <Alerta v-if="accessStore.hasError">{{ accessStore.errorMsg }}</Alerta>
+        <Alerta v-if="accessStore.hasError">
+            <template #error>
+                ¡Error!
+            </template>
+            <template #mensaje>
+                {{ accessStore.errorMsg }}
+            </template>
+
+        </Alerta>
         <div class="input-container">
             <input v-model="formData.email" type="email" name="email" id="email" placeholder="Correo Electronico">
             <span>

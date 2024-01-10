@@ -2,7 +2,6 @@
 import { useAccessStore } from '@/stores/access';
 
 const AccessStore = useAccessStore();
-const isActive = false;
 </script>
  
 <template>
@@ -10,9 +9,9 @@ const isActive = false;
         <div class="contenedor header__container">
             <img class="logo" src="/public/logo.jpg" alt="logo QuizIQ">
             <nav>
-                <RouterLink :class="{ isActive: 'active' }" :to="{ name: 'index' }">Inicio</RouterLink>
-                <RouterLink :class="{ isActive: 'active' }" :to="{ name: 'index' }">Perfil</RouterLink>
-                <RouterLink :class="{ isActive: 'active' }" :to="{ name: 'index' }">Ajustes</RouterLink>
+                <RouterLink  :to="{ name: 'home' }">Inicio</RouterLink>
+                <RouterLink  :to="{ name: 'home' }">Perfil</RouterLink>
+                <RouterLink  :to="{ name: 'home' }">Ajustes</RouterLink>
                 <button @click="AccessStore.logout()" class=" btn--primary">Cerrar Sesion</button>
             </nav>
         </div>
@@ -49,5 +48,4 @@ a:hover{
     border-radius: 0.2rem;
     
 }
-
 </style>
