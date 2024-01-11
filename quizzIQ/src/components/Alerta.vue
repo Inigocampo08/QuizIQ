@@ -38,4 +38,5 @@ const accessStore = useAccessStore();
 
 .closebtn:hover {
     color: var(--color1-hover);
-}</style>
+}
+</style>

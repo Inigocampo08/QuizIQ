@@ -9,7 +9,7 @@ const accessStore = useAccessStore();
 </script>
  
 <template>
-    <AdminHeader v-if="accessStore.isAuth"/>
+    <AdminHeader v-if="accessStore.isAuth" />
     <header v-else>
         <div class="contenedor header__container">
             <img class="logo" src="/public/logo.jpg" alt="logo QuizIQ">
@@ -19,10 +19,10 @@ const accessStore = useAccessStore();
         </div>
     </header>
 
-<Notificacion />
+    <Notificacion />
     <main>
         <div class="contenedor">
-            <RouterLink :to="{ name: 'demo-game' }" class="btn--primary btn__play">Juega a nuestra demo</RouterLink>
+            <RouterLink :to="{ name: 'ruleta-demo' }" class="btn--primary btn__play">Juega a nuestra demo</RouterLink>
 
         </div>
     </main>
@@ -69,4 +69,5 @@ const accessStore = useAccessStore();
         transform: translate(-50%, -50%) scale(.5);
 
     }
-}</style>
+}
+</style>

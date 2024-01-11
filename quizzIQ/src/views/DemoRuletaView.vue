@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import ProgressBar from '@/components/ProgressBar.vue';
+import CoronaPopup from '@/components/CoronaPopup.vue';
 import { Roulette } from 'vue3-roulette';
 import { useRuletaStore } from '@/stores/ruleta';
 import { RouterLink } from 'vue-router';
@@ -39,6 +40,7 @@ const launchWheel = () => {
         </div>
 
     </header>
+    <CoronaPopup v-if="ruletaStore.showCoronaPopup"></CoronaPopup>
     <main class="center-container">
         <h2>Toca para ¡Girar!</h2>
         <Roulette base-display base-size="100" base-display-shadow base-display-indicator base-background="white"

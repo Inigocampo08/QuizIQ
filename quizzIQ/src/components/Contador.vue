@@ -4,10 +4,8 @@ import { useContadorStore } from '@/stores/contador';
 const contadorStore = useContadorStore();
 </script>
 <template>
-        <span>{{ contadorStore.segundosRestantes }}s</span>
+        <span>{{ contadorStore.segundosRestantes }}'</span>
 </template>
 
 
-<style scoped>
-
-</style>
+<style scoped></style>

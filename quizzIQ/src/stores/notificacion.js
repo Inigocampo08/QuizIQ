@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 
 export const useNotificacionStore = defineStore('notificacion', () => {
   const texto = ref('')
-  const notificacion = ref("")
+  const notificacion = ref('')
   const show = ref(false)
 
   watch(show, () => {

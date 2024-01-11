@@ -10,7 +10,6 @@ import {
   signOut
 } from 'firebase/auth'
 
-
 import { useNotificacionStore } from './notificacion'
 
 export const useAccessStore = defineStore('access', () => {

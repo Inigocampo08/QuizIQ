@@ -1,25 +1,22 @@
 // Importación de librerías y módulos necesarios
 import { ref, computed, watch } from 'vue'
+import { useRouter } from 'vue-router'
 import { defineStore } from 'pinia'
 import axios from 'axios'
-import { useContadorStore } from './contador'
-
-// Inicialización de router y contadorStore
-const contadorStore = useContadorStore()
 
 // Definición del store 'ruleta' con Pinia
 export const useRuletaStore = defineStore('ruleta', () => {
+  const router = useRouter()
   // Definición de referencias reactivas
-  const activeRoulette = ref(true)
   const preguntasAleatoria = ref({})
   const categoria = ref('')
-  const vidas = ref(1)
+  const categoriaAleatoria = ref('')
+  const vidas = ref(2)
   const puntos = ref(0)
   const showCoronaPopup = ref(false)
   const mostrarPopupFinVidas = ref(false)
   const coronaContador = ref(0)
   const progressBar = ref(0)
-
   // Definición de ítems para la ruleta
   const items = [
     { id: 1, name: 'corona', htmlContent: 'Corona', textColor: 'white', background: '#9b59b6' },
@@ -60,12 +57,16 @@ export const useRuletaStore = defineStore('ruleta', () => {
       background: '#2ecc71'
     }
   ]
-
   // Watcher para observar cambios en 'vidas'
   watch(vidas, (newValue) => {
     if (newValue === 0) {
       // Mostrar el popup y desactivar el desplazamiento del cuerpo
       mostrarPopupFinVidas.value = true
+      vidas.value = 2
+      puntos.value = 0
+      coronaContador.value = 0
+      progressBar.value = 0
+
       document.body.classList.add('no-scroll')
     }
   })
@@ -79,10 +80,6 @@ export const useRuletaStore = defineStore('ruleta', () => {
     }
   })
 
-  // Función para cambiar el estado de 'activeRoulette'
-  function isActiveRoulette() {
-    activeRoulette.value = !activeRoulette.value
-  }
   // Callback para cuando la rueda termina
   function wheelEndedCallback(item) {
     categoria.value = item
@@ -110,29 +107,14 @@ export const useRuletaStore = defineStore('ruleta', () => {
         // Randomizar la selección de una pregunta
         const indiceAleatorio = Math.floor(Math.random() * preguntasJson.preguntas.length)
         preguntasAleatoria.value = preguntasJson.preguntas[indiceAleatorio]
-
-        isActiveRoulette()
-        contadorStore.iniciarContador()
+        categoriaAleatoria.value = preguntasJson.categoria
+        router.push({ name: 'preguntas-demo' })
       })
       .catch((error) => {
         // Manejar el error
         console.error('Error al obtener los datos:', error)
       })
   }
-
-  // Función para mostrar el popup
-  function openCoronaPopup() {
-    showCoronaPopup.value = true
-    document.body.classList.add('no-scroll') // Añadir clase para evitar desplazamiento
-    coronaContador.value = -1
-    progressBar.value = -33.33
-  }
-  // Función para cerrar el popup
-  function closeCoronaPopup() {
-    showCoronaPopup.value = false
-    document.body.classList.remove('no-scroll') // Eliminar clase para permitir desplazamiento
-  }
-  // Función para seleccionar una categoría
   function selectCategory(category) {
     categoria.value = category
     console.log(`Categoría seleccionada: ${categoria.value}`)
@@ -153,30 +135,40 @@ export const useRuletaStore = defineStore('ruleta', () => {
         // Randomizar la selección de una pregunta
         const indiceAleatorio = Math.floor(Math.random() * preguntasJson.preguntas.length)
         preguntasAleatoria.value = preguntasJson.preguntas[indiceAleatorio]
-
+        categoriaAleatoria.value = preguntasJson.categoria
         closeCoronaPopup() // Cerrar el popup después de seleccionar una categoría
-        isActiveRoulette()
-        contadorStore.iniciarContador()
+        router.push({ name: 'preguntas-demo' })
       })
       .catch((error) => {
         // Manejar el error
         console.error('Error al obtener los datos:', error)
       })
   }
-
+  function openCoronaPopup() {
+    showCoronaPopup.value = true
+    document.body.classList.add('no-scroll') // Añadir clase para evitar desplazamiento
+    coronaContador.value = -1
+    progressBar.value = -33.33
+  }
+  // Función para cerrar el popup
+  function closeCoronaPopup() {
+    showCoronaPopup.value = false
+    document.body.classList.remove('no-scroll') // Eliminar clase para permitir desplazamiento
+  }
   // Propiedad computada para obtener pregunta aleatoria
   const getPreguntaAleatoria = computed(() => {
     return {
       pregunta: preguntasAleatoria.value.pregunta,
       opciones: preguntasAleatoria.value.opciones,
-      respuestaCorrecta: preguntasAleatoria.value.respuesta_correcta
+      respuestaCorrecta: preguntasAleatoria.value.respuesta_correcta,
+      categoria: categoriaAleatoria.value
     }
   })
 
   // Retorno de todas las propiedades y funciones del store
   return {
-    activeRoulette,
     items,
+    categoria,
     getPreguntaAleatoria,
     vidas,
     puntos,
@@ -184,7 +176,6 @@ export const useRuletaStore = defineStore('ruleta', () => {
     mostrarPopupFinVidas,
     coronaContador,
     progressBar,
-    isActiveRoulette,
     wheelEndedCallback,
     selectCategory
   }

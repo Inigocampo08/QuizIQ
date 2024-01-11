@@ -14,9 +14,9 @@ const volver = () => {
 };
 const seguir = () => {
     router.push({ name: 'access' })
-      document.body.classList.remove('no-scroll')
+    document.body.classList.remove('no-scroll')
 
-    
+
 };
 
 </script>
@@ -79,7 +79,8 @@ h3 span {
     font-family: var(--parrafo);
     font-size: 2rem;
 }
-.btn--container{
+
+.btn--container {
     display: flex;
     justify-content: center;
     align-items: center;
