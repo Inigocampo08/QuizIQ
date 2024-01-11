@@ -35,6 +35,7 @@ const accessStore = useAccessStore();
     justify-content: space-between;
     align-items: center;
 
+
 }
 
 .logo {

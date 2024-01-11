@@ -88,7 +88,7 @@ function validarRespuesta(opcion) {
 }
 </script>
 <template>
-    <header class="header">
+    <header :style="{ 'background-color': ruletaStore.getPreguntaAleatoria.color }" class="header">
         <div class="contenedor header__container">
             <div class="categoria">
                 <p> {{ ruletaStore.getPreguntaAleatoria.categoria }} </p>
@@ -125,7 +125,7 @@ function validarRespuesta(opcion) {
         </div>
     </main>
 </template>
-<style>
+<style scoped>
 .header {
     font-family: var(--encabezado);
     background-color: var(--blanco);
@@ -141,7 +141,7 @@ function validarRespuesta(opcion) {
     align-items: center;
     text-align: center;
     font-size: 3rem;
-    color: var(--color3);
+    color: white
 
 }
 
@@ -155,15 +155,26 @@ function validarRespuesta(opcion) {
 .contador {
     font-size: 7rem;
     display: flex;
+    
     justify-content: center;
     align-items: center;
     font-family: var(--encabezado);
 
 }
+main{
+    height: 90vh;
+    background-image: url('../../public/fondo-ruleta.svg');
 
+}
 .preguntas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 2rem;
+    background-color: var(--blanco);
     text-align: center;
-    margin-top: 5rem;
+    margin-top: 3rem;
 }
 
 .preguntas p {
@@ -179,7 +190,7 @@ function validarRespuesta(opcion) {
 
 .respuestas__list {
     display: grid;
-    grid-template: 1fr / 50% 50%;
+    grid-template: 1fr / 100%;
     justify-items: center;
     gap: 2rem;
     text-align: center;
@@ -189,7 +200,7 @@ function validarRespuesta(opcion) {
 .respuestas {
     width: 100%;
     padding: 5rem;
-    background-color: var(--color4);
+    background-color: var(--blanco);
     font-size: 3rem;
     border-radius: 5rem;
     transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);

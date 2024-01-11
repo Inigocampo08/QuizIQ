@@ -11,6 +11,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
   const preguntasAleatoria = ref({})
   const categoria = ref('')
   const categoriaAleatoria = ref('')
+  const colorAleatoria = ref('')
   const vidas = ref(2)
   const puntos = ref(0)
   const showCoronaPopup = ref(false)
@@ -48,7 +49,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
       textColor: 'white',
       background: '#f1c40f'
     },
-    { id: 6, name: 'arte', htmlContent: 'Arte', textColor: 'white', background: 'red' },
+    { id: 6, name: 'arte', htmlContent: 'Arte', textColor: 'white', background: '#e74c3c' },
     {
       id: 7,
       name: 'ciencia',
@@ -108,6 +109,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
         const indiceAleatorio = Math.floor(Math.random() * preguntasJson.preguntas.length)
         preguntasAleatoria.value = preguntasJson.preguntas[indiceAleatorio]
         categoriaAleatoria.value = preguntasJson.categoria
+        colorAleatoria.value = preguntasJson.color
         router.push({ name: 'preguntas-demo' })
       })
       .catch((error) => {
@@ -136,6 +138,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
         const indiceAleatorio = Math.floor(Math.random() * preguntasJson.preguntas.length)
         preguntasAleatoria.value = preguntasJson.preguntas[indiceAleatorio]
         categoriaAleatoria.value = preguntasJson.categoria
+        colorAleatoria.value = preguntasJson.color
         closeCoronaPopup() // Cerrar el popup después de seleccionar una categoría
         router.push({ name: 'preguntas-demo' })
       })
@@ -161,7 +164,8 @@ export const useRuletaStore = defineStore('ruleta', () => {
       pregunta: preguntasAleatoria.value.pregunta,
       opciones: preguntasAleatoria.value.opciones,
       respuestaCorrecta: preguntasAleatoria.value.respuesta_correcta,
-      categoria: categoriaAleatoria.value
+      categoria: categoriaAleatoria.value,
+      color: colorAleatoria.value
     }
   })
 
