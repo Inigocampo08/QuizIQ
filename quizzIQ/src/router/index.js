@@ -23,10 +23,21 @@ const router = createRouter({
       component: () => import('@/views/DemoGame.vue')
     },
     {
+      path: '/ruleta-demo',
+      name: 'demo-ruleta',
+      component: () => import('@/views/DemoRuletaView.vue')
+    },
+    {
+      path: '/preguntas-demo',
+      name: 'demo-preguntas',
+      component: () => import('@/views/DemoPreguntasView.vue')
+    },
+
+    {
       path: '/admin',
       name: 'admin',
       component: () => import('@/views/admin/AdminLayout.vue'),
-      meta: { requiresAuth: true },
+      meta: { requiresAuth: true }
       // children: [
       //   {
       //     path: '/index/:id',
