@@ -12,9 +12,9 @@ const launchWheel = () => {
  
 <template>
     <div class="center-container">
-        <span>Girar </span>
+        <span>Girar</span>
         <Roulette base-display base-size="100" base-display-shadow base-display-indicator base-background="white"
-            class="ruleta" ref="wheel" size="450" display-shadow indicator-position="top" display-indicator display-border
+            class="ruleta" ref="wheel" size="350"  display-shadow indicator-position="top" display-indicator display-border
             :items="ruletaStore.items" @click="launchWheel" @wheel-end="ruletaStore.wheelEndedCallback" />
     </div>
 </template>

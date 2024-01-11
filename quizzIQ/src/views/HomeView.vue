@@ -1,6 +1,8 @@
 <script setup>
 import AdminHeader from '@/components/admin/Header.vue';
 import Notificacion from '@/components/Notificacion.vue';
+import Footer from '@/components/Footer.vue'
+
 import { useAccessStore } from '@/stores/access';
 const accessStore = useAccessStore();
 
@@ -24,6 +26,7 @@ const accessStore = useAccessStore();
 
         </div>
     </main>
+    <Footer />
 </template>
 <style scoped>
 /** Estilo IndexView header */

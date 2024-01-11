@@ -42,7 +42,7 @@ const volver = () => {
                     <span class="Y"></span>
                 </button>
             </div>
-            <div class="marcador">
+            <div class="user__info">
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
@@ -56,8 +56,6 @@ const volver = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="user__info">
                 <div class="vidas">
                     <font-awesome-icon icon="heart" class="icon" />
                     <p>{{ ruletaStore.vidas }}</p>
@@ -88,7 +86,6 @@ const volver = () => {
     position: relative;
 
 }
-
 .header__container {
     display: flex;
     justify-content: space-between;
@@ -192,11 +189,7 @@ const volver = () => {
 
 }
 
-.marcador {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 .flip-card {
     height: 4rem;
@@ -248,4 +241,6 @@ const volver = () => {
     font-size: 2rem;
 
 }
+
+
 </style>
