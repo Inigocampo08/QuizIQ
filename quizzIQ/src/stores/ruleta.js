@@ -17,6 +17,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
   const puntos = ref('')
   const showCoronaPopup = ref(false)
   const mostrarPopupFinVidas = ref(false)
+  const coronaContador = ref(0)
 
   // Definición de ítems para la ruleta
   const items = [
@@ -68,7 +69,14 @@ export const useRuletaStore = defineStore('ruleta', () => {
     }
   })
 
-  
+  watch(coronaContador, (newValue) => {
+    if (newValue === 3) {
+      // Mostrar el popup y desactivar el desplazamiento del cuerpo
+      openCoronaPopup()
+    } else {
+      console.log(newValue)
+    }
+  })
 
   // Función para cambiar el estado de 'activeRoulette'
   function isActiveRoulette() {
@@ -111,6 +119,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
   function openCoronaPopup() {
     showCoronaPopup.value = true
     document.body.classList.add('no-scroll') // Añadir clase para evitar desplazamiento
+    coronaContador.value = -1
   }
   // Función para cerrar el popup
   function closeCoronaPopup() {
@@ -167,6 +176,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
     puntos,
     showCoronaPopup,
     mostrarPopupFinVidas,
+    coronaContador,
     isActiveRoulette,
     wheelEndedCallback,
     selectCategory
