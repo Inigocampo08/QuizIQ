@@ -22,6 +22,8 @@ onMounted(() => {
     ruletaStore.puntos = 0;
     ruletaStore.activeRoulette = true;
     ruletaStore.mostrarPopupFinVidas = false;
+    ruletaStore.coronaContador = 0;
+    ruletaStore.progressBar = 0;
     contadorStore.resetearContador();
 });
 

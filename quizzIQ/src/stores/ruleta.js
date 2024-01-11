@@ -18,6 +18,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
   const showCoronaPopup = ref(false)
   const mostrarPopupFinVidas = ref(false)
   const coronaContador = ref(0)
+  const progressBar = ref(0)
 
   // Definición de ítems para la ruleta
   const items = [
@@ -86,7 +87,11 @@ export const useRuletaStore = defineStore('ruleta', () => {
   function wheelEndedCallback(item) {
     categoria.value = item
 
-    categoria.value.name === 'corona' ? openCoronaPopup() : preguntasVue()
+    if (categoria.value.name === 'corona') {
+      openCoronaPopup()
+    } else {
+      preguntasVue()
+    }
   }
   // Función para cargar preguntas
   function preguntasVue() {
@@ -120,6 +125,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
     showCoronaPopup.value = true
     document.body.classList.add('no-scroll') // Añadir clase para evitar desplazamiento
     coronaContador.value = -1
+    progressBar.value = -33.33
   }
   // Función para cerrar el popup
   function closeCoronaPopup() {
@@ -158,6 +164,8 @@ export const useRuletaStore = defineStore('ruleta', () => {
       })
   }
 
+ 
+  
   // Propiedad computada para obtener pregunta aleatoria
   const getPreguntaAleatoria = computed(() => {
     return {
@@ -177,6 +185,8 @@ export const useRuletaStore = defineStore('ruleta', () => {
     showCoronaPopup,
     mostrarPopupFinVidas,
     coronaContador,
+    progressBar,
+    ,
     isActiveRoulette,
     wheelEndedCallback,
     selectCategory

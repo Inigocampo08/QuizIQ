@@ -47,14 +47,17 @@ function validarRespuesta(opcion) {
         // Si la respuesta es correcta
         error.value = false;
         errorMsg.value = '¡Respuesta correcta!';
-
+        
+        if (ruletaStore.coronaStatus) {
+            console.log(respuestaUsuario.value);
+        }
         // Cálculo de puntos basado en el tiempo restante y actualización del store
         const tiempoRestante = contadorStore.segundosRestantes;
         ruletaStore.puntos = ruletaStore.puntos + tiempoRestante * 10;
         ruletaStore.coronaContador++;
+        ruletaStore.progressBar += 33.33
 
 
-        // Aquí puedes añadir más lógica como mostrar un mensaje, sumar puntos, etc.
     } else {
         // Si la respuesta es incorrecta
         error.value = true;
@@ -63,6 +66,8 @@ function validarRespuesta(opcion) {
         // Reducción del número de vidas en el store
         ruletaStore.vidas--;
         ruletaStore.coronaContador = 0;
+        ruletaStore.progressBar = 0
+
 
     }
 

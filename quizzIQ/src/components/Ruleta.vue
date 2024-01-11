@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
-import { Roulette } from "vue3-roulette";
+import ProgressBar from './ProgressBar.vue';
+import { Roulette } from 'vue3-roulette';
 import { useRuletaStore } from '@/stores/ruleta';
 
 const ruletaStore = useRuletaStore();
@@ -16,7 +17,8 @@ const launchWheel = () => {
         <Roulette base-display base-size="100" base-display-shadow base-display-indicator base-background="white"
             class="ruleta" ref="wheel" size="350"  display-shadow indicator-position="top" display-indicator display-border
             :items="ruletaStore.items" @click="launchWheel" @wheel-end="ruletaStore.wheelEndedCallback" />
-    </div>
+    <ProgressBar></ProgressBar>
+        </div>
 </template>
 <style scoped>
 .center-container {
