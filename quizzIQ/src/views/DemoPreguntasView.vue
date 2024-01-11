@@ -4,14 +4,17 @@ import { onMounted, ref, watchEffect } from 'vue';
 import { useRouter } from 'vue-router';
 import { useRuletaStore } from '@/stores/ruleta';
 import { useContadorStore } from '@/stores/contador';
+import { useNotificacionStore } from '@/stores/notificacion';
 import CoronaPopup from '@/components/CoronaPopup.vue';
 import Popup from '@/components/Popup.vue';
 import Contador from '@/components/Contador.vue';
+import Notificacion from '@/components/Notificacion.vue';
 
 // Inicialización de Vue Router y stores
 const ruletaStore = useRuletaStore();
 const router = useRouter();
 const contadorStore = useContadorStore();
+const notificacionStore = useNotificacionStore();
 // Variables reactivas
 const respuestaUsuario = ref(null);
 const opcionesHabilitadas = ref(true);
@@ -20,9 +23,11 @@ const opcionesHabilitadas = ref(true);
 const error = ref();
 const errorMsg = ref('');
 
+
 // Lógica que se ejecuta después de que el componente se monta
 onMounted(() => {
     // Inicialización de valores iniciales
+    opcionesHabilitadas.value = true;
     ruletaStore.mostrarPopupFinVidas = false;
     contadorStore.resetearContador();
     contadorStore.iniciarContador();
@@ -36,7 +41,10 @@ watchEffect(() => {
         opcionesHabilitadas.value = false;
         ruletaStore.vidas--;
         ruletaStore.coronaContador = 0;
-
+        // Reinicio de la ruleta y el contador después de 3 segundos
+        setTimeout(() => {
+            router.push({ name: 'ruleta-demo' })
+        }, 3000);
     } else {
         // Si el tiempo no se ha agotado
         error.value = false;
@@ -54,16 +62,19 @@ function validarRespuesta(opcion) {
         // Si la respuesta es correcta
         error.value = false;
         errorMsg.value = '¡Respuesta correcta!';
+        
 
         if (ruletaStore.coronaStatus) {
             console.log(respuestaUsuario.value);
         }
         // Cálculo de puntos basado en el tiempo restante y actualización del store
         const tiempoRestante = contadorStore.segundosRestantes;
-        ruletaStore.puntos = ruletaStore.puntos + tiempoRestante * 10;
+        ruletaStore.puntos += tiempoRestante * 10;
         ruletaStore.coronaContador++;
         ruletaStore.progressBar += 33.33
-
+        notificacionStore.show = true
+        notificacionStore.texto = `+${tiempoRestante * 10} puntos`
+        notificacionStore.notificacion = 'Felicidades'
 
     } else {
         // Si la respuesta es incorrecta
@@ -74,6 +85,8 @@ function validarRespuesta(opcion) {
         ruletaStore.vidas--;
         ruletaStore.coronaContador = 0;
         ruletaStore.progressBar = 0
+        notificacionStore.show = true
+        notificacionStore.notificacion = '- 1 Vida'
 
 
     }
@@ -100,6 +113,7 @@ function validarRespuesta(opcion) {
     </header>
     <Popup v-if="ruletaStore.mostrarPopupFinVidas" />
     <CoronaPopup v-if="ruletaStore.showCoronaPopup" />
+    <Notificacion  />
 
     <main>
         <div class="contenedor">

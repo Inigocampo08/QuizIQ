@@ -56,8 +56,8 @@ const ruletaStore = useRuletaStore();
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60%;
-    height: 70%;
+    width: 90%;
+    height: 80%;
     background-color: #fff;
     border-radius: 2rem;
     overflow-y: auto;
@@ -69,9 +69,10 @@ const ruletaStore = useRuletaStore();
 }
 
 .popup--inner__title {
-    font-size: 3.5rem;
+    text-align: center;
+    font-size: 6rem;
     font-weight: 900;
-    margin-top: 3rem;
+    margin-top: 4rem;
 }
 
 .popup--inner__subtitle {
@@ -80,11 +81,7 @@ const ruletaStore = useRuletaStore();
     text-transform: uppercase;
 }
 
-.popup--categorias {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
+
 
 .categorias--container {
     position: absolute;
@@ -92,16 +89,16 @@ const ruletaStore = useRuletaStore();
     left: 50%;
     transform: translate(-50%, -50%);
     display: grid;
-    grid-template: 1fr / auto auto;
-    justify-items: center;
+    grid-template: 1fr / 50% 50%;
+    place-content: center;
     gap: 2rem;
 }
 
 .respuestas {
     max-width: 90%;
-    width: 40rem;
+    width: 30rem;
     background-color: var(--color4);
-    font-size: 3rem;
+    font-size: 2rem;
     border-radius: 2rem;
     transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);

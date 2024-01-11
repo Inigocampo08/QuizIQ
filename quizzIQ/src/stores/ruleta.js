@@ -61,13 +61,11 @@ export const useRuletaStore = defineStore('ruleta', () => {
   // Watcher para observar cambios en 'vidas'
   watch(vidas, (newValue) => {
     if (newValue === 0) {
-      // Mostrar el popup y desactivar el desplazamiento del cuerpo
       mostrarPopupFinVidas.value = true
       vidas.value = 2
       puntos.value = 0
       coronaContador.value = 0
       progressBar.value = 0
-
       document.body.classList.add('no-scroll')
     }
   })
