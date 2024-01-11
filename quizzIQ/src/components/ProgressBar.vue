@@ -1,6 +1,5 @@
 <!-- ProgressBar.vue -->
 <script setup>
-import { ref } from 'vue';
 import { useRuletaStore } from '@/stores/ruleta'
 
 const ruletaStore = useRuletaStore()
@@ -11,24 +10,38 @@ const ruletaStore = useRuletaStore()
 <template>
     <div class="progress-bar-container">
         <div class="progress" :style="{ width: `${ruletaStore.progressBar}%` }"></div>
+        <div class="divider" style="left: 33.3333%;"></div>
+        <div class="divider" style="left: 66.6666%;"></div>
     </div>
 </template>
 
 
 <style scoped>
 .progress-bar-container {
+    position: relative;
     width: 20rem;
-    height: 2rem;
-    background-color: #eee;
+    height: 3rem;
+    background-color: lightgray;
     border-radius: 2rem;
-    border: 2px solid var(--negro);
+    border: 5px solid var(--negro);
     overflow: hidden;
-    
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+
 }
 
 .progress {
     height: 100%;
-    background-color: #4caf50;
+    background-color: #FFD700;
     transition: width 1s ease;
+}
+
+.divider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: var(--negro);
+    pointer-events: none;
 }
 </style>

@@ -13,12 +13,12 @@ const launchWheel = () => {
  
 <template>
     <div class="center-container">
-        <span>Girar</span>
+        <h2>Toca para ¡Girar!</h2>
         <Roulette base-display base-size="100" base-display-shadow base-display-indicator base-background="white"
-            class="ruleta" ref="wheel" size="350"  display-shadow indicator-position="top" display-indicator display-border
+            class="ruleta" ref="wheel" size="350" display-shadow indicator-position="top" display-indicator display-border
             :items="ruletaStore.items" @click="launchWheel" @wheel-end="ruletaStore.wheelEndedCallback" />
-    <ProgressBar></ProgressBar>
-        </div>
+        <ProgressBar />
+    </div>
 </template>
 <style scoped>
 .center-container {
@@ -30,20 +30,10 @@ const launchWheel = () => {
     /* Centra el contenido verticalmente */
     text-align: center;
     position: relative;
-    padding-top:10rem;
+    padding-top: 10rem;
 
 }
-span {
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
-    z-index: 1;
-    font-family: var(--encabezado);
-    font-size: 2rem;
-    color: var(--negro);
-    
-    
-}
+
 .ruleta {
     margin-left: auto;
     /* Establece el margen izquierdo a auto */
@@ -51,5 +41,4 @@ span {
     /* Establece el margen derecho a auto */
     margin-bottom: 10rem;
 }
-
 </style>

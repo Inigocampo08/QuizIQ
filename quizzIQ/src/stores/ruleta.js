@@ -22,34 +22,34 @@ export const useRuletaStore = defineStore('ruleta', () => {
 
   // Definición de ítems para la ruleta
   const items = [
-    { id: 1, name: 'corona', htmlContent: 'Corona', textColor: 'white', background: 'purple' },
+    { id: 1, name: 'corona', htmlContent: 'Corona', textColor: 'white', background: '#9b59b6' },
     {
       id: 2,
       name: 'deportes',
       htmlContent: 'Deportes',
       textColor: 'white',
-      background: 'orange'
+      background: '#e67e22'
     },
     {
       id: 3,
       name: 'entretenimiento',
       htmlContent: 'Entretenimiento',
       textColor: 'white',
-      background: 'hotpink'
+      background: '#ff69b4'
     },
     {
       id: 4,
       name: 'geografia',
       htmlContent: 'Geografia',
       textColor: 'white',
-      background: 'lightskyblue'
+      background: '#3498db'
     },
     {
       id: 5,
       name: 'historia',
       htmlContent: 'Historia',
-      textColor: 'black',
-      background: 'yellow'
+      textColor: 'white',
+      background: '#f1c40f'
     },
     { id: 6, name: 'arte', htmlContent: 'Arte', textColor: 'white', background: 'red' },
     {
@@ -57,7 +57,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
       name: 'ciencia',
       htmlContent: 'Ciencia',
       textColor: 'white',
-      background: 'greenyellow'
+      background: '#2ecc71'
     }
   ]
 
@@ -164,8 +164,6 @@ export const useRuletaStore = defineStore('ruleta', () => {
       })
   }
 
- 
-  
   // Propiedad computada para obtener pregunta aleatoria
   const getPreguntaAleatoria = computed(() => {
     return {
@@ -186,7 +184,6 @@ export const useRuletaStore = defineStore('ruleta', () => {
     mostrarPopupFinVidas,
     coronaContador,
     progressBar,
-    ,
     isActiveRoulette,
     wheelEndedCallback,
     selectCategory
