@@ -1,10 +1,10 @@
 <script setup>
 import { ref } from 'vue';
+import { RouterLink } from 'vue-router';
 import ProgressBar from '@/components/ProgressBar.vue';
 import CoronaPopup from '@/components/CoronaPopup.vue';
 import { Roulette } from 'vue3-roulette';
 import { useRuletaStore } from '@/stores/ruleta';
-import { RouterLink } from 'vue-router';
 
 const ruletaStore = useRuletaStore();
 const wheel = ref(null);

@@ -18,6 +18,16 @@ export const useRuletaStore = defineStore('ruleta', () => {
   const mostrarPopupFinVidas = ref(false)
   const coronaContador = ref(0)
   const progressBar = ref(0)
+
+  const selectedCorona = ref({
+    isCorona: false,
+    deportes: false,
+    entretenimiento: false,
+    ciencia: false,
+    arte: false,
+    historia: false,
+    geografia: false
+  })
   // Definición de ítems para la ruleta
   const items = [
     { id: 1, name: 'corona', htmlContent: 'Corona', textColor: 'white', background: '#9b59b6' },
@@ -117,7 +127,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
   function selectCategory(category) {
     categoria.value = category
     console.log(`Categoría seleccionada: ${categoria.value}`)
-    // Aquí puedes agregar más lógica según la categoría seleccionada
+
     // Hacer la solicitud GET
     axios
       .get('../../src/assets/json/preguntas.json')
@@ -136,6 +146,8 @@ export const useRuletaStore = defineStore('ruleta', () => {
         preguntasAleatoria.value = preguntasJson.preguntas[indiceAleatorio]
         categoriaAleatoria.value = preguntasJson.categoria
         colorAleatoria.value = preguntasJson.color
+          selectedCorona.value.isCorona = true
+ 
         closeCoronaPopup() // Cerrar el popup después de seleccionar una categoría
         router.push({ name: 'preguntas-demo' })
       })
@@ -143,6 +155,16 @@ export const useRuletaStore = defineStore('ruleta', () => {
         // Manejar el error
         console.error('Error al obtener los datos:', error)
       })
+  }
+
+  function cambiarEstadoCategoria(cat) {
+    // Verifica si la categoría existe en el objeto reativo
+    if (cat in selectedCorona.value) {
+      // Cambia el estado de la categoría
+      selectedCorona.value[cat] = !selectedCorona.value[cat]
+    } else {
+      console.error('Categoría no encontrada en el objeto selectedCorona')
+    }
   }
   function openCoronaPopup() {
     showCoronaPopup.value = true
@@ -162,7 +184,8 @@ export const useRuletaStore = defineStore('ruleta', () => {
       opciones: preguntasAleatoria.value.opciones,
       respuestaCorrecta: preguntasAleatoria.value.respuesta_correcta,
       categoria: categoriaAleatoria.value,
-      color: colorAleatoria.value
+      color: colorAleatoria.value,
+      seleccionado: selectedCorona.value
     }
   })
 
@@ -178,6 +201,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
     coronaContador,
     progressBar,
     wheelEndedCallback,
-    selectCategory
+    selectCategory,
+    cambiarEstadoCategoria
   }
 })

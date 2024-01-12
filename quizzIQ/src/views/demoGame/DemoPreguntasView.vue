@@ -49,6 +49,7 @@ watchEffect(() => {
     }
 });
 
+
 function validarRespuesta(opcion) {
     // Asignación de la respuesta del usuario y deshabilitación de opciones
     respuestaUsuario.value = opcion;
@@ -56,25 +57,37 @@ function validarRespuesta(opcion) {
     contadorStore.detenerContador();
 
     if (respuestaUsuario.value === ruletaStore.getPreguntaAleatoria.respuestaCorrecta) {
-        // Si la respuesta es correcta
-        error.value = false;
-        errorMsg.value = '¡Respuesta correcta!';
+        if (ruletaStore.getPreguntaAleatoria.seleccionado.isCorona) {
+            console.log('Corona');
+            // Si la respuesta es correcta
+            error.value = false;
+            errorMsg.value = '¡Respuesta correcta!';
+            
+            // Cálculo de puntos basado en el tiempo restante y actualización del store
+            const tiempoRestante = contadorStore.segundosRestantes;
+            ruletaStore.puntos += tiempoRestante * 10;
+            ruletaStore.coronaContador++;
+            ruletaStore.progressBar += 33.33
+            ruletaStore.cambiarEstadoCategoria(ruletaStore.getPreguntaAleatoria.categoria)
 
+        } else {
+            // Si la respuesta es correcta
+            error.value = false;
+            errorMsg.value = '¡Respuesta correcta!';
 
-        if (ruletaStore.coronaStatus) {
-            console.log(respuestaUsuario.value);
+            // Cálculo de puntos basado en el tiempo restante y actualización del store
+            const tiempoRestante = contadorStore.segundosRestantes;
+            ruletaStore.puntos += tiempoRestante * 10;
+            ruletaStore.coronaContador++;
+            ruletaStore.progressBar += 33.33
         }
-        // Cálculo de puntos basado en el tiempo restante y actualización del store
-        const tiempoRestante = contadorStore.segundosRestantes;
-        ruletaStore.puntos += tiempoRestante * 10;
-        ruletaStore.coronaContador++;
-        ruletaStore.progressBar += 33.33
-
+       
 
     } else {
         // Si la respuesta es incorrecta
         error.value = true;
         errorMsg.value = '¡Respuesta incorrecta!';
+
 
         // Reducción del número de vidas en el store
         ruletaStore.vidas--;
@@ -84,8 +97,8 @@ function validarRespuesta(opcion) {
 
 
     }
+    ruletaStore.getPreguntaAleatoria.seleccionado.isCorona = false;
 
-    // Reinicio de la ruleta y el contador después de 3 segundos
     setTimeout(() => {
         if (ruletaStore.mostrarPopupFinVidas || ruletaStore.coronaContador === 3) {
             return
@@ -118,7 +131,7 @@ function validarRespuesta(opcion) {
             </div>
             <div class="respuestas__container">
                 <ul class="respuestas__list">
-                    <div :class="{
+                    <div :key="opcion" :class="{
                         'respuesta-incorrecta': error && opcion === respuestaUsuario,
                         'respuesta-correcta': !error && opcion === respuestaUsuario
                     }" :style="opcionesHabilitadas ? {} : { 'pointer-events': 'none' }"
@@ -169,8 +182,15 @@ function validarRespuesta(opcion) {
 }
 
 main {
-    height: 90vh;
+    min-height: 90vh;
+    height: 100%;
     background-image: url('../../public/fondo-ruleta.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -179,6 +199,7 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0.5);
     border-radius: 2rem;
     background-color: var(--blanco);
     text-align: center;
@@ -186,17 +207,18 @@ main {
 }
 
 .preguntas p {
-    font-size: 6rem;
+    font-size: 4rem;
     font-weight: 900;
 
 }
 
 .respuestas__container {
-    margin-top: 5rem;
+    margin-top: 4rem;
     margin-bottom: 20rem;
 }
 
 .respuestas__list {
+    padding: 0;
     display: grid;
     grid-template: 1fr / 100%;
     justify-items: center;
@@ -207,7 +229,7 @@ main {
 
 .respuestas {
     width: 100%;
-    padding: 5rem;
+    padding: 3rem;
     background-color: var(--blanco);
     font-size: 3rem;
     border-radius: 5rem;

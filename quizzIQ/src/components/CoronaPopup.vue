@@ -10,26 +10,26 @@ const ruletaStore = useRuletaStore();
             <h2 class="popup--inner__title">Te ha tocado la Corona</h2>
             <span class="popup--inner__subtitle">Elige la categoria de tu pregunta</span>
             <div class="categorias--container">
-                <div class="respuestas deporte" @click="ruletaStore.selectCategory('deportes')">
+                <div v-if="!ruletaStore.getPreguntaAleatoria.seleccionado.deportes" class="respuestas deporte" @click="ruletaStore.selectCategory('deportes')">
                     <p>deporte</p>
                 </div>
-                <div class="respuestas entretenimiento" @click="ruletaStore.selectCategory('entretenimiento')">
+                <div v-if="!ruletaStore.getPreguntaAleatoria.seleccionado.entretenimiento" class="respuestas entretenimiento" @click="ruletaStore.selectCategory('entretenimiento')">
                     <p>entretenimiento</p>
                 </div>
 
-                <div class="respuestas ciencia" @click="ruletaStore.selectCategory('ciencia')">
+                <div v-if="!ruletaStore.getPreguntaAleatoria.seleccionado.ciencia" class="respuestas ciencia" @click="ruletaStore.selectCategory('ciencia')">
                     <p>ciencia</p>
                 </div>
 
-                <div class="respuestas arte" @click="ruletaStore.selectCategory('arte')">
+                <div v-if="!ruletaStore.getPreguntaAleatoria.seleccionado.arte" class="respuestas arte" @click="ruletaStore.selectCategory('arte')">
                     <p>arte</p>
                 </div>
 
-                <div class="respuestas historia" @click="ruletaStore.selectCategory('historia')">
+                <div v-if="!ruletaStore.getPreguntaAleatoria.seleccionado.historia" class="respuestas historia" @click="ruletaStore.selectCategory('historia')">
                     <p>Historia</p>
                 </div>
 
-                <div class="respuestas geografia" @click="ruletaStore.selectCategory('geografia')">
+                <div v-if="!ruletaStore.getPreguntaAleatoria.seleccionado.geografia" class="respuestas geografia" @click="ruletaStore.selectCategory('geografia')">
                     <p>Geografía</p>
                 </div>
 
