@@ -4,17 +4,14 @@ import { onMounted, ref, watchEffect } from 'vue';
 import { useRouter } from 'vue-router';
 import { useRuletaStore } from '@/stores/ruleta';
 import { useContadorStore } from '@/stores/contador';
-import { useNotificacionStore } from '@/stores/notificacion';
 import CoronaPopup from '@/components/CoronaPopup.vue';
 import Popup from '@/components/Popup.vue';
 import Contador from '@/components/Contador.vue';
-import Notificacion from '@/components/Notificacion.vue';
-
 // Inicialización de Vue Router y stores
 const ruletaStore = useRuletaStore();
 const router = useRouter();
 const contadorStore = useContadorStore();
-const notificacionStore = useNotificacionStore();
+
 // Variables reactivas
 const respuestaUsuario = ref(null);
 const opcionesHabilitadas = ref(true);
@@ -62,7 +59,7 @@ function validarRespuesta(opcion) {
         // Si la respuesta es correcta
         error.value = false;
         errorMsg.value = '¡Respuesta correcta!';
-        
+
 
         if (ruletaStore.coronaStatus) {
             console.log(respuestaUsuario.value);
@@ -72,9 +69,7 @@ function validarRespuesta(opcion) {
         ruletaStore.puntos += tiempoRestante * 10;
         ruletaStore.coronaContador++;
         ruletaStore.progressBar += 33.33
-        notificacionStore.show = true
-        notificacionStore.texto = `+${tiempoRestante * 10} puntos`
-        notificacionStore.notificacion = 'Felicidades'
+
 
     } else {
         // Si la respuesta es incorrecta
@@ -85,8 +80,7 @@ function validarRespuesta(opcion) {
         ruletaStore.vidas--;
         ruletaStore.coronaContador = 0;
         ruletaStore.progressBar = 0
-        notificacionStore.show = true
-        notificacionStore.notificacion = '- 1 Vida'
+
 
 
     }
@@ -113,7 +107,6 @@ function validarRespuesta(opcion) {
     </header>
     <Popup v-if="ruletaStore.mostrarPopupFinVidas" />
     <CoronaPopup v-if="ruletaStore.showCoronaPopup" />
-    <Notificacion  />
 
     <main>
         <div class="contenedor">
@@ -156,7 +149,6 @@ function validarRespuesta(opcion) {
     text-align: center;
     font-size: 3rem;
     color: white
-
 }
 
 .categoria {
@@ -169,17 +161,19 @@ function validarRespuesta(opcion) {
 .contador {
     font-size: 7rem;
     display: flex;
-    
+
     justify-content: center;
     align-items: center;
     font-family: var(--encabezado);
 
 }
-main{
+
+main {
     height: 90vh;
     background-image: url('../../public/fondo-ruleta.svg');
 
 }
+
 .preguntas {
     display: flex;
     justify-content: center;

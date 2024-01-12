@@ -25,12 +25,12 @@ const router = createRouter({
     {
       path: '/ruleta-demo',
       name: 'ruleta-demo',
-      component: () => import('@/views/DemoRuletaView.vue')
+      component: () => import('@/views/demoGame/DemoRuletaView.vue')
     },
     {
       path: '/preguntas-demo',
       name: 'preguntas-demo',
-      component: () => import('@/views/DemoPreguntasView.vue')
+      component: () => import('@/views/demoGame/DemoPreguntasView.vue')
     },
 
     {
