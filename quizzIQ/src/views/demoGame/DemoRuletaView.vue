@@ -5,6 +5,12 @@ import ProgressBar from '@/components/ProgressBar.vue';
 import CoronaPopup from '@/components/CoronaPopup.vue';
 import { Roulette } from 'vue3-roulette';
 import { useRuletaStore } from '@/stores/ruleta';
+import arte from '@/assets/img/arte.svg';
+import deporte from '@/assets/img/deporte.svg';
+import ciencia from '@/assets/img/ciencia.svg';
+import entretenimiento from '@/assets/img/entretenimiento.svg';
+import geografia from '@/assets/img/geografia.svg';
+import historia from '@/assets/img/historia.svg';
 
 const ruletaStore = useRuletaStore();
 const wheel = ref(null);
@@ -40,8 +46,81 @@ const launchWheel = () => {
         </div>
 
     </header>
+
     <CoronaPopup v-if="ruletaStore.showCoronaPopup"></CoronaPopup>
     <main class="center-container">
+        <div class="coronas__container">
+            <div class="corona__img">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M3 21v-4a4 4 0 1 1 4 4h-4" />
+                    <path d="M21 3a16 16 0 0 0 -12.8 10.2" />
+                    <path d="M21 3a16 16 0 0 1 -10.2 12.8" />
+                    <path d="M10.6 9a9 9 0 0 1 4.4 4.4" />
+                </svg>
+            </div>
+            <div class="corona__img">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M15 9l-6 6" />
+                    <path d="M10 12l2 2" />
+                    <path d="M12 10l2 2" />
+                    <path d="M8 21a5 5 0 0 0 -5 -5" />
+                    <path d="M16 3c-7.18 0 -13 5.82 -13 13a5 5 0 0 0 5 5c7.18 0 13 -5.82 13 -13a5 5 0 0 0 -5 -5" />
+                    <path d="M16 3a5 5 0 0 0 5 5" />
+                </svg>
+            </div>
+            <div class="corona__img">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M8 3h-2l-3 9" />
+                    <path d="M16 3h2l3 9" />
+                    <path
+                        d="M3 12v7a1 1 0 0 0 1 1h4.586a1 1 0 0 0 .707 -.293l2 -2a1 1 0 0 1 1.414 0l2 2a1 1 0 0 0 .707 .293h4.586a1 1 0 0 0 1 -1v-7h-18z" />
+                    <path d="M7 16h1" />
+                    <path d="M16 16h1" />
+                </svg>
+            </div>
+            <div class="corona__img">
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M8 18l2 -13l2 -2l2 2l2 13" />
+                    <path d="M5 21v-3h14v3" />
+                    <path d="M3 21l18 0" />
+                </svg>
+            </div>
+            <div class="corona__img">
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M5 21h14" />
+                    <path d="M6 18h2" />
+                    <path d="M7 18v3" />
+                    <path d="M9 11l3 3l6 -6l-3 -3z" />
+                    <path d="M10.5 12.5l-1.5 1.5" />
+                    <path d="M17 3l3 3" />
+                    <path d="M12 21a6 6 0 0 0 3.715 -10.712" />
+                </svg>
+            </div>
+            <div class="corona__img">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                    <path d="M3.6 9h16.8" />
+                    <path d="M3.6 15h16.8" />
+                    <path d="M11.5 3a17 17 0 0 0 0 18" />
+                    <path d="M12.5 3a17 17 0 0 1 0 18" />
+                </svg>
+            </div>
+        </div>
         <h2>Toca para ¡Girar!</h2>
         <Roulette base-display base-size="100" base-display-shadow base-display-indicator base-background="white"
             class="ruleta" ref="wheel" size="350" display-shadow indicator-position="top" display-indicator display-border
@@ -189,11 +268,32 @@ const launchWheel = () => {
     background-position: center;
 }
 
+.coronas__container {
+    max-width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    background-color: gray;
+    padding: 3rem;
+    border-radius: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+}
+
+.corona__img svg {
+    max-width: 6rem;
+    max-height: 6rem;
+    stroke: lightgray;
+    width: 100%;
+    height: 100%;
+    max-width: 6rem;
+}
+
 .ruleta {
     margin-left: auto;
     /* Establece el margen izquierdo a auto */
     margin-right: auto;
     /* Establece el margen derecho a auto */
     margin-bottom: 10rem;
-}
-</style>
+}</style>
