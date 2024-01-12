@@ -63,7 +63,6 @@ export const useRuletaStore = defineStore('ruleta', () => {
     if (newValue === 0) {
       mostrarPopupFinVidas.value = true
       vidas.value = 2
-      puntos.value = 0
       coronaContador.value = 0
       progressBar.value = 0
       document.body.classList.add('no-scroll')

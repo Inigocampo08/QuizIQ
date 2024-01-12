@@ -9,12 +9,14 @@ const volver = () => {
     if (confirm("¿Seguro que quieres volver?")) {
         router.push({ name: 'home' });
         document.body.classList.remove('no-scroll')
-
+        ruletaStore.puntos = 0
     }
 };
 const seguir = () => {
     router.push({ name: 'access' })
     document.body.classList.remove('no-scroll')
+    ruletaStore.puntos = 0
+
 
 
 };
