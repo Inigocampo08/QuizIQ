@@ -62,7 +62,7 @@ function validarRespuesta(opcion) {
             // Si la respuesta es correcta
             error.value = false;
             errorMsg.value = '¡Respuesta correcta!';
-            
+
             // Cálculo de puntos basado en el tiempo restante y actualización del store
             const tiempoRestante = contadorStore.segundosRestantes;
             ruletaStore.puntos += tiempoRestante * 10;
@@ -81,7 +81,7 @@ function validarRespuesta(opcion) {
             ruletaStore.coronaContador++;
             ruletaStore.progressBar += 33.33
         }
-       
+
 
     } else {
         // Si la respuesta es incorrecta
@@ -99,12 +99,13 @@ function validarRespuesta(opcion) {
     }
     ruletaStore.getPreguntaAleatoria.seleccionado.isCorona = false;
 
-    setTimeout(() => {
-        if (ruletaStore.mostrarPopupFinVidas || ruletaStore.coronaContador === 3) {
-            return
-        }
+    if (ruletaStore.coronaContador === 3) {
         router.push({ name: 'ruleta-demo' })
-    }, 3000);
+        return
+    }
+    setTimeout(() => {
+        router.push({ name: 'ruleta-demo' })
+    }, 1500);
 }
 </script>
 <template>

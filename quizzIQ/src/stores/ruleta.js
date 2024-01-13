@@ -75,6 +75,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
       vidas.value = 2
       coronaContador.value = 0
       progressBar.value = 0
+      selectedCorona.value = false
       document.body.classList.add('no-scroll')
     }
   })

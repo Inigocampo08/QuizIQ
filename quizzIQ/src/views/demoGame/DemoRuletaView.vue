@@ -5,12 +5,7 @@ import ProgressBar from '@/components/ProgressBar.vue';
 import CoronaPopup from '@/components/CoronaPopup.vue';
 import { Roulette } from 'vue3-roulette';
 import { useRuletaStore } from '@/stores/ruleta';
-import arte from '@/assets/img/arte.svg';
-import deporte from '@/assets/img/deporte.svg';
-import ciencia from '@/assets/img/ciencia.svg';
-import entretenimiento from '@/assets/img/entretenimiento.svg';
-import geografia from '@/assets/img/geografia.svg';
-import historia from '@/assets/img/historia.svg';
+
 
 const ruletaStore = useRuletaStore();
 const wheel = ref(null);
@@ -51,9 +46,8 @@ const launchWheel = () => {
     <main class="center-container">
         <div class="coronas__container">
             <div class="corona__img">
-                <svg xmlns="http://www.w3.org/2000/svg" 
-                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round"
-                    stroke-linejoin="round">
+                <svg :style="ruletaStore.getPreguntaAleatoria.seleccionado.arte===true ? { 'stroke': '#e74c3c' } : { 'stroke': 'lightgray'} "  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M3 21v-4a4 4 0 1 1 4 4h-4" />
                     <path d="M21 3a16 16 0 0 0 -12.8 10.2" />
@@ -62,8 +56,7 @@ const launchWheel = () => {
                 </svg>
             </div>
             <div class="corona__img">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                     viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
+                <svg :style="ruletaStore.getPreguntaAleatoria.seleccionado.deportes===true ? { 'stroke': '#e67e22' } : { 'stroke': 'lightgray'}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
                     stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M15 9l-6 6" />
@@ -75,8 +68,8 @@ const launchWheel = () => {
                 </svg>
             </div>
             <div class="corona__img">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round"
-                    stroke-linejoin="round">
+                <svg :style="ruletaStore.getPreguntaAleatoria.seleccionado.entretenimiento===true ? { 'stroke': '#ff69b4' } : { 'stroke': 'lightgray'}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M8 3h-2l-3 9" />
                     <path d="M16 3h2l3 9" />
@@ -87,8 +80,8 @@ const launchWheel = () => {
                 </svg>
             </div>
             <div class="corona__img">
-                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round"
-                    stroke-linejoin="round">
+                <svg :style="ruletaStore.getPreguntaAleatoria.seleccionado.historia===true ? { 'stroke': '#f1c40f' } : { 'stroke': 'lightgray'}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M8 18l2 -13l2 -2l2 2l2 13" />
                     <path d="M5 21v-3h14v3" />
@@ -96,8 +89,8 @@ const launchWheel = () => {
                 </svg>
             </div>
             <div class="corona__img">
-                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round"
-                    stroke-linejoin="round">
+                <svg :style="ruletaStore.getPreguntaAleatoria.seleccionado.ciencia===true ? { 'stroke': '#2ecc71' } : { 'stroke': 'lightgray'}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M5 21h14" />
                     <path d="M6 18h2" />
@@ -109,9 +102,8 @@ const launchWheel = () => {
                 </svg>
             </div>
             <div class="corona__img">
-                <svg xmlns="http://www.w3.org/2000/svg" 
-                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round"
-                    stroke-linejoin="round">
+                <svg :style="ruletaStore.getPreguntaAleatoria.seleccionado.geografia===true ? { 'stroke': '#3498db' } : { 'stroke': 'lightgray'}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
                     <path d="M3.6 9h16.8" />
@@ -121,7 +113,6 @@ const launchWheel = () => {
                 </svg>
             </div>
         </div>
-        <h2>Toca para ¡Girar!</h2>
         <Roulette base-display base-size="100" base-display-shadow base-display-indicator base-background="white"
             class="ruleta" ref="wheel" size="350" display-shadow indicator-position="top" display-indicator display-border
             :items="ruletaStore.items" @click="launchWheel" @wheel-end="ruletaStore.wheelEndedCallback" />
@@ -261,7 +252,7 @@ const launchWheel = () => {
     /* Centra el contenido verticalmente */
     text-align: center;
     position: relative;
-    height: 90vh;
+    height: 100%;
     background-image: url('../../public/fondo-ruleta.svg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -284,7 +275,6 @@ const launchWheel = () => {
 .corona__img svg {
     max-width: 6rem;
     max-height: 6rem;
-    stroke: lightgray;
     width: 100%;
     height: 100%;
     max-width: 6rem;
@@ -295,5 +285,7 @@ const launchWheel = () => {
     /* Establece el margen izquierdo a auto */
     margin-right: auto;
     /* Establece el margen derecho a auto */
-    margin-bottom: 10rem;
-}</style>
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+}
+</style>
