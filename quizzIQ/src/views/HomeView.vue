@@ -1,5 +1,5 @@
 <script setup>
-import{onMounted} from 'vue';
+import { onMounted } from 'vue';
 import AdminHeader from '@/components/admin/Header.vue';
 import Notificacion from '@/components/Notificacion.vue';
 import Footer from '@/components/Footer.vue'
@@ -10,11 +10,23 @@ const accessStore = useAccessStore();
 const ruletaStore = useRuletaStore();
 
 onMounted(() => {
-     ruletaStore.mostrarPopupFinVidas = true
+    ruletaStore.mostrarPopupFinVidas = true
     ruletaStore.vidas = 2
     ruletaStore.puntos = 0
     ruletaStore.coronaContador = 0
     ruletaStore.progressBar = 0
+    Object.assign(ruletaStore.selectedCorona,
+        {
+            isCorona: false,
+            deportes: false,
+            arte: false,
+            ciencia: false,
+            entretenimiento: false,
+            historia: false,
+            geografia: false
+
+        }
+    )
 })
 </script>
  

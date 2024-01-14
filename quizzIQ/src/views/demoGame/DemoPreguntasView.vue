@@ -7,6 +7,7 @@ import { useContadorStore } from '@/stores/contador';
 import CoronaPopup from '@/components/CoronaPopup.vue';
 import Popup from '@/components/Popup.vue';
 import Contador from '@/components/Contador.vue';
+import { reauthenticateWithPhoneNumber } from 'firebase/auth';
 // Inicialización de Vue Router y stores
 const ruletaStore = useRuletaStore();
 const router = useRouter();
@@ -33,15 +34,22 @@ onMounted(() => {
 watchEffect(() => {
     if (contadorStore.segundosRestantes === 0) {
         // Si el tiempo se ha agotado
+        contadorStore.resetearContador();
         error.value = true;
         errorMsg.value = 'Se terminó el tiempo!';
         opcionesHabilitadas.value = false;
         ruletaStore.vidas--;
         ruletaStore.coronaContador = 0;
+        ruletaStore.progressBar = 0
+        ruletaStore.selectedCorona.isCorona = false;
         // Reinicio de la ruleta y el contador después de 3 segundos
         setTimeout(() => {
-            router.push({ name: 'ruleta-demo' })
-        }, 3000);
+            if (!ruletaStore.mostrarPopupFinVidas) {
+                router.push({ name: 'ruleta-demo' })
+            } else {
+                return
+            }
+        }, 1500);
     } else {
         // Si el tiempo no se ha agotado
         error.value = false;
@@ -62,50 +70,52 @@ function validarRespuesta(opcion) {
             // Si la respuesta es correcta
             error.value = false;
             errorMsg.value = '¡Respuesta correcta!';
-
             // Cálculo de puntos basado en el tiempo restante y actualización del store
             const tiempoRestante = contadorStore.segundosRestantes;
             ruletaStore.puntos += tiempoRestante * 10;
             ruletaStore.coronaContador++;
             ruletaStore.progressBar += 33.33
             ruletaStore.cambiarEstadoCategoria(ruletaStore.getPreguntaAleatoria.categoria)
+            setTimeout(() => {
+                router.push({ name: 'ruleta-demo' })
 
+            }, 1500);
         } else {
             // Si la respuesta es correcta
             error.value = false;
             errorMsg.value = '¡Respuesta correcta!';
-
             // Cálculo de puntos basado en el tiempo restante y actualización del store
             const tiempoRestante = contadorStore.segundosRestantes;
             ruletaStore.puntos += tiempoRestante * 10;
             ruletaStore.coronaContador++;
             ruletaStore.progressBar += 33.33
+            setTimeout(() => {
+                router.push({ name: 'ruleta-demo' })
+
+            }, 1500);
         }
-
-
     } else {
         // Si la respuesta es incorrecta
         error.value = true;
         errorMsg.value = '¡Respuesta incorrecta!';
-
-
         // Reducción del número de vidas en el store
         ruletaStore.vidas--;
         ruletaStore.coronaContador = 0;
         ruletaStore.progressBar = 0
-
-
-
+        setTimeout(() => {
+            if (!ruletaStore.mostrarPopupFinVidas) {
+                router.push({ name: 'ruleta-demo' })
+            } else {
+                return
+            }
+        }, 1500);
     }
-    ruletaStore.getPreguntaAleatoria.seleccionado.isCorona = false;
-
+    ruletaStore.selectedCorona.isCorona = false;
     if (ruletaStore.coronaContador === 3) {
         router.push({ name: 'ruleta-demo' })
-        return
+
     }
-    setTimeout(() => {
-        router.push({ name: 'ruleta-demo' })
-    }, 1500);
+
 }
 </script>
 <template>

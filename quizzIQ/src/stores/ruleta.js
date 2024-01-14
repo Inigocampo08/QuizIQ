@@ -21,11 +21,11 @@ export const useRuletaStore = defineStore('ruleta', () => {
 
   const selectedCorona = ref({
     isCorona: false,
-    deportes: false,
-    entretenimiento: false,
-    ciencia: false,
-    arte: false,
-    historia: false,
+    deportes: true,
+    entretenimiento: true,
+    ciencia: true,
+    arte: true,
+    historia: true,
     geografia: false
   })
   // Definición de ítems para la ruleta
@@ -75,7 +75,6 @@ export const useRuletaStore = defineStore('ruleta', () => {
       vidas.value = 2
       coronaContador.value = 0
       progressBar.value = 0
-      selectedCorona.value = false
       document.body.classList.add('no-scroll')
     }
   })
@@ -88,6 +87,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
       console.log(newValue)
     }
   })
+
 
   // Callback para cuando la rueda termina
   function wheelEndedCallback(item) {
@@ -147,8 +147,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
         preguntasAleatoria.value = preguntasJson.preguntas[indiceAleatorio]
         categoriaAleatoria.value = preguntasJson.categoria
         colorAleatoria.value = preguntasJson.color
-          selectedCorona.value.isCorona = true
- 
+        selectedCorona.value.isCorona = true
         closeCoronaPopup() // Cerrar el popup después de seleccionar una categoría
         router.push({ name: 'preguntas-demo' })
       })
@@ -201,6 +200,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
     mostrarPopupFinVidas,
     coronaContador,
     progressBar,
+    selectedCorona,
     wheelEndedCallback,
     selectCategory,
     cambiarEstadoCategoria
