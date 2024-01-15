@@ -30,7 +30,14 @@ export const useRuletaStore = defineStore('ruleta', () => {
   })
   // Definición de ítems para la ruleta
   const items = [
-    { id: 1, name: 'corona', htmlContent: 'Corona', textColor: 'white', background: '#9b59b6' },
+    {
+      id: 1,
+      name: 'corona',
+      htmlContent:
+        '<img class="categoria__ruleta--icon" src="/public/corona.png">',
+      textColor: 'white',
+      background: '#9b59b6'
+    },
     {
       id: 2,
       name: 'deportes',
