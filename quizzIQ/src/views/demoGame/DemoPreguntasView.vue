@@ -1,122 +1,24 @@
 <script setup>
-// Importaciones de Vue y otros módulos
-import { onMounted, ref, watchEffect } from 'vue';
-import { useRouter } from 'vue-router';
+import { onMounted } from 'vue'
+import { usePreguntasStore } from '@/stores/preguntas';
 import { useRuletaStore } from '@/stores/ruleta';
-import { useContadorStore } from '@/stores/contador';
-import CoronaPopup from '@/components/CoronaPopup.vue';
-import Popup from '@/components/Popup.vue';
+import { useContadorStore } from '@/stores/contador'
 import Contador from '@/components/Contador.vue';
-import { reauthenticateWithPhoneNumber } from 'firebase/auth';
-// Inicialización de Vue Router y stores
+import PopupFinVidas from '@/components/PopupFinVidas.vue';
+
 const ruletaStore = useRuletaStore();
-const router = useRouter();
-const contadorStore = useContadorStore();
+const preguntasStore = usePreguntasStore();
+const contadorStore = useContadorStore()
 
-// Variables reactivas
-const respuestaUsuario = ref(null);
-const opcionesHabilitadas = ref(true);
-
-// Variables para manejo de errores
-const error = ref();
-const errorMsg = ref('');
-
-
-// Lógica que se ejecuta después de que el componente se monta
 onMounted(() => {
-    // Inicialización de valores iniciales
-    opcionesHabilitadas.value = true;
-    ruletaStore.mostrarPopupFinVidas = false;
-    contadorStore.resetearContador();
-    contadorStore.iniciarContador();
-});
-
-watchEffect(() => {
-    if (contadorStore.segundosRestantes === 0) {
-        // Si el tiempo se ha agotado
-        contadorStore.resetearContador();
-        error.value = true;
-        errorMsg.value = 'Se terminó el tiempo!';
-        opcionesHabilitadas.value = false;
-        ruletaStore.vidas--;
-        ruletaStore.coronaContador = 0;
-        ruletaStore.progressBar = 0
-        ruletaStore.selectedCorona.isCorona = false;
-        // Reinicio de la ruleta y el contador después de 3 segundos
-        setTimeout(() => {
-            if (!ruletaStore.mostrarPopupFinVidas) {
-                router.push({ name: 'ruleta-demo' })
-            } else {
-                return
-            }
-        }, 1500);
-    } else {
-        // Si el tiempo no se ha agotado
-        error.value = false;
-        errorMsg.value = '';
-    }
-});
-
-
-function validarRespuesta(opcion) {
-    // Asignación de la respuesta del usuario y deshabilitación de opciones
-    respuestaUsuario.value = opcion;
-    opcionesHabilitadas.value = false;
-    contadorStore.detenerContador();
-
-    if (respuestaUsuario.value === ruletaStore.getPreguntaAleatoria.respuestaCorrecta) {
-        if (ruletaStore.getPreguntaAleatoria.seleccionado.isCorona) {
-            console.log('Corona');
-            // Si la respuesta es correcta
-            error.value = false;
-            errorMsg.value = '¡Respuesta correcta!';
-            // Cálculo de puntos basado en el tiempo restante y actualización del store
-            const tiempoRestante = contadorStore.segundosRestantes;
-            ruletaStore.puntos += tiempoRestante * 10;
-            ruletaStore.coronaContador++;
-            ruletaStore.progressBar += 33.33
-            ruletaStore.cambiarEstadoCategoria(ruletaStore.getPreguntaAleatoria.categoria)
-            setTimeout(() => {
-                router.push({ name: 'ruleta-demo' })
-
-            }, 1500);
-        } else {
-            // Si la respuesta es correcta
-            error.value = false;
-            errorMsg.value = '¡Respuesta correcta!';
-            // Cálculo de puntos basado en el tiempo restante y actualización del store
-            const tiempoRestante = contadorStore.segundosRestantes;
-            ruletaStore.puntos += tiempoRestante * 10;
-            ruletaStore.coronaContador++;
-            ruletaStore.progressBar += 33.33
-            setTimeout(() => {
-                router.push({ name: 'ruleta-demo' })
-
-            }, 1500);
-        }
-    } else {
-        // Si la respuesta es incorrecta
-        error.value = true;
-        errorMsg.value = '¡Respuesta incorrecta!';
-        // Reducción del número de vidas en el store
-        ruletaStore.vidas--;
-        ruletaStore.coronaContador = 0;
-        ruletaStore.progressBar = 0
-        setTimeout(() => {
-            if (!ruletaStore.mostrarPopupFinVidas) {
-                router.push({ name: 'ruleta-demo' })
-            } else {
-                return
-            }
-        }, 1500);
-    }
-    ruletaStore.selectedCorona.isCorona = false;
-    if (ruletaStore.coronaContador === 3) {
-        router.push({ name: 'ruleta-demo' })
-
-    }
-
-}
+    preguntasStore.opcionesHabilitadas = true
+    preguntasStore.respuestaUsuario = null
+    preguntasStore.error = null
+    preguntasStore.errorMsg = ''
+    contadorStore.resetearContador()
+    contadorStore.iniciarContador()
+    ruletaStore.mostrarPopupFinVidas = false
+})
 </script>
 <template>
     <header :style="{ 'background-color': ruletaStore.getPreguntaAleatoria.color }" class="header">
@@ -129,25 +31,24 @@ function validarRespuesta(opcion) {
             </div>
         </div>
     </header>
-    <Popup v-if="ruletaStore.mostrarPopupFinVidas" />
-    <CoronaPopup v-if="ruletaStore.showCoronaPopup" />
+    <PopupFinVidas v-if="ruletaStore.mostrarPopupFinVidas" />
 
     <main>
         <div class="contenedor">
             <div class="preguntas">
                 <p>{{ ruletaStore.getPreguntaAleatoria.pregunta }}</p>
-                <span v-if="error === true" class="incorrecto">{{ errorMsg }}</span>
-                <span v-else-if="error === false" class="correcto">{{ errorMsg }}</span>
-                <span v-else>{{ errorMsg }}</span>
+                <span v-if="preguntasStore.error === true" class="incorrecto">{{ preguntasStore.errorMsg }}</span>
+                <span v-else-if="preguntasStore.error === false" class="correcto">{{ preguntasStore.errorMsg }}</span>
+                <span v-else>{{ preguntasStore.errorMsg }}</span>
             </div>
             <div class="respuestas__container">
                 <ul class="respuestas__list">
                     <div :key="opcion" :class="{
-                        'respuesta-incorrecta': error && opcion === respuestaUsuario,
-                        'respuesta-correcta': !error && opcion === respuestaUsuario
-                    }" :style="opcionesHabilitadas ? {} : { 'pointer-events': 'none' }"
+                        'respuesta-incorrecta': preguntasStore.error && opcion === preguntasStore.respuestaUsuario,
+                        'respuesta-correcta': !preguntasStore.error && opcion === preguntasStore.respuestaUsuario
+                    }" :style="preguntasStore.opcionesHabilitadas ? {} : { 'pointer-events': 'none' }"
                         v-for="opcion in ruletaStore.getPreguntaAleatoria.opciones" class="respuestas"
-                        @click="validarRespuesta(opcion)">
+                        @click="preguntasStore.validarRespuesta(opcion)">
                         <li> {{ opcion }}</li>
                     </div>
                 </ul>

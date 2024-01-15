@@ -3,7 +3,6 @@ import { ref, computed, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { defineStore } from 'pinia'
 import axios from 'axios'
-
 // Definición del store 'ruleta' con Pinia
 export const useRuletaStore = defineStore('ruleta', () => {
   const router = useRouter()
@@ -12,7 +11,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
   const categoria = ref('')
   const categoriaAleatoria = ref('')
   const colorAleatoria = ref('')
-  const vidas = ref(2)
+  const vidas = ref(3)
   const puntos = ref(0)
   const showCoronaPopup = ref(false)
   const mostrarPopupFinVidas = ref(false)
@@ -21,11 +20,11 @@ export const useRuletaStore = defineStore('ruleta', () => {
 
   const selectedCorona = ref({
     isCorona: false,
-    deportes: true,
-    entretenimiento: true,
-    ciencia: true,
-    arte: true,
-    historia: true,
+    deportes: false,
+    entretenimiento: false,
+    ciencia: false,
+    arte: false,
+    historia: false,
     geografia: false
   })
   // Definición de ítems para la ruleta
@@ -72,9 +71,20 @@ export const useRuletaStore = defineStore('ruleta', () => {
   watch(vidas, (newValue) => {
     if (newValue === 0) {
       mostrarPopupFinVidas.value = true
-      vidas.value = 2
+      vidas.value = 3
       coronaContador.value = 0
       progressBar.value = 0
+      puntos.value = 0
+      progressBar.value = 0
+      Object.assign(selectedCorona.value, {
+        isCorona: false,
+        deportes: false,
+        arte: false,
+        ciencia: false,
+        entretenimiento: false,
+        historia: false,
+        geografia: false
+      })
       document.body.classList.add('no-scroll')
     }
   })
@@ -86,8 +96,8 @@ export const useRuletaStore = defineStore('ruleta', () => {
     } else {
       console.log(newValue)
     }
+    progressBar.value = 33.33 * newValue
   })
-
 
   // Callback para cuando la rueda termina
   function wheelEndedCallback(item) {
@@ -125,6 +135,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
         console.error('Error al obtener los datos:', error)
       })
   }
+
   function selectCategory(category) {
     categoria.value = category
     console.log(`Categoría seleccionada: ${categoria.value}`)
@@ -170,7 +181,6 @@ export const useRuletaStore = defineStore('ruleta', () => {
     showCoronaPopup.value = true
     document.body.classList.add('no-scroll') // Añadir clase para evitar desplazamiento
     coronaContador.value = -1
-    progressBar.value = -33.33
   }
   // Función para cerrar el popup
   function closeCoronaPopup() {
