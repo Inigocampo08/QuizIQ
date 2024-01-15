@@ -9,26 +9,20 @@ const volver = () => {
     document.body.classList.remove('no-scroll')
     router.push({ name: 'home' });
 };
-const seguir = () => {
-    document.body.classList.remove('no-scroll')
-    router.push({ name: 'access' })
-};
 
 </script>
 <template>
-    <div v-if="ruletaStore.mostrarPopupFinVidas" class="popup">
+    <div v-if="ruletaStore.mostrarPopupGanador" class="popup">
         <div class="popup--inner">
             <div class="popup--inner__title">
-                <h2>Perdiste <span>Te quedaste sin vidas</span></h2>
+                <h2>¡Has ganado! <span>Conseguiste todas las Coronas</span></h2>
             </div>
             <div class="popup--inner__subtitle">
                 <h3>Tus puntos fueron: <span>{{ ruletaStore.puntos }}</span></h3>
             </div>
 
-
             <div class="btn--container">
-                <button @click="volver" class="btn--primary">Volver</button>
-                <button @click="seguir" class="btn--primary">Seguir jugando</button>
+                <button @click="volver" class="btn--primary">Volver al menu</button>
             </div>
         </div>
 

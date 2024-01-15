@@ -15,6 +15,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
   const puntos = ref(0)
   const showCoronaPopup = ref(false)
   const mostrarPopupFinVidas = ref(false)
+  const mostrarPopupGanador = ref(false)
   const coronaContador = ref(0)
   const progressBar = ref(0)
 
@@ -208,6 +209,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
     puntos,
     showCoronaPopup,
     mostrarPopupFinVidas,
+    mostrarPopupGanador,
     coronaContador,
     progressBar,
     selectedCorona,

@@ -42,7 +42,7 @@ const launchWheel = () => {
 
     </header>
 
-    <CoronaPopup v-if="ruletaStore.showCoronaPopup"></CoronaPopup>
+    <CoronaPopup></CoronaPopup>
     <main class="center-container">
         <div class="coronas__container">
             <div class="corona__img">
