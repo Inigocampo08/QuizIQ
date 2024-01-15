@@ -7,6 +7,7 @@ const router = useRouter();
 
 const volver = () => {
     document.body.classList.remove('no-scroll')
+    ruletaStore.mostrarPopupGanador = false
     router.push({ name: 'home' });
 };
 

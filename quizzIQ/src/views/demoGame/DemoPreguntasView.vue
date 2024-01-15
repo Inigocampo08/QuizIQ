@@ -4,8 +4,6 @@ import { usePreguntasStore } from '@/stores/preguntas';
 import { useRuletaStore } from '@/stores/ruleta';
 import { useContadorStore } from '@/stores/contador'
 import Contador from '@/components/Contador.vue';
-import PopupFinVidas from '@/components/PopupFinVidas.vue';
-import PopupGanador from '../../components/PopupGanador.vue';
 
 const ruletaStore = useRuletaStore();
 const preguntasStore = usePreguntasStore();
@@ -32,8 +30,6 @@ onMounted(() => {
             </div>
         </div>
     </header>
-    <PopupFinVidas  />
-    <PopupGanador />
     <main>
         <div class="contenedor">
             <div class="preguntas">

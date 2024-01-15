@@ -60,9 +60,12 @@ export const usePreguntasStore = defineStore('preguntas', () => {
         console.log('Corona')
         handleRespuestaCorrecta()
         ruletaStore.cambiarEstadoCategoria(ruletaStore.getPreguntaAleatoria.categoria)
-        setTimeout(() => {
+        if (!ruletaStore.mostrarPopupGanador) {
+           setTimeout(() => {
           router.push({ name: 'ruleta-demo' })
         }, 1500)
+        }
+       
       } else {
         handleRespuestaCorrecta()
         setTimeout(() => {

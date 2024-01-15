@@ -21,11 +21,11 @@ export const useRuletaStore = defineStore('ruleta', () => {
 
   const selectedCorona = ref({
     isCorona: false,
-    deportes: false,
-    entretenimiento: false,
-    ciencia: false,
-    arte: false,
-    historia: false,
+    deportes: true,
+    entretenimiento: true,
+    ciencia: true,
+    arte: true,
+    historia: true,
     geografia: false
   })
   // Definición de ítems para la ruleta
@@ -34,7 +34,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
       id: 1,
       name: 'corona',
       htmlContent:
-        '<img class="categoria__ruleta--icon" src="/public/corona.png">',
+        '<img class="categoria__ruleta--icon" src="/public/corona.png" alt="Corona"/>',
       textColor: 'white',
       background: '#9b59b6'
     },
@@ -79,21 +79,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
   watch(vidas, (newValue) => {
     if (newValue === 0) {
       mostrarPopupFinVidas.value = true
-      vidas.value = 3
-      coronaContador.value = 0
-      progressBar.value = 0
-      puntos.value = 0
-      progressBar.value = 0
-      Object.assign(selectedCorona.value, {
-        isCorona: false,
-        deportes: false,
-        arte: false,
-        ciencia: false,
-        entretenimiento: false,
-        historia: false,
-        geografia: false
-      })
-      document.body.classList.add('no-scroll')
+      resetearValoresPartida()
     }
   })
 
@@ -105,6 +91,14 @@ export const useRuletaStore = defineStore('ruleta', () => {
       console.log(newValue)
     }
     progressBar.value = 33.33 * newValue
+  })
+
+  watch(selectedCorona.value, (newValue) => {
+    if (newValue.arte && newValue.ciencia && newValue.deportes && newValue.entretenimiento && newValue.geografia && newValue.historia) {
+      mostrarPopupGanador.value = true
+      resetearValoresPartida()
+    };
+    
   })
 
   // Callback para cuando la rueda termina
@@ -195,6 +189,23 @@ export const useRuletaStore = defineStore('ruleta', () => {
     showCoronaPopup.value = false
     document.body.classList.remove('no-scroll') // Eliminar clase para permitir desplazamiento
   }
+  function resetearValoresPartida() {
+    vidas.value = 3
+    coronaContador.value = 0
+    progressBar.value = 0
+    puntos.value = 0
+    progressBar.value = 0
+    Object.assign(selectedCorona.value, {
+      isCorona: false,
+      deportes: false,
+      arte: false,
+      ciencia: false,
+      entretenimiento: false,
+      historia: false,
+      geografia: false
+    })
+    document.body.classList.add('no-scroll')
+  }
   // Propiedad computada para obtener pregunta aleatoria
   const getPreguntaAleatoria = computed(() => {
     return {
@@ -222,6 +233,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
     selectedCorona,
     wheelEndedCallback,
     selectCategory,
-    cambiarEstadoCategoria
+    cambiarEstadoCategoria,
+    resetearValoresPartida
   }
 })

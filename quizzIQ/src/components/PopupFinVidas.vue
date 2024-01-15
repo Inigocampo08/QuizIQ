@@ -7,10 +7,13 @@ const router = useRouter();
 
 const volver = () => {
     document.body.classList.remove('no-scroll')
+    ruletaStore.mostrarPopupFinVidas = false
+
     router.push({ name: 'home' });
 };
 const seguir = () => {
     document.body.classList.remove('no-scroll')
+    ruletaStore.mostrarPopupFinVidas = false
     router.push({ name: 'access' })
 };
 
