@@ -9,6 +9,7 @@ const formData = ref({
     email: '',
     password: '',
     password2: '',
+    username: '',
 });
 
 const submit = () => {
@@ -30,6 +31,9 @@ const submit = () => {
 
         </Alerta>
 
+        <div class="input-container">
+            <input v-model="formData.username" type="username" name="username" id="username" placeholder="Nombre de Usuario">
+        </div>
         <div class="input-container">
             <input v-model="formData.email" type="email" name="email" id="email" placeholder="Correo Electronico">
         </div>

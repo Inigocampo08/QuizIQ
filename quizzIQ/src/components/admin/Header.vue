@@ -7,7 +7,9 @@ const AccessStore = useAccessStore();
 <template>
     <header>
         <div class="contenedor header__container">
-            <img class="logo" src="/public/logo.jpg" alt="logo QuizIQ">
+            <RouterLink :to="{ name: 'home' }">
+                <img class="logo" src="/public/logo.jpg" alt="logo QuizIQ">
+            </RouterLink>
             <nav>
                 <RouterLink :to="{ name: 'home' }">Inicio</RouterLink>
                 <RouterLink :to="{ name: 'home' }">Perfil</RouterLink>
@@ -50,4 +52,5 @@ a:hover {
     padding: 2rem 3rem;
     border-radius: 2rem;
 
-}</style>
+}
+</style>

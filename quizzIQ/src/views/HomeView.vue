@@ -17,7 +17,9 @@ onMounted(() => {
     <AdminHeader v-if="accessStore.isAuth" />
     <header v-else>
         <div class="contenedor header__container">
-            <img class="logo" src="/public/logo.jpg" alt="logo QuizIQ">
+            <RouterLink :to="{ name: 'home' }">
+                <img class="logo" src="/public/logo.jpg" alt="logo QuizIQ">
+            </RouterLink>
             <nav>
                 <RouterLink :to="{ name: 'access' }"> <button class=" btn--secondary">Iniciar sesion</button></RouterLink>
             </nav>
@@ -26,11 +28,11 @@ onMounted(() => {
 
     <Notificacion />
     <main>
-        <div class="contenedor">
+        <div v-if="!accessStore.isAuth" class="contenedor">
             <RouterLink :to="{ name: 'ruleta-demo' }" class="btn--primary btn__play">Juega a nuestra demo</RouterLink>
-
         </div>
-    </main>
+        <div v-else> Hola {{ accessStore.logedUser.username }} has iniciado sesion</div>
+    </main> 
     <Footer />
 </template>
 <style scoped>

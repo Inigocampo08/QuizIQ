@@ -2,7 +2,8 @@ import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { defineStore } from 'pinia'
 
-import { useFirebaseAuth } from 'vuefire'
+import { useFirebaseAuth, useFirestore, useCollection /* UseDocument */ } from 'vuefire'
+import { collection, doc, setDoc, getDoc, query, where } from 'firebase/firestore'
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -14,8 +15,9 @@ import { useNotificacionStore } from './notificacion'
 
 export const useAccessStore = defineStore('access', () => {
   //Variables
-  const router = useRouter()
+  const db = useFirestore()
 
+  const router = useRouter()
   const notificacionStore = useNotificacionStore()
 
   const logedUser = ref(null)
@@ -46,7 +48,7 @@ export const useAccessStore = defineStore('access', () => {
   onMounted(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        logedUser.value = user
+        obtainLogedUser(user)
       }
     })
   })
@@ -55,8 +57,10 @@ export const useAccessStore = defineStore('access', () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user
-        logedUser.value = user
         console.log(user.uid)
+
+        obtainLogedUser(user)
+
         router.push({ name: 'home' })
         //Notificaciones Login
         notificacionStore.notificacion = 'Bienvenido'
@@ -86,9 +90,18 @@ export const useAccessStore = defineStore('access', () => {
       })
   }
 
-  function validateRegister({ email, password, password2 }) {
+  function validateRegister({ email, password, password2, username }) {
     const passwordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&@#()=¡¿*^+,-./\\])[A-Za-z\d@$!%*?&@#()=¡¿*^+,-./\\]{8,}$/
+    const usernameRegex = /^[a-zA-Z0-9_-]{3,16}$/
+    if (!usernameRegex.test(username)) {
+      errorMsg.value =
+        'El nombre de usuario debe contener solo letras, números, guiones bajos (_) o guiones (-) y tener entre 3 y 16 caracteres'
+      setTimeout(() => {
+        errorMsg.value = ''
+      }, 3000)
+      return
+    }
     if (password !== password2) {
       errorMsg.value = 'Las contraseñas no coinciden'
       setTimeout(() => {
@@ -104,20 +117,27 @@ export const useAccessStore = defineStore('access', () => {
       }, 3000)
       return
     }
-    register(email, password)
+
+    register(username, email, password)
   }
 
-  function register(email, password) {
+  function register(username, email, password) {
     // Asegúrate de que 'auth' y 'errorCodes' estén correctamente definidos y accesibles aquí
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user
-        console.log(user.uid)
-        router.push({ name: 'home' })
-        logedUser.value = user
+        createUser(user, username)
+        // Combina los datos relevantes y asígnalos a 'logedUser'
+        logedUser.value = {
+          uid: user.uid,
+          email: user.email,
+          username: username
+          // Puedes agregar más campos si es necesario
+        }
 
+        router.push({ name: 'home' })
         //Notificaciones Register
-        notificacionStore.notificacion = 'Bienvenido '
+        notificacionStore.notificacion = `Bienvenido ${username} `
         notificacionStore.texto = 'Tu cuenta ha sido creada correctamente'
         notificacionStore.show = true
       })
@@ -127,6 +147,22 @@ export const useAccessStore = defineStore('access', () => {
           errorMsg.value = ''
         }, 3000)
       })
+  }
+
+  async function createUser({ email, uid }, username) {
+    await setDoc(doc(db, 'users', email), {
+      uid: uid,
+      username: username,
+      puntos: 0
+    })
+  }
+  async function obtainLogedUser(u) {
+    const usuario = await getDoc(doc(db, 'users', u.email))
+    logedUser.value = {
+      uid: u.uid,
+      email: u.email,
+      username: usuario.data().username
+    }
   }
 
   const hasError = computed(() => {

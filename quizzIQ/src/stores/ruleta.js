@@ -21,11 +21,11 @@ export const useRuletaStore = defineStore('ruleta', () => {
 
   const selectedCorona = ref({
     isCorona: false,
-    deportes: true,
-    entretenimiento: true,
-    ciencia: true,
-    arte: true,
-    historia: true,
+    deportes: false,
+    entretenimiento: false,
+    ciencia: false,
+    arte: false,
+    historia: false,
     geografia: false
   })
   // Definición de ítems para la ruleta
