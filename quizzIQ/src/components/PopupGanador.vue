@@ -6,9 +6,10 @@ const ruletaStore = useRuletaStore();
 const router = useRouter();
 
 const volver = () => {
-    document.body.classList.remove('no-scroll')
     ruletaStore.mostrarPopupGanador = false
+    ruletaStore.resetearValoresPartida()
     router.push({ name: 'home' });
+    document.body.classList.remove('no-scroll')
 };
 
 </script>

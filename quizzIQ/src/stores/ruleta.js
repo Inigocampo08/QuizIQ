@@ -3,9 +3,17 @@ import { ref, computed, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { defineStore } from 'pinia'
 import axios from 'axios'
+
+import { useFirestore } from 'vuefire'
+import { doc, increment, updateDoc } from 'firebase/firestore'
+
+import { useAccessStore } from '@/stores/access'
 // Definición del store 'ruleta' con Pinia
 export const useRuletaStore = defineStore('ruleta', () => {
+  const db = useFirestore()
+
   const router = useRouter()
+  const accessStore = useAccessStore()
   // Definición de referencias reactivas
   const preguntasAleatoria = ref({})
   const categoria = ref('')
@@ -33,8 +41,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
     {
       id: 1,
       name: 'corona',
-      htmlContent:
-        '<img class="categoria__ruleta--icon" src="/public/corona.png" alt="Corona"/>',
+      htmlContent: '<img class="categoria__ruleta--icon" src="/public/corona.png" alt="Corona"/>',
       textColor: 'white',
       background: '#9b59b6'
     },
@@ -79,7 +86,12 @@ export const useRuletaStore = defineStore('ruleta', () => {
   watch(vidas, (newValue) => {
     if (newValue === 0) {
       mostrarPopupFinVidas.value = true
-      resetearValoresPartida()
+    document.body.classList.add('no-scroll')
+
+      if (accessStore.isAuth) {
+        actualizarPuntos(accessStore.logedUser)
+      }
+
     }
   })
 
@@ -94,11 +106,20 @@ export const useRuletaStore = defineStore('ruleta', () => {
   })
 
   watch(selectedCorona.value, (newValue) => {
-    if (newValue.arte && newValue.ciencia && newValue.deportes && newValue.entretenimiento && newValue.geografia && newValue.historia) {
+    if (
+      newValue.arte &&
+      newValue.ciencia &&
+      newValue.deportes &&
+      newValue.entretenimiento &&
+      newValue.geografia &&
+      newValue.historia
+    ) {
+    document.body.classList.add('no-scroll')
       mostrarPopupGanador.value = true
-      resetearValoresPartida()
-    };
-    
+      if (accessStore.isAuth) {
+        actualizarPuntos(accessStore.logedUser)
+      }
+    }
   })
 
   // Callback para cuando la rueda termina
@@ -204,7 +225,12 @@ export const useRuletaStore = defineStore('ruleta', () => {
       historia: false,
       geografia: false
     })
-    document.body.classList.add('no-scroll')
+  }
+
+  async function actualizarPuntos(u) {
+    await updateDoc(doc(db, 'users', u.email), {
+      puntos: increment(puntos.value)
+    })
   }
   // Propiedad computada para obtener pregunta aleatoria
   const getPreguntaAleatoria = computed(() => {

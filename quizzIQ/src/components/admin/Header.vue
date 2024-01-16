@@ -11,9 +11,9 @@ const AccessStore = useAccessStore();
                 <img class="logo" src="/public/logo.jpg" alt="logo QuizIQ">
             </RouterLink>
             <nav>
-                <RouterLink :to="{ name: 'home' }">Inicio</RouterLink>
-                <RouterLink :to="{ name: 'home' }">Perfil</RouterLink>
-                <RouterLink :to="{ name: 'home' }">Ajustes</RouterLink>
+                <RouterLink class="active" :to="{ name: 'home' }">Inicio</RouterLink>
+                <RouterLink class="active" :to="{ name: 'home' }">Perfil</RouterLink>
+                <RouterLink class="active" :to="{ name: 'home' }">Ajustes</RouterLink>
                 <button @click="AccessStore.logout()" class=" btn--primary">Cerrar Sesion</button>
             </nav>
         </div>
@@ -39,14 +39,14 @@ nav {
     align-items: center;
 }
 
-a {
+.active {
     text-transform: uppercase;
     color: var(--color2);
     transition: all 500ms cubic-bezier(0.23, 1, 0.32, 1);
 
 }
 
-a:hover {
+.active:hover {
     color: var(--blanco);
     background-color: var(--color2-hover);
     padding: 2rem 3rem;

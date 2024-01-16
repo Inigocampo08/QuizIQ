@@ -28,10 +28,9 @@ onMounted(() => {
 
     <Notificacion />
     <main>
-        <div v-if="!accessStore.isAuth" class="contenedor">
+        <div  class="contenedor">
             <RouterLink :to="{ name: 'ruleta-demo' }" class="btn--primary btn__play">Juega a nuestra demo</RouterLink>
         </div>
-        <div v-else> Hola {{ accessStore.logedUser.username }} has iniciado sesion</div>
     </main> 
     <Footer />
 </template>

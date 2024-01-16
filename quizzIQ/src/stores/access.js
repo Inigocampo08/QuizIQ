@@ -2,8 +2,8 @@ import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { defineStore } from 'pinia'
 
-import { useFirebaseAuth, useFirestore, useCollection /* UseDocument */ } from 'vuefire'
-import { collection, doc, setDoc, getDoc, query, where } from 'firebase/firestore'
+import { useFirebaseAuth, useFirestore } from 'vuefire'
+import { doc, setDoc, collection, query, where, getDoc, getDocs } from 'firebase/firestore'
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -57,15 +57,9 @@ export const useAccessStore = defineStore('access', () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user
-        console.log(user.uid)
 
         obtainLogedUser(user)
-
         router.push({ name: 'home' })
-        //Notificaciones Login
-        notificacionStore.notificacion = 'Bienvenido'
-        notificacionStore.texto = 'Has iniciado sesión'
-        notificacionStore.show = true
       })
       .catch((error) => {
         errorMsg.value = errorCodes[error.code]
@@ -90,10 +84,22 @@ export const useAccessStore = defineStore('access', () => {
       })
   }
 
-  function validateRegister({ email, password, password2, username }) {
+  async function validateRegister({ email, password, password2, username }) {
     const passwordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&@#()=¡¿*^+,-./\\])[A-Za-z\d@$!%*?&@#()=¡¿*^+,-./\\]{8,}$/
     const usernameRegex = /^[a-zA-Z0-9_-]{3,16}$/
+
+    // Verifica si el nombre de usuario ya existe
+    const usernameAlreadyExists = await usernameExist(username)
+
+    if (usernameAlreadyExists) {
+      errorMsg.value = 'El nombre de usuario ya existe. Por favor, elija otro nombre de usuario'
+      setTimeout(() => {
+        errorMsg.value = ''
+      }, 3000)
+      return
+    }
+
     if (!usernameRegex.test(username)) {
       errorMsg.value =
         'El nombre de usuario debe contener solo letras, números, guiones bajos (_) o guiones (-) y tener entre 3 y 16 caracteres'
@@ -162,6 +168,30 @@ export const useAccessStore = defineStore('access', () => {
       uid: u.uid,
       email: u.email,
       username: usuario.data().username
+    }
+    //Notificaciones Login
+    notificacionStore.notificacion = `Bienvenido ${logedUser.value.username} `
+    notificacionStore.texto = 'Has iniciado sesión'
+    notificacionStore.show = true
+  }
+
+  async function usernameExist(username) {
+    try {
+      const q = query(collection(db, 'users'), where('username', '==', username))
+      const snapshot = await getDocs(q)
+      if (snapshot.docs.length > 0) {
+        errorMsg.value = 'El nombre de usuario ya existe. Por favor, elija otro nombre de usuario'
+        console.log(errorMsg.value)
+        setTimeout(() => {
+          errorMsg.value = ''
+        }, 3000)
+        return true // Indica que el nombre de usuario ya existe
+      }
+      return false // Indica que el nombre de usuario está disponible
+    } catch (error) {
+      console.error('Error al verificar la existencia del nombre de usuario:', error)
+      // Puedes manejar el error de alguna manera (mostrar un mensaje, log, etc.)
+      return false // Indica que ocurrió un error, pero el nombre de usuario se considera disponible
     }
   }
 
