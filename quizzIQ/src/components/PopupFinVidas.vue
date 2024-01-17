@@ -2,10 +2,11 @@
 import { useRouter } from 'vue-router';
 import { useRuletaStore } from '@/stores/ruleta';
 import { usePartidaStore } from '@/stores/partida'
+import { useAccessStore } from '@/stores/access';
 
 const ruletaStore = useRuletaStore();
 const partidaStore = usePartidaStore()
-
+const accesStore = useAccessStore()
 const router = useRouter();
 
 const volver = () => {
@@ -35,7 +36,7 @@ const seguir = () => {
 
             <div class="btn--container">
                 <button @click="volver" class="btn--primary">Volver</button>
-                <button @click="seguir" class="btn--primary">Seguir jugando</button>
+                <button v-if="accesStore.isAuth" @click="seguir" class="btn--primary">Seguir jugando</button>
             </div>
         </div>
 

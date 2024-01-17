@@ -36,7 +36,7 @@ const accessStore = useAccessStore();
                     <RouterLink :to="{ name: 'ruleta-demo' }" class="btn--secondary btn">Perfil</RouterLink>
                     <RouterLink :to="{ name: 'ruleta-demo' }" class="btn--secondary btn">Ajustes</RouterLink>
                 </div>
-            <div v-else class="contenedor">
+            <div v-else class="button__container contenedor">
                 <RouterLink :to="{ name: 'ruleta-demo' }" class="btn--primary btn">Juega a nuestra demo</RouterLink>
             </div>
 
@@ -76,19 +76,21 @@ main {
     text-align: center;
      position: absolute;
      min-width: 20%;
-     max-width: 20rem;
+     max-width: 60rem;
     top: 45vh;
     left: 50vw;
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 2rem;
 }
 .btn {
-   width: 100%;
+   width: 90%;
 }
+
 .btn:hover {
-    padding: 6rem;
+    width: 100%;
     font-size: 3rem;
 }
 
