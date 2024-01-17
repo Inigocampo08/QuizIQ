@@ -1,15 +1,15 @@
 <!-- ProgressBar.vue -->
 <script setup>
-import { useRuletaStore } from '@/stores/ruleta'
+import { usePartidaStore } from '@/stores/partida'
 
-const ruletaStore = useRuletaStore()
+const partidaStore = usePartidaStore()
 
 
 </script>
 
 <template>
     <div class="progress-bar-container">
-        <div class="progress" :style="{ width: `${ruletaStore.progressBar}%` }"></div>
+        <div class="progress" :style="{ width: `${partidaStore.partidaData.progressBar}%` }"></div>
         <div class="divider" style="left: 33.3333%;"></div>
         <div class="divider" style="left: 66.6666%;"></div>
     </div>

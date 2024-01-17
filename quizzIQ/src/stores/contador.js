@@ -1,13 +1,15 @@
-import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
+import { usePartidaStore } from '@/stores/partida'
+
+
 export const useContadorStore = defineStore('contador', () => {
-  const segundosRestantes = ref(10) // Inicializamos el contador en 60 segundos
+  const partidaStore = usePartidaStore() 
   let intervalo
   function iniciarContador() {
     intervalo = setInterval(() => {
-      if (segundosRestantes.value > 0) {
-        segundosRestantes.value--
+      if (partidaStore.partidaData.segundosRestantes > 0) {
+        partidaStore.partidaData.segundosRestantes--
       } else {
         clearInterval(intervalo) // Detener el intervalo cuando el contador llega a 0
       }
@@ -18,17 +20,13 @@ export const useContadorStore = defineStore('contador', () => {
   }
   function resetearContador() {
     clearInterval(intervalo)
-    segundosRestantes.value = 10
+    partidaStore.partidaData.segundosRestantes = 10
   }
 
-  const segundos = computed(() => {
-    return segundosRestantes.value
-  })
+
 
   return {
     //COUNTADOR
-    segundos,
-    segundosRestantes,
     iniciarContador,
     detenerContador,
     resetearContador

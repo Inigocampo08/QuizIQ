@@ -1,8 +1,11 @@
 <script setup>
 import { useRouter } from 'vue-router';
 import { useRuletaStore } from '@/stores/ruleta';
+import { usePartidaStore } from '@/stores/partida'
 
 const ruletaStore = useRuletaStore();
+const partidaStore = usePartidaStore()
+
 const router = useRouter();
 
 const volver = () => {
@@ -26,7 +29,7 @@ const seguir = () => {
                 <h2>Perdiste <span>Te quedaste sin vidas</span></h2>
             </div>
             <div class="popup--inner__subtitle">
-                <h3>Tus puntos fueron: <span>{{ ruletaStore.puntos }}</span></h3>
+                <h3>Tus puntos fueron: <span>{{ partidaStore.partidaData.puntos }}</span></h3>
             </div>
 
 

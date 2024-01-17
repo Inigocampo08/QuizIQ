@@ -1,29 +1,37 @@
 <script setup>
+import { ref } from 'vue'
 import { onMounted } from 'vue'
 import { usePreguntasStore } from '@/stores/preguntas';
 import { useRuletaStore } from '@/stores/ruleta';
 import { useContadorStore } from '@/stores/contador'
+import { usePartidaStore } from '@/stores/partida'
 import Contador from '@/components/Contador.vue';
+
 
 const ruletaStore = useRuletaStore();
 const preguntasStore = usePreguntasStore();
 const contadorStore = useContadorStore()
+const partidaStore = usePartidaStore();
+
+const pregunta = ref('');
+const opciones = ref([]);
+const categoria = ref('');
+const color = ref('');
 
 onMounted(() => {
-    preguntasStore.opcionesHabilitadas = true
-    preguntasStore.respuestaUsuario = null
-    preguntasStore.error = null
-    preguntasStore.errorMsg = ''
-    contadorStore.resetearContador()
+    pregunta.value = partidaStore.partidaData.pregunta;
+    opciones.value = partidaStore.partidaData.opciones;
+    categoria.value = partidaStore.partidaData.categoria;
+    color.value = partidaStore.partidaData.color;
     contadorStore.iniciarContador()
     ruletaStore.mostrarPopupFinVidas = false
 })
 </script>
 <template>
-    <header :style="{ 'background-color': ruletaStore.getPreguntaAleatoria.color }" class="header">
+    <header :style="{ 'background-color': color }" class="header-in-game">
         <div class="contenedor header__container">
             <div class="categoria">
-                <p> {{ ruletaStore.getPreguntaAleatoria.categoria }} </p>
+                <p> {{ categoria }} </p>
             </div>
             <div class="contador">
                 <Contador />
@@ -33,7 +41,7 @@ onMounted(() => {
     <main>
         <div class="contenedor">
             <div class="preguntas">
-                <p>{{ ruletaStore.getPreguntaAleatoria.pregunta }}</p>
+                <p>{{ pregunta }}</p>
                 <span v-if="preguntasStore.error === true" class="incorrecto">{{ preguntasStore.errorMsg }}</span>
                 <span v-else-if="preguntasStore.error === false" class="correcto">{{ preguntasStore.errorMsg }}</span>
                 <span v-else>{{ preguntasStore.errorMsg }}</span>
@@ -44,7 +52,7 @@ onMounted(() => {
                         'respuesta-incorrecta': preguntasStore.error && opcion === preguntasStore.respuestaUsuario,
                         'respuesta-correcta': !preguntasStore.error && opcion === preguntasStore.respuestaUsuario
                     }" :style="preguntasStore.opcionesHabilitadas ? {} : { 'pointer-events': 'none' }"
-                        v-for="opcion in ruletaStore.getPreguntaAleatoria.opciones" class="respuestas"
+                        v-for="opcion in opciones" class="respuestas"
                         @click="preguntasStore.validarRespuesta(opcion)">
                         <li> {{ opcion }}</li>
                     </div>
@@ -55,12 +63,9 @@ onMounted(() => {
     </main>
 </template>
 <style scoped>
-.header {
-    font-family: var(--encabezado);
+.header-in-game {
+
     background-color: var(--blanco);
-    /* Fondo blanco para el header */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Sombra suave */
 
 }
 
@@ -95,7 +100,6 @@ main {
     height: 100%;
     background-image: url('../../public/fondo-ruleta.svg');
     background-repeat: no-repeat;
-    background-position: center;
     background-size: cover;
     display: flex;
     justify-content: center;

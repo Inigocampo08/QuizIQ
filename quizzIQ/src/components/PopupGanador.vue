@@ -1,8 +1,11 @@
 <script setup>
 import { useRouter } from 'vue-router';
 import { useRuletaStore } from '@/stores/ruleta';
+import { usePartidaStore } from '@/stores/partida'
+
 
 const ruletaStore = useRuletaStore();
+const partidaStore = usePartidaStore()
 const router = useRouter();
 
 const volver = () => {
@@ -20,7 +23,7 @@ const volver = () => {
                 <h2>¡Has ganado! <span>Conseguiste todas las Coronas</span></h2>
             </div>
             <div class="popup--inner__subtitle">
-                <h3>Tus puntos fueron: <span>{{ ruletaStore.puntos }}</span></h3>
+                <h3>Tus puntos fueron: <span>{{ partidaStore.partidaData.puntos }}</span></h3>
             </div>
 
             <div class="btn--container">

@@ -1,7 +1,8 @@
 <script setup>
 import { useRuletaStore } from '@/stores/ruleta'; // Asegúrate de importar el store correctamente
-
+import { usePartidaStore } from '@/stores/partida';
 const ruletaStore = useRuletaStore();
+const partidaStore = usePartidaStore();
 </script>
  
 <template>
@@ -10,31 +11,31 @@ const ruletaStore = useRuletaStore();
             <h2 class="popup--inner__title">Te ha tocado la Corona</h2>
             <span class="popup--inner__subtitle">Elige la categoria de tu pregunta</span>
             <div class="categorias--container">
-                <div v-if="!ruletaStore.getPreguntaAleatoria.seleccionado.deportes" class="respuestas deporte"
+                <div v-if="!partidaStore.partidaData.selectedCorona.deportes" class="respuestas deporte"
                     @click="ruletaStore.selectCategory('deportes')">
                     <p>deporte</p>
                 </div>
-                <div v-if="!ruletaStore.getPreguntaAleatoria.seleccionado.entretenimiento"
+                <div v-if="!partidaStore.partidaData.selectedCorona.entretenimiento"
                     class="respuestas entretenimiento" @click="ruletaStore.selectCategory('entretenimiento')">
                     <p>entretenimiento</p>
                 </div>
 
-                <div v-if="!ruletaStore.getPreguntaAleatoria.seleccionado.ciencia" class="respuestas ciencia"
+                <div v-if="!partidaStore.partidaData.selectedCorona.ciencia" class="respuestas ciencia"
                     @click="ruletaStore.selectCategory('ciencia')">
                     <p>ciencia</p>
                 </div>
 
-                <div v-if="!ruletaStore.getPreguntaAleatoria.seleccionado.arte" class="respuestas arte"
+                <div v-if="!partidaStore.partidaData.selectedCorona.arte" class="respuestas arte"
                     @click="ruletaStore.selectCategory('arte')">
                     <p>arte</p>
                 </div>
 
-                <div v-if="!ruletaStore.getPreguntaAleatoria.seleccionado.historia" class="respuestas historia"
+                <div v-if="!partidaStore.partidaData.selectedCorona.historia" class="respuestas historia"
                     @click="ruletaStore.selectCategory('historia')">
                     <p>Historia</p>
                 </div>
 
-                <div v-if="!ruletaStore.getPreguntaAleatoria.seleccionado.geografia" class="respuestas geografia"
+                <div v-if="!partidaStore.partidaData.selectedCorona.geografia" class="respuestas geografia"
                     @click="ruletaStore.selectCategory('geografia')">
                     <p>Geografía</p>
                 </div>

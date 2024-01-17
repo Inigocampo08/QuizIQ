@@ -1,14 +1,17 @@
 import { defineStore } from 'pinia'
-import { ref, watchEffect } from 'vue'
+import {ref, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import { useRuletaStore } from '@/stores/ruleta'
 import { useContadorStore } from '@/stores/contador'
+import { usePartidaStore } from '@/stores/partida'
 
 export const usePreguntasStore = defineStore('preguntas', () => {
   // Inicialización de Vue Router y stores
-  const ruletaStore = useRuletaStore()
   const router = useRouter()
   const contadorStore = useContadorStore()
+  const ruletaStore = useRuletaStore()
+  const partidaStore = usePartidaStore()
+
   // Variables reactivas
   const respuestaUsuario = ref(null)
   const opcionesHabilitadas = ref(true)
@@ -17,14 +20,14 @@ export const usePreguntasStore = defineStore('preguntas', () => {
   const errorMsg = ref('')
 
   watchEffect(() => {
-    if (contadorStore.segundosRestantes === 0) {
+    if (partidaStore.partidaData.segundosRestantes === 0) {
       // Si el tiempo se ha agotado
       error.value = true
       errorMsg.value = 'Se terminó el tiempo!'
       opcionesHabilitadas.value = false
-      ruletaStore.vidas--
-      ruletaStore.coronaContador = 0
-      ruletaStore.selectedCorona.isCorona = false
+      partidaStore.partidaData.vidas--
+      partidaStore.partidaData.coronaContador = 0
+      partidaStore.partidaData.selectedCorona.isCorona = false
       // Reinicio de la ruleta y el contador después de 3 segundos
       setTimeout(() => {
         if (!ruletaStore.mostrarPopupFinVidas) {
@@ -45,9 +48,9 @@ export const usePreguntasStore = defineStore('preguntas', () => {
     error.value = false
     errorMsg.value = '¡Respuesta correcta!'
     // Cálculo de puntos basado en el tiempo restante y actualización del store
-    const tiempoRestante = contadorStore.segundosRestantes
-    ruletaStore.puntos += tiempoRestante * 10
-    ruletaStore.coronaContador++
+    const tiempoRestante = partidaStore.partidaData.segundosRestantes
+    partidaStore.partidaData.puntos += tiempoRestante * 10
+    partidaStore.partidaData.coronaContador++
   }
 
   function validarRespuesta(opcion) {
@@ -55,17 +58,16 @@ export const usePreguntasStore = defineStore('preguntas', () => {
     respuestaUsuario.value = opcion
     opcionesHabilitadas.value = false
     contadorStore.detenerContador()
-    if (respuestaUsuario.value === ruletaStore.getPreguntaAleatoria.respuestaCorrecta) {
-      if (ruletaStore.getPreguntaAleatoria.seleccionado.isCorona) {
+    if (respuestaUsuario.value === partidaStore.partidaData.respuestaCorrecta) {
+      if (partidaStore.partidaData.selectedCorona.isCorona) {
         console.log('Corona')
         handleRespuestaCorrecta()
-        ruletaStore.cambiarEstadoCategoria(ruletaStore.getPreguntaAleatoria.categoria)
+        ruletaStore.cambiarEstadoCategoria(partidaStore.partidaData.categoria)
         if (!ruletaStore.mostrarPopupGanador) {
-           setTimeout(() => {
-          router.push({ name: 'ruleta-demo' })
-        }, 1500)
+          setTimeout(() => {
+            router.push({ name: 'ruleta-demo' })
+          }, 1500)
         }
-       
       } else {
         handleRespuestaCorrecta()
         setTimeout(() => {
@@ -77,17 +79,17 @@ export const usePreguntasStore = defineStore('preguntas', () => {
       error.value = true
       errorMsg.value = '¡Respuesta incorrecta!'
       // Reducción del número de vidas en el store
-      ruletaStore.vidas--
-      ruletaStore.coronaContador = 0
-      ruletaStore.progressBar = 0
+      partidaStore.partidaData.vidas--
+      partidaStore.partidaData.coronaContador = 0
+      partidaStore.partidaData.progressBar = 0
       setTimeout(() => {
         if (!ruletaStore.mostrarPopupFinVidas) {
           router.push({ name: 'ruleta-demo' })
         }
       }, 1500)
     }
-    ruletaStore.selectedCorona.isCorona = false
-    if (ruletaStore.coronaContador === 3) {
+    partidaStore.partidaData.selectedCorona.isCorona = false
+    if (partidaStore.partidaData.coronaContador === 3) {
       router.push({ name: 'ruleta-demo' })
     }
   }

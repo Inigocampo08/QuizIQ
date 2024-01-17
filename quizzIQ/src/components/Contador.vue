@@ -1,10 +1,10 @@
 <script setup>
-import { useContadorStore } from '@/stores/contador';
+import { usePartidaStore } from '@/stores/partida';
 
-const contadorStore = useContadorStore();
+const partidaStore = usePartidaStore();
 </script>
 <template>
-        <span>{{ contadorStore.segundosRestantes }}'</span>
+        <span>{{ partidaStore.partidaData.segundosRestantes }}'</span>
 </template>
 
 

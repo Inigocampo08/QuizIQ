@@ -1,23 +1,48 @@
 <script setup>
-import { ref } from 'vue';
-import { RouterLink } from 'vue-router';
+import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 import ProgressBar from '@/components/ProgressBar.vue';
 import { Roulette } from 'vue3-roulette';
+import { useContadorStore } from '@/stores/contador';
 import { useRuletaStore } from '@/stores/ruleta';
+import { usePreguntasStore } from '@/stores/preguntas';
+import { usePartidaStore } from '@/stores/partida'
 
+const router = useRouter();
 
 const ruletaStore = useRuletaStore();
+const preguntasStore = usePreguntasStore();
+const partidaStore = usePartidaStore()
+const contadorStore = useContadorStore();
 const wheel = ref(null);
+
+onMounted(() => {
+    preguntasStore.opcionesHabilitadas = true
+    preguntasStore.respuestaUsuario = null
+    preguntasStore.error = null
+    preguntasStore.errorMsg = null
+    contadorStore.resetearContador()
+
+
+})
+
 const launchWheel = () => {
     wheel.value.launchWheel()
+}
+const volver = () => {
+    if (confirm('¿Deseas terminar la partida?')) {
+        router.push({ name: 'home' })
+        ruletaStore.resetearValoresPartida()
+
+    }
 }
 </script>
  
 <template>
-    <header class="header">
+    <header class="header-in-game">
         <div class="contenedor header__container">
             <div class="volver">
-                <RouterLink :to="{ name: 'home' }">volver</RouterLink>
+                <a @click="volver">volver</a>
             </div>
             <div class="flip-card">
                 <div class="flip-card-inner">
@@ -27,13 +52,13 @@ const launchWheel = () => {
                     </div>
                     <div class="flip-card-back">
                         <!-- Contenido de la cara trasera -->
-                        <span><font-awesome-icon icon="award" /> {{ ruletaStore.puntos }}</span>
+                        <span><font-awesome-icon icon="award" /> {{ partidaStore.partidaData.puntos }}</span>
                     </div>
                 </div>
             </div>
             <div class="vidas">
                 <font-awesome-icon icon="heart" class="icon" />
-                <p>{{ ruletaStore.vidas }} </p>
+                <p>{{ partidaStore.partidaData.vidas }} </p>
             </div>
 
 
@@ -44,7 +69,8 @@ const launchWheel = () => {
     <main class="center-container">
         <div class="coronas__container">
             <div class="corona__img">
-                <svg :style="ruletaStore.getPreguntaAleatoria.seleccionado.arte===true ? { 'stroke': '#e74c3c' } : { 'stroke': 'lightgray'} "  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
+                <svg :style="partidaStore.partidaData.selectedCorona.arte === true ? { 'stroke': '#e74c3c' } : { 'stroke': 'lightgray' }"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="lightgray" fill="none"
                     stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M3 21v-4a4 4 0 1 1 4 4h-4" />
@@ -54,7 +80,8 @@ const launchWheel = () => {
                 </svg>
             </div>
             <div class="corona__img">
-                <svg :style="ruletaStore.getPreguntaAleatoria.seleccionado.deportes===true ? { 'stroke': '#e67e22' } : { 'stroke': 'lightgray'}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
+                <svg :style="partidaStore.partidaData.selectedCorona.deportes === true ? { 'stroke': '#e67e22' } : { 'stroke': 'lightgray' }"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="lightgray" fill="none"
                     stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M15 9l-6 6" />
@@ -66,7 +93,8 @@ const launchWheel = () => {
                 </svg>
             </div>
             <div class="corona__img">
-                <svg :style="ruletaStore.getPreguntaAleatoria.seleccionado.entretenimiento===true ? { 'stroke': '#ff69b4' } : { 'stroke': 'lightgray'}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
+                <svg :style="partidaStore.partidaData.selectedCorona.entretenimiento === true ? { 'stroke': '#ff69b4' } : { 'stroke': 'lightgray' }"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="lightgray" fill="none"
                     stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M8 3h-2l-3 9" />
@@ -78,7 +106,8 @@ const launchWheel = () => {
                 </svg>
             </div>
             <div class="corona__img">
-                <svg :style="ruletaStore.getPreguntaAleatoria.seleccionado.historia===true ? { 'stroke': '#f1c40f' } : { 'stroke': 'lightgray'}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
+                <svg :style="partidaStore.partidaData.selectedCorona.historia === true ? { 'stroke': '#f1c40f' } : { 'stroke': 'lightgray' }"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="lightgray" fill="none"
                     stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M8 18l2 -13l2 -2l2 2l2 13" />
@@ -87,7 +116,8 @@ const launchWheel = () => {
                 </svg>
             </div>
             <div class="corona__img">
-                <svg :style="ruletaStore.getPreguntaAleatoria.seleccionado.ciencia===true ? { 'stroke': '#2ecc71' } : { 'stroke': 'lightgray'}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
+                <svg :style="partidaStore.partidaData.selectedCorona.ciencia === true ? { 'stroke': '#2ecc71' } : { 'stroke': 'lightgray' }"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="lightgray" fill="none"
                     stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M5 21h14" />
@@ -100,7 +130,8 @@ const launchWheel = () => {
                 </svg>
             </div>
             <div class="corona__img">
-                <svg :style="ruletaStore.getPreguntaAleatoria.seleccionado.geografia===true ? { 'stroke': '#3498db' } : { 'stroke': 'lightgray'}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none"
+                <svg :style="partidaStore.partidaData.selectedCorona.geografia === true ? { 'stroke': '#3498db' } : { 'stroke': 'lightgray' }"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="lightgray" fill="none"
                     stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
@@ -118,13 +149,9 @@ const launchWheel = () => {
     </main>
 </template>
 <style scoped>
-.header {
-    font-family: var(--encabezado);
+.header-in-game {
+  
     background-color: var(--color3);
-    /* Fondo blanco para el header */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Sombra suave */
-    position: relative;
 
 }
 
@@ -262,16 +289,15 @@ const launchWheel = () => {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 4rem;
+    gap: 3rem;
     background-color: gray;
-    padding: 3rem;
+    padding: 3rem 2rem;
     border-radius: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Sombra suave */
 }
 
 .corona__img svg {
-    max-width: 6rem;
+    max-width: rem;
     max-height: 6rem;
     width: 100%;
     height: 100%;

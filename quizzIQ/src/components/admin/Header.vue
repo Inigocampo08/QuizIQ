@@ -1,7 +1,7 @@
 <script setup>
 import { useAccessStore } from '@/stores/access';
 
-const AccessStore = useAccessStore();
+const accessStore = useAccessStore();
 </script>
  
 <template>
@@ -14,7 +14,7 @@ const AccessStore = useAccessStore();
                 <RouterLink class="active" :to="{ name: 'home' }">Inicio</RouterLink>
                 <RouterLink class="active" :to="{ name: 'home' }">Perfil</RouterLink>
                 <RouterLink class="active" :to="{ name: 'home' }">Ajustes</RouterLink>
-                <button @click="AccessStore.logout()" class=" btn--primary">Cerrar Sesion</button>
+                <button @click="accessStore.logout()" class=" btn--primary">Cerrar Sesion</button>
             </nav>
         </div>
     </header>
