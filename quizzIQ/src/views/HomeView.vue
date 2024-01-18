@@ -4,6 +4,7 @@ import Footer from '@/components/Footer.vue';
 import { useAccessStore } from '@/stores/access';
 
 const accessStore = useAccessStore();
+
 </script>
 
 <template>
@@ -37,7 +38,7 @@ const accessStore = useAccessStore();
                     <RouterLink :to="{ name: 'ruleta-demo' }" class="btn--secondary btn">Ajustes</RouterLink>
                 </div>
             <div v-else class="button__container contenedor">
-                <RouterLink :to="{ name: 'ruleta-demo' }" class="btn--primary btn">Juega a nuestra demo</RouterLink>
+                <RouterLink :to="{ name: 'ruleta-demo' }" class="btn--primary btn">Demo</RouterLink>
             </div>
 
         </main>
@@ -50,7 +51,7 @@ const accessStore = useAccessStore();
 <style scoped>
 /* Estilos globales */
 /* ... */
-
+css
 /** Estilo IndexView header */
 .header__container {
     display: flex;

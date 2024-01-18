@@ -36,7 +36,7 @@ const seguir = () => {
 
             <div class="btn--container">
                 <button @click="volver" class="btn--primary">Volver</button>
-                <button v-if="accesStore.isAuth" @click="seguir" class="btn--primary">Seguir jugando</button>
+                <button v-if="!accesStore.isAuth" @click="seguir" class="btn--primary">Seguir jugando</button>
             </div>
         </div>
 

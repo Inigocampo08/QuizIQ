@@ -2,30 +2,27 @@ import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { defineStore } from 'pinia'
 
-import { useFirebaseAuth, useFirestore } from 'vuefire'
+import { /* useFirebaseAuth, */ useFirestore } from 'vuefire'
+import { useAuth } from '@/services/authFirebase'
 import { doc, setDoc, collection, query, where, getDoc, getDocs } from 'firebase/firestore'
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut
-} from 'firebase/auth'
 
-import { useNotificacionStore } from './notificacion'
+import { useNotificacionStore } from '@/stores/notificacion'
+import { useRuletaStore } from '@/stores/ruleta'
 
 export const useAccessStore = defineStore('access', () => {
   //Variables
+
+  const { signIn, signUp, signOutUser, observeAuthState } = useAuth()
   const db = useFirestore()
 
   const router = useRouter()
   const notificacionStore = useNotificacionStore()
-
+  const ruletaStore = useRuletaStore()
   const logedUser = ref(null)
   const haveAccount = ref(true)
   const errorMsg = ref('')
 
   //! Firebase
-  const auth = useFirebaseAuth()
   const errorCodes = {
     'auth/user-not-found': 'Usuario no encontrado',
     'auth/invalid-email': 'Correo electrónico inválido',
@@ -46,19 +43,20 @@ export const useAccessStore = defineStore('access', () => {
   }
 
   onMounted(() => {
-    onAuthStateChanged(auth, (user) => {
+    observeAuthState((user) => {
       if (user) {
         obtainLogedUser(user)
+        ruletaStore.resetearValoresPartida()
       }
     })
   })
-
+ arrows
   function login({ email, password }) {
-    signInWithEmailAndPassword(auth, email, password)
+    signIn(email, password)
       .then((userCredential) => {
         const user = userCredential.user
-
         obtainLogedUser(user)
+        
         router.push({ name: 'home' })
       })
       .catch((error) => {
@@ -69,7 +67,7 @@ export const useAccessStore = defineStore('access', () => {
       })
   }
   function logout() {
-    signOut(auth)
+    signOutUser()
       .then(() => {
         logedUser.value = null
         router.push({ name: 'home' })
@@ -129,7 +127,7 @@ export const useAccessStore = defineStore('access', () => {
 
   function register(username, email, password) {
     // Asegúrate de que 'auth' y 'errorCodes' estén correctamente definidos y accesibles aquí
-    createUserWithEmailAndPassword(auth, email, password)
+    signUp(email, password)
       .then((userCredential) => {
         const user = userCredential.user
         createUser(user, username)

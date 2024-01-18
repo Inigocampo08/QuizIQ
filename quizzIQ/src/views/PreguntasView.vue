@@ -63,6 +63,7 @@ onMounted(() => {
     </main>
 </template>
 <style scoped>
+
 .header-in-game {
 
     background-color: var(--blanco);
