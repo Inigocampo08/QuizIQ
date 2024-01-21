@@ -7,16 +7,16 @@
         <div class="contenedor">
             <div class="row--1">
                 <div class="col">
-                    <h3>Nuestra Politica</h3>
+                    <h3>Nuestra Política</h3>
                     <ul>
-                        <li><a href="#">Terminos y condiciones</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
                         <li><a href="#">Privacidad</a></li>
                         <li><a href="#">Cookies</a></li>
                         <li><a href="#">Ayuda</a></li>
                     </ul>
                 </div>
                 <div class="col">
-                    <h3>Siguenos en:</h3>
+                    <h3>Síguenos en:</h3>
                     <div>
                         <a href="#" class="fa fa-facebook"></a>
                         <a href="#" class="fa fa-twitter"></a>
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="row--2">
-            <p> ©2024 <span>Quizziq</span>. Todos los derechos reservados.</p>
+            <p> ©2024 <span>QuizIq</span>. Todos los derechos reservados.</p>
         </div>
 
 

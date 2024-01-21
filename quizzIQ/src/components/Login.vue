@@ -28,7 +28,7 @@ const submit = () => {
 
         </Alerta>
         <div class="input-container">
-            <input v-model="formData.email" type="email" name="email" id="email" placeholder="Correo Electronico">
+            <input v-model="formData.email" type="email" name="email" id="email" placeholder="Correo Electrónico">
             <span>
             </span>
         </div>

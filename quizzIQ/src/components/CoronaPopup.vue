@@ -9,7 +9,7 @@ const partidaStore = usePartidaStore();
     <div v-if="ruletaStore.showCoronaPopup" class="popup">
         <div class="popup--inner">
             <h2 class="popup--inner__title">Te ha tocado la Corona</h2>
-            <span class="popup--inner__subtitle">Elige la categoria de tu pregunta</span>
+            <span class="popup--inner__subtitle">Elige la categoría de tu pregunta</span>
             <div class="categorias--container">
                 <div v-if="!partidaStore.partidaData.selectedCorona.deportes" class="respuestas deporte"
                     @click="ruletaStore.selectCategory('deportes')">

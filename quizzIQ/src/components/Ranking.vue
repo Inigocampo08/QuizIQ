@@ -1,11 +1,14 @@
 <script setup>
 import { computed, reactive } from 'vue';
-
+import { usePartidaStore } from '@/stores/partida';
 import { useFirestore, useCollection } from 'vuefire'
 import { collection, query, orderBy, limit, getDocs } from 'firebase/firestore'
+
+const partidaStore = usePartidaStore()
+
 const db = useFirestore()
 
-const q =  query(collection(db, 'users'), orderBy('puntos', 'desc'), limit(5))
+const q = query(collection(db, 'users'), orderBy('puntos', 'desc'), limit(5))
 const users = reactive(useCollection(q))
 
 
@@ -31,17 +34,14 @@ const emptyRanking = computed(() => {
         <tbody>
             <!-- Datos de ejemplo (puedes reemplazarlos con tus datos reales) -->
             <tr v-if="emptyRanking">
-                <td>Todavia</td>
-                <td>No hay</td>
-                <td>Datos</td>
-
+                <td colspan="3">Todavía No hay Datos</td>
             </tr>
             <tr v-else v-for="(user, index) in ranking">
                 <td>{{ index + 1 }}</td>
                 <td>{{ user.username }}</td>
                 <td>{{ user.puntos }}</td>
             </tr>
-
+          
         </tbody>
     </table>
 </template>
@@ -50,22 +50,24 @@ table {
     margin: 0 auto;
     max-width: 100rem;
     width: 100%;
-    /* Modificado para ocupar todo el ancho disponible */
     border-collapse: collapse;
     margin-top: 2rem;
-    /* Añadido espacio superior */
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
     border-radius: 1rem;
     overflow: hidden;
     font-family: var(--encabezado);
-
+    border: none;
+    /* Eliminar el borde de la tabla */
 }
 
 th,
 td {
-    border: 1px solid;
     padding: 1.5rem;
     text-align: center;
+    border-top: none;
+    /* Eliminar el borde superior de las celdas */
+    border-bottom: none;
+    /* Eliminar el borde inferior de las celdas */
 }
 
 th {

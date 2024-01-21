@@ -35,7 +35,7 @@ const submit = () => {
             <input v-model="formData.username" type="username" name="username" id="username" placeholder="Nombre de Usuario">
         </div>
         <div class="input-container">
-            <input v-model="formData.email" type="email" name="email" id="email" placeholder="Correo Electronico">
+            <input v-model="formData.email" type="email" name="email" id="email" placeholder="Correo Electrónico">
         </div>
         <div class="input-container">
             <input v-model="formData.password" type="password" name="password" id="password" placeholder="Contraseña">

@@ -26,7 +26,7 @@ const accessStore = useAccessStore();
             <RouterLink :to="{ name: 'perfil' }" class="btn--secondary btn">Perfil</RouterLink>
             <RouterLink :to="{ name: 'ajustes' }" class="btn--secondary btn">Ajustes</RouterLink>
             <button v-if="accessStore.isAuth" @click="accessStore.logout()" class=" btn--primary btn">Cerrar
-                Sesion</button>
+                Sesión</button>
         </div>
         <div v-else class="button__container contenedor">
             <RouterLink :to="{ name: 'ruleta-demo' }" class="btn--primary btn">Demo</RouterLink>
