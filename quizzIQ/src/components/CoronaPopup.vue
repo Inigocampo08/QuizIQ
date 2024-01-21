@@ -52,7 +52,7 @@ const partidaStore = usePartidaStore();
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
     z-index: 99;
     overflow: hidden;
     /* Evita el desplazamiento */
@@ -65,7 +65,7 @@ const partidaStore = usePartidaStore();
     transform: translate(-50%, -50%);
     width: 90%;
     height: 80%;
-    background-color: #fff;
+
     border-radius: 2rem;
     overflow-y: auto;
     /* Añade desplazamiento interno si el contenido es demasiado largo */
@@ -81,11 +81,18 @@ const partidaStore = usePartidaStore();
     font-weight: 900;
     margin-top: 4rem;
 }
+@media (max-width: 768px) {
+    .popup--inner__title {
+        font-size: 3.5rem;
+    }
+    
+}
 
 .popup--inner__subtitle {
     font-size: 1.5rem;
     font-weight: 400;
     text-transform: uppercase;
+    color: var(--blanco);
 }
 
 
@@ -99,6 +106,13 @@ const partidaStore = usePartidaStore();
     grid-template: 1fr / 50% 50%;
     place-content: center;
     gap: 2rem;
+}
+@media (max-width: 768px) {
+
+    .categorias--container {
+        grid-template: 1fr / 1fr;
+        place-items: center;
+    }
 }
 
 .respuestas {

@@ -58,7 +58,7 @@ const seguir = () => {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60%;
+    width: 80%;
     height: 70%;
     background-color: var(--blanco);
     border-radius: 2rem;
@@ -99,5 +99,15 @@ h3 span {
 .btn--container button {
     width: 100%;
     margin-top: 10%;
+}
+@media (max-width: 768px) {
+    .btn--container{
+        flex-direction: column;
+        gap: 0;
+    }  
+    span{
+        display: block;
+        margin-top: .5rem;
+    }
 }
 </style>

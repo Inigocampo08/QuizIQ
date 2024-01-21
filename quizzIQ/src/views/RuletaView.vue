@@ -163,7 +163,7 @@ const volver = () => {
 
 .volver {
     text-transform: uppercase;
-    font-size: 3rem;
+    /* font-size: 3rem;*/
 }
 
 .volver a {
@@ -192,7 +192,7 @@ const volver = () => {
     align-items: center;
     gap: 5rem;
     border-radius: 0.5rem;
-    font-size: 2rem;
+    /*font-size: 2rem;*/ 
     color: var(--color3);
 }
 
@@ -208,7 +208,7 @@ const volver = () => {
     left: 50%;
     color: white;
     transform: translate(-50%, -50%);
-    font-size: 2.5rem;
+ /*   font-size: 2.5rem;*/
 
 }
 
@@ -271,7 +271,6 @@ const volver = () => {
 .center-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     /* Centra el contenido horizontalmente */
     align-items: center;
     /* Centra el contenido verticalmente */
@@ -285,6 +284,7 @@ const volver = () => {
 }
 
 .coronas__container {
+    margin-top: 1rem;
     max-width: 90%;
     display: flex;
     justify-content: center;
@@ -297,11 +297,9 @@ const volver = () => {
 }
 
 .corona__img svg {
-    max-width: rem;
-    max-height: 6rem;
+    max-height: 3rem;
     width: 100%;
     height: 100%;
-    max-width: 6rem;
 }
 
 .ruleta {
@@ -310,6 +308,6 @@ const volver = () => {
     margin-right: auto;
     /* Establece el margen derecho a auto */
     margin-bottom: 4rem;
-    margin-top: 4rem;
+    margin-top: 3rem;
 }
 </style>

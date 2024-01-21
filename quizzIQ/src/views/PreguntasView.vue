@@ -25,6 +25,7 @@ onMounted(() => {
     color.value = partidaStore.partidaData.color;
     contadorStore.iniciarContador()
     ruletaStore.mostrarPopupFinVidas = false
+
 })
 </script>
 <template>
@@ -38,8 +39,9 @@ onMounted(() => {
             </div>
         </div>
     </header>
-    <main>
+    <main :style="{ backgroundImage: categoria ? 'url(\'../../public/fondo-' + categoria + '.jpg\')' : 'none' }">
         <div class="contenedor">
+
             <div class="preguntas">
                 <p>{{ pregunta }}</p>
                 <span v-if="preguntasStore.error === true" class="incorrecto">{{ preguntasStore.errorMsg }}</span>
@@ -52,8 +54,7 @@ onMounted(() => {
                         'respuesta-incorrecta': preguntasStore.error && opcion === preguntasStore.respuestaUsuario,
                         'respuesta-correcta': !preguntasStore.error && opcion === preguntasStore.respuestaUsuario
                     }" :style="preguntasStore.opcionesHabilitadas ? {} : { 'pointer-events': 'none' }"
-                        v-for="opcion in opciones" class="respuestas"
-                        @click="preguntasStore.validarRespuesta(opcion)">
+                        v-for=" opcion  in  opciones " class="respuestas" @click="preguntasStore.validarRespuesta(opcion)">
                         <li> {{ opcion }}</li>
                     </div>
                 </ul>
@@ -63,11 +64,8 @@ onMounted(() => {
     </main>
 </template>
 <style scoped>
-
 .header-in-game {
-
     background-color: var(--blanco);
-
 }
 
 .header__container {
@@ -99,7 +97,6 @@ onMounted(() => {
 main {
     min-height: 90vh;
     height: 100%;
-    background-image: url('../../public/fondo-ruleta.svg');
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -117,7 +114,7 @@ main {
     border-radius: 2rem;
     background-color: var(--blanco);
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 .preguntas p {
@@ -126,23 +123,36 @@ main {
 
 }
 
+.preguntas span {
+    padding: 0;
+    margin-bottom: 1rem;
+
+}
+
 .respuestas__container {
-    margin-top: 4rem;
+    margin-top: 3rem;
     margin-bottom: 20rem;
 }
 
 .respuestas__list {
     padding: 0;
     display: grid;
-    grid-template: 1fr / 100%;
+    grid-template: 1fr / 1fr 1fr;
     justify-items: center;
     gap: 2rem;
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    .respuestas__list {
+        grid-template: 1fr / 1fr;
+    }
 
 }
 
 .respuestas {
     width: 100%;
+    max-width: 100%;
     padding: 3rem;
     background-color: var(--blanco);
     font-size: 3rem;
@@ -150,7 +160,10 @@ main {
     transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.15);
-
+    
+background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 
 }
 

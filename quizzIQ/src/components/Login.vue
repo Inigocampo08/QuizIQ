@@ -59,6 +59,7 @@ const submit = () => {
 }
 
 .form-title {
+    
     text-align: center;
 
 }

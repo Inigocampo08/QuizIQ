@@ -50,13 +50,12 @@ export const useAccessStore = defineStore('access', () => {
       }
     })
   })
- arrows
   function login({ email, password }) {
     signIn(email, password)
       .then((userCredential) => {
         const user = userCredential.user
         obtainLogedUser(user)
-        
+
         router.push({ name: 'home' })
       })
       .catch((error) => {
