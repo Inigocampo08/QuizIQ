@@ -37,14 +37,19 @@ const router = createRouter({
       path: '/admin',
       name: 'admin',
       component: () => import('@/views/admin/AdminLayout.vue'),
-      meta: { requiresAuth: true }
-      // children: [
-      //   {
-      //     path: '/index/:id',
-      //     name: 'index',
-      //     component: () => import('@/views/admin/IndexView.vue')
-      //   }
-      // ]
+      meta: { requiresAuth: true },
+      children: [
+        {
+          path: '/perfil',
+          name: 'perfil',
+          component: () => import('@/views/admin/PerfilView.vue')
+        },
+        {
+          path: '/ajustes',
+          name: 'ajustes',
+          component: () => import('@/views/admin/AjustesView.vue')
+        },
+      ]
     }
   ]
 })

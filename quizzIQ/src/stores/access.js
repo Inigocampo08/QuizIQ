@@ -2,12 +2,13 @@ import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { defineStore } from 'pinia'
 
-import { /* useFirebaseAuth, */ useFirestore } from 'vuefire'
-import { useAuth } from '@/services/authFirebase'
+import { useFirestore } from 'vuefire'
 import { doc, setDoc, collection, query, where, getDoc, getDocs } from 'firebase/firestore'
+import { useAuth } from '@/services/authFirebase'
 
 import { useNotificacionStore } from '@/stores/notificacion'
 import { useRuletaStore } from '@/stores/ruleta'
+import { usePartidaStore } from '@/stores/partida'
 
 export const useAccessStore = defineStore('access', () => {
   //Variables
@@ -18,6 +19,7 @@ export const useAccessStore = defineStore('access', () => {
   const router = useRouter()
   const notificacionStore = useNotificacionStore()
   const ruletaStore = useRuletaStore()
+  const partidaStore = usePartidaStore()
   const logedUser = ref(null)
   const haveAccount = ref(true)
   const errorMsg = ref('')
@@ -55,7 +57,10 @@ export const useAccessStore = defineStore('access', () => {
       .then((userCredential) => {
         const user = userCredential.user
         obtainLogedUser(user)
-
+        //Notificaciones Login
+        notificacionStore.notificacion = `Bienvenido ${partidaStore.partidaData.logedUser.username} `
+        notificacionStore.texto = 'Has iniciado sesión'
+        notificacionStore.show = true
         router.push({ name: 'home' })
       })
       .catch((error) => {
@@ -68,7 +73,7 @@ export const useAccessStore = defineStore('access', () => {
   function logout() {
     signOutUser()
       .then(() => {
-        logedUser.value = null
+        partidaStore.partidaData.logedUser = null
         router.push({ name: 'home' })
 
         //Notificaciones Logout
@@ -131,7 +136,7 @@ export const useAccessStore = defineStore('access', () => {
         const user = userCredential.user
         createUser(user, username)
         // Combina los datos relevantes y asígnalos a 'logedUser'
-        logedUser.value = {
+        partidaStore.partidaData.logedUser = {
           uid: user.uid,
           email: user.email,
           username: username
@@ -161,15 +166,11 @@ export const useAccessStore = defineStore('access', () => {
   }
   async function obtainLogedUser(u) {
     const usuario = await getDoc(doc(db, 'users', u.email))
-    logedUser.value = {
+    partidaStore.partidaData.logedUser = {
       uid: u.uid,
       email: u.email,
       username: usuario.data().username
     }
-    //Notificaciones Login
-    notificacionStore.notificacion = `Bienvenido ${logedUser.value.username} `
-    notificacionStore.texto = 'Has iniciado sesión'
-    notificacionStore.show = true
   }
 
   async function usernameExist(username) {
@@ -197,7 +198,7 @@ export const useAccessStore = defineStore('access', () => {
   })
 
   const isAuth = computed(() => {
-    return logedUser.value
+    return partidaStore.partidaData.logedUser
   })
   //RETURN
   return {

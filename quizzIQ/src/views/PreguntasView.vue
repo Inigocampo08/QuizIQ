@@ -32,7 +32,7 @@ onMounted(() => {
     <header :style="{ 'background-color': color }" class="header-in-game">
         <div class="contenedor header__container">
             <div class="categoria">
-                <p> {{ categoria }} </p>
+                <h3> {{ categoria }} </h3>
             </div>
             <div class="contador">
                 <Contador />
@@ -83,7 +83,10 @@ onMounted(() => {
     justify-content: center;
     text-transform: uppercase;
 }
-
+.categoria h3{
+    color: var(--blanco);
+    
+}
 .contador {
     font-size: 7rem;
     display: flex;

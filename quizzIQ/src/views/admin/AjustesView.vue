@@ -3,7 +3,8 @@
 </script>
  
 <template>
-    <h1>Lobby</h1>
+        <h1>Ajustes</h1>
+
 </template>
 <style scoped>
 </style>

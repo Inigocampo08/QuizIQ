@@ -2,6 +2,5 @@
 import Header from '@/components/admin/Header.vue';
 </script>
 <template>
-    <Header />
     <RouterView />
 </template>

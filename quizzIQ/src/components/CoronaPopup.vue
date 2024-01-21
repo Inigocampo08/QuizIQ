@@ -119,11 +119,13 @@ const partidaStore = usePartidaStore();
     max-width: 90%;
     width: 30rem;
     background-color: var(--color4);
+    color: var(--blanco);
+    text-shadow: 0 0 1rem rgba(0, 0, 0, 1);
     font-size: 2rem;
     border-radius: 2rem;
     transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.15);
+     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.6);
     text-align: center;
     text-transform: uppercase;
 

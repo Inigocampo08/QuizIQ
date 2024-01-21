@@ -89,7 +89,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
         mostrarPopupFinVidas.value = true
         document.body.classList.add('no-scroll')
         if (accessStore.isAuth) {
-          actualizarPuntos(accessStore.logedUser)
+          actualizarPuntos(partidaStore.partidaData.logedUser)
         }
       }
     }
@@ -119,7 +119,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
       document.body.classList.add('no-scroll')
       mostrarPopupGanador.value = true
       if (accessStore.isAuth) {
-        actualizarPuntos(accessStore.logedUser)
+        actualizarPuntos(partidaStore.partidaData.logedUser)
       }
     }
   })

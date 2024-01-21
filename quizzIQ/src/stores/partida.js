@@ -21,7 +21,8 @@ export const usePartidaStore = defineStore('partida', () => {
     vidas: 3,
     coronaContador: 0,
     progressBar: 0,
-    segundosRestantes: 10
+    segundosRestantes: 10,
+    logedUser: null
   })
 
   // Intenta cargar los datos almacenados en localStorage al iniciar la aplicación
