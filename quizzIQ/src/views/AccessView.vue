@@ -1,7 +1,7 @@
 <script setup>
-import Login from '../components/Login.vue';
-import Register from '../components/Register.vue';
-import { useAccessStore } from '../stores/access';
+import Login from '@/components/Login.vue';
+import Register from '@/components/Register.vue';
+import { useAccessStore } from '@/stores/access';
 
 const access = useAccessStore();
 </script>

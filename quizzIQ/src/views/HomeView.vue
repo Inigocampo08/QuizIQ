@@ -41,6 +41,9 @@ const accessStore = useAccessStore();
 
 <style scoped>
 /** Estilo IndexView header */
+header{
+    position: absolute;
+}
 .header__container {
     display: flex;
     justify-content: center;

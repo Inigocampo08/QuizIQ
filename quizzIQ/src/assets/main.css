@@ -62,7 +62,6 @@ body.no-scroll {
 }
 
 header {
-  position: absolute;
   height: 15vh;
   width: 100%;
   display: flex;
@@ -167,7 +166,6 @@ ul {
 }
 /* Estilo para el encabezado en partida */
 .header-in-game {
-  position: relative;
   font-family: var(--encabezado);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

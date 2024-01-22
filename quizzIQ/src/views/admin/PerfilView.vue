@@ -27,7 +27,6 @@ const volver = () => {
                 </RouterLink>
             </div>
             <div class="puntos__container">
-                <p>Puntos: {{ accessStore.isAuth.puntos }}</p>
                 <Ranking />
             </div>
         </div>
@@ -36,7 +35,6 @@ const volver = () => {
 </template>
 <style scoped>
 header {
-    position: relative;
     border-bottom: 1px solid var(--color1);
     background-color: var(--color1-active);
     padding: 1rem;
