@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import {ref, watchEffect } from 'vue'
+import { ref, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import { useRuletaStore } from '@/stores/ruleta'
 import { useContadorStore } from '@/stores/contador'
@@ -50,6 +50,10 @@ export const usePreguntasStore = defineStore('preguntas', () => {
     // Cálculo de puntos basado en el tiempo restante y actualización del store
     const tiempoRestante = partidaStore.partidaData.segundosRestantes
     partidaStore.partidaData.coronaContador++
+    if (partidaStore.partidaData.selectedCorona.isCorona) {
+      partidaStore.partidaData.puntos += tiempoRestante * 20
+    }
+
     partidaStore.partidaData.puntos += tiempoRestante * 10
   }
 
