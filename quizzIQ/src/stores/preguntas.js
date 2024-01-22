@@ -49,14 +49,15 @@ export const usePreguntasStore = defineStore('preguntas', () => {
     errorMsg.value = '¡Respuesta correcta!'
     // Cálculo de puntos basado en el tiempo restante y actualización del store
     const tiempoRestante = partidaStore.partidaData.segundosRestantes
-    partidaStore.partidaData.coronaContador++
     if (partidaStore.partidaData.selectedCorona.isCorona) {
       partidaStore.partidaData.puntos += tiempoRestante * 20
+    } else {
+      partidaStore.partidaData.puntos += tiempoRestante * 10
     }
-
-    partidaStore.partidaData.puntos += tiempoRestante * 10
+    setTimeout(() => {
+      partidaStore.partidaData.coronaContador++
+    },1500)
   }
-
   function validarRespuesta(opcion) {
     // Asignación de la respuesta del usuario y deshabilitación de opciones
     respuestaUsuario.value = opcion
@@ -70,13 +71,13 @@ export const usePreguntasStore = defineStore('preguntas', () => {
         if (!ruletaStore.mostrarPopupGanador) {
           setTimeout(() => {
             router.push({ name: 'ruleta-demo' })
-          }, 500)
+          }, 1500)
         }
       } else {
         handleRespuestaCorrecta()
         setTimeout(() => {
           router.push({ name: 'ruleta-demo' })
-        }, 500)
+        }, 1500)
       }
     } else {
       // Si la respuesta es incorrecta
@@ -90,7 +91,7 @@ export const usePreguntasStore = defineStore('preguntas', () => {
         if (!ruletaStore.mostrarPopupFinVidas) {
           router.push({ name: 'ruleta-demo' })
         }
-      }, 500)
+      }, 1500)
     }
     partidaStore.partidaData.selectedCorona.isCorona = false
     if (partidaStore.partidaData.coronaContador === 3) {
