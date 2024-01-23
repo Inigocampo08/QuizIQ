@@ -39,11 +39,7 @@ const router = createRouter({
           name: 'perfil',
           component: () => import('@/views/admin/PerfilView.vue')
         },
-        {
-          path: '/ajustes',
-          name: 'ajustes',
-          component: () => import('@/views/admin/AjustesView.vue')
-        },
+       
       ]
     }
   ]
