@@ -2,7 +2,7 @@
 import { computed, reactive } from 'vue';
 import { usePartidaStore } from '@/stores/partida';
 import { useFirestore, useCollection } from 'vuefire'
-import { collection, query, orderBy, limit, getDocs, where } from 'firebase/firestore'
+import { collection, query, orderBy, limit } from 'firebase/firestore'
 
 const partidaStore = usePartidaStore()
 
@@ -20,9 +20,9 @@ const ranking = computed(() => {
 const emptyRanking = computed(() => {
     return users.value.length === 0
 })
-const myUser= computed(() => {
-     if (users.value) {
-       return  users.value.find(user => user.username === partidaStore.partidaData.logedUser.username)
+const myUser = computed(() => {
+    if (users.value) {
+        return users.value.find(user => user.username === partidaStore.partidaData.logedUser.username)
     }
 })
 
@@ -51,7 +51,7 @@ const myUser= computed(() => {
             <tr v-if="myUser">
                 <td colspan="3">Mis Puntos: {{ myUser.puntos }}</td>
             </tr>
-            
+
 
         </tbody>
     </table>

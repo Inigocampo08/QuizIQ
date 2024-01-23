@@ -9,17 +9,16 @@
                 <div class="col">
                     <h3>Nuestra Política</h3>
                     <ul>
-                        <li><a href="#">Términos y condiciones</a></li>
-                        <li><a href="#">Privacidad</a></li>
-                        <li><a href="#">Cookies</a></li>
+                        <li><a href="https://www.etermax.com/privacy-es?lang=es" target="_blank">Términos y condiciones</a></li>
+                        <li><a href="https://www.etermax.com/terms-es?lang=es" target="_blank">Privacidad</a></li>
                         <li><a href="#">Ayuda</a></li>
                     </ul>
                 </div>
                 <div class="col">
                     <h3>Síguenos en:</h3>
                     <div>
-                        <a href="#" class="fa fa-facebook"></a>
-                        <a href="#" class="fa fa-twitter"></a>
+                        <a href="https://www.instagram.com/preguntados/?hl=es" target="_blank" class="fa fa-instagram"></a>
+                        <a href="https://twitter.com/preguntados?lang=es" target="_blank" class="fa fa-twitter"></a>
                     </div>
                 </div>
             </div>

@@ -56,7 +56,7 @@ export const usePreguntasStore = defineStore('preguntas', () => {
     }
     setTimeout(() => {
       partidaStore.partidaData.coronaContador++
-    },1500)
+    },1800)
   }
   function validarRespuesta(opcion) {
     // Asignación de la respuesta del usuario y deshabilitación de opciones
