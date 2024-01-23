@@ -1,13 +1,36 @@
 <script setup>
 import { useRouter } from 'vue-router';
-import { useAccessStore } from '@/stores/access';
 import Ranking from '@/components/Ranking.vue';
+import { useAccessStore } from '@/stores/access';
+import { useRuletaStore } from '@/stores/ruleta';
+
+import { useAuth } from '@/services/authFirebase'
+
+const { resetPassword } = useAuth()
 
 const accessStore = useAccessStore();
+const ruletaStore = useRuletaStore()
+
 const router = useRouter();
 
 const volver = () => {
     router.push({ name: 'home' })
+}
+const cambiarPsw = () => {
+    if (confirm('¿Deseas cambiar la contraseña?')) {
+        resetPassword(accessStore.isAuth.email).then(() => {
+            // Correo electrónico enviado exitosamente
+            alert('Revise su correo electrónico para cambiar la contraseña')
+            accessStore.logout()
+            ruletaStore.resetearValoresPartida()
+
+
+        }).catch((error) => {
+            console.log(error)
+        });
+    }
+    router.push({ name: 'access' })
+
 }
 </script>
  
@@ -22,13 +45,12 @@ const volver = () => {
         <div class="contenedor">
             <div class="user-info__container">
                 <h3 class="user-info__title">{{ accessStore.isAuth.username }}</h3>
-                <RouterLink :to="{ name: 'ajustes' }">
-                    <h3 class="user-info__button">Editar Perfil -> </h3>
-                </RouterLink>
             </div>
             <div class="puntos__container">
                 <Ranking />
             </div>
+
+            <h3 class="user-info__button" @click="cambiarPsw">Cambiar Contraseña</h3>
         </div>
 
     </main>
@@ -66,9 +88,22 @@ header {
     /* Añadido para evitar el espacio adicional en h3 */
 }
 
+.user-info__button {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: max-content;
+    color: var(--color1);
+    text-shadow: 3px 5px 2px rgba(255, 255, 255, 0.6);
+    font-weight: bold;
+
+}
+
 .user-info__button:hover {
     transition: .3s;
     color: var(--color1-hover);
+
 }
 
 .puntos__container {
