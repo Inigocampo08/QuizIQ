@@ -48,7 +48,6 @@ export const useAccessStore = defineStore('access', () => {
     observeAuthState((user) => {
       if (user) {
         obtainLogedUser(user)
-        ruletaStore.resetearValoresPartida()
       }
     })
   })
@@ -80,6 +79,8 @@ export const useAccessStore = defineStore('access', () => {
         notificacionStore.notificacion = 'Se ha cerrado la sesión'
         notificacionStore.texto = '¡Muchas gracias por jugar!'
         notificacionStore.show = true
+        ruletaStore.resetearValoresPartida()
+
       })
       .catch((error) => {
         console.log(error)

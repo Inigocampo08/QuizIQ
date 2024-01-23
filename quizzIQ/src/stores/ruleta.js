@@ -152,7 +152,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
         categoriaAleatoria.value = preguntasJson.categoria
         colorAleatoria.value = preguntasJson.color
         guardarDatosParida()
-        router.push({ name: 'preguntas-demo' })
+        router.push({ name: 'preguntas' })
       })
       .catch((error) => {
         // Manejar el error
@@ -184,7 +184,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
         partidaStore.partidaData.selectedCorona.isCorona = true
 
         closeCoronaPopup() // Cerrar el popup después de seleccionar una categoría
-        router.push({ name: 'preguntas-demo' })
+        router.push({ name: 'preguntas' })
       })
       .catch((error) => {
         // Manejar el error

@@ -31,7 +31,7 @@ export const usePreguntasStore = defineStore('preguntas', () => {
       // Reinicio de la ruleta y el contador después de 3 segundos
       setTimeout(() => {
         if (!ruletaStore.mostrarPopupFinVidas) {
-          router.push({ name: 'ruleta-demo' })
+          router.push({ name: 'ruleta' })
         } else {
           return
         }
@@ -56,7 +56,7 @@ export const usePreguntasStore = defineStore('preguntas', () => {
     }
     setTimeout(() => {
       partidaStore.partidaData.coronaContador++
-    },1800)
+    }, 1800)
   }
   function validarRespuesta(opcion) {
     // Asignación de la respuesta del usuario y deshabilitación de opciones
@@ -70,13 +70,13 @@ export const usePreguntasStore = defineStore('preguntas', () => {
         ruletaStore.cambiarEstadoCategoria(partidaStore.partidaData.categoria)
         if (!ruletaStore.mostrarPopupGanador) {
           setTimeout(() => {
-            router.push({ name: 'ruleta-demo' })
+            router.push({ name: 'ruleta' })
           }, 1500)
         }
       } else {
         handleRespuestaCorrecta()
         setTimeout(() => {
-          router.push({ name: 'ruleta-demo' })
+          router.push({ name: 'ruleta' })
         }, 1500)
       }
     } else {
@@ -89,13 +89,13 @@ export const usePreguntasStore = defineStore('preguntas', () => {
       partidaStore.partidaData.progressBar = 0
       setTimeout(() => {
         if (!ruletaStore.mostrarPopupFinVidas) {
-          router.push({ name: 'ruleta-demo' })
+          router.push({ name: 'ruleta' })
         }
       }, 1500)
     }
     partidaStore.partidaData.selectedCorona.isCorona = false
     if (partidaStore.partidaData.coronaContador === 3) {
-      router.push({ name: 'ruleta-demo' })
+      router.push({ name: 'ruleta' })
     }
   }
 

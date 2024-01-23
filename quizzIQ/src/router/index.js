@@ -19,12 +19,12 @@ const router = createRouter({
     },
     {
       path: '/ruleta',
-      name: 'ruleta-demo',
+      name: 'ruleta',
       component: () => import('@/views/RuletaView.vue')
     },
     {
       path: '/preguntas',
-      name: 'preguntas-demo',
+      name: 'preguntas',
       component: () => import('@/views/PreguntasView.vue')
     },
 

@@ -22,14 +22,14 @@ const accessStore = useAccessStore();
     <!-- Contenido principal de la página -->
     <main>
         <div v-if="accessStore.isAuth" class="button__container contenedor">
-            <RouterLink :to="{ name: 'ruleta-demo' }" class="btn--secondary btn">Jugar</RouterLink>
+            <RouterLink :to="{ name: 'ruleta' }" class="btn--secondary btn">Jugar</RouterLink>
             <RouterLink :to="{ name: 'perfil' }" class="btn--secondary btn">Perfil</RouterLink>
             <RouterLink :to="{ name: 'ajustes' }" class="btn--secondary btn">Ajustes</RouterLink>
             <button v-if="accessStore.isAuth" @click="accessStore.logout()" class=" btn--primary btn">Cerrar
                 Sesión</button>
         </div>
         <div v-else class="button__container contenedor">
-            <RouterLink :to="{ name: 'ruleta-demo' }" class="btn--primary btn">Demo</RouterLink>
+            <RouterLink :to="{ name: 'ruleta' }" class="btn--primary btn">Demo</RouterLink>
             <RouterLink class="btn--secondary btn" :to="{ name: 'access' }">Iniciar sesión</RouterLink>
         </div>
 
@@ -41,9 +41,10 @@ const accessStore = useAccessStore();
 
 <style scoped>
 /** Estilo IndexView header */
-header{
+header {
     position: absolute;
 }
+
 .header__container {
     display: flex;
     justify-content: center;
