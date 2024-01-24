@@ -23,7 +23,6 @@ export const useRuletaStore = defineStore('ruleta', () => {
   const categoriaAleatoria = ref('')
   const colorAleatoria = ref('')
 
-
   // Definición de ítems para la ruleta
   const items = [
     {
@@ -149,6 +148,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
         preguntasAleatoria.value = preguntasJson.preguntas[indiceAleatorio]
         categoriaAleatoria.value = preguntasJson.categoria
         colorAleatoria.value = preguntasJson.color
+       shuffleArray(preguntasAleatoria.value.opciones)
         guardarDatosParida()
         router.push({ name: 'preguntas' })
       })
@@ -174,10 +174,12 @@ export const useRuletaStore = defineStore('ruleta', () => {
         console.log(preguntasJson)
 
         // Randomizar la selección de una pregunta
+        
         const indiceAleatorio = Math.floor(Math.random() * preguntasJson.preguntas.length)
         preguntasAleatoria.value = preguntasJson.preguntas[indiceAleatorio]
         categoriaAleatoria.value = preguntasJson.categoria
         colorAleatoria.value = preguntasJson.color
+       shuffleArray(preguntasAleatoria.value.opciones)
         guardarDatosParida()
         partidaStore.partidaData.selectedCorona.isCorona = true
 
@@ -225,7 +227,12 @@ export const useRuletaStore = defineStore('ruleta', () => {
       geografia: false
     })
   }
-
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[array[i], array[j]] = [array[j], array[i]]
+  }
+}
   function guardarDatosParida() {
     partidaStore.partidaData.pregunta = preguntasAleatoria.value.pregunta
     partidaStore.partidaData.opciones = preguntasAleatoria.value.opciones
