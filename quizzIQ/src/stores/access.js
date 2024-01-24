@@ -80,54 +80,67 @@ export const useAccessStore = defineStore('access', () => {
         notificacionStore.texto = '¡Muchas gracias por jugar!'
         notificacionStore.show = true
         ruletaStore.resetearValoresPartida()
-
       })
       .catch((error) => {
         console.log(error)
       })
   }
 
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&@#()=¡¿*^+,-./\\])[A-Za-z\d@$!%*?&@#()=¡¿*^+,-./\\]{8,}$/
+  const usernameRegex = /^[a-zA-Z0-9_-]{3,16}$/
   async function validateRegister({ email, password, password2, username }) {
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&@#()=¡¿*^+,-./\\])[A-Za-z\d@$!%*?&@#()=¡¿*^+,-./\\]{8,}$/
-    const usernameRegex = /^[a-zA-Z0-9_-]{3,16}$/
+    // Verifica si el nombre de usuario ya existe
+   validateUsername(username)
+    validatePasswordFormat(password)
+    validatePasswordMatch(password, password2)
+    register(username, email, password)
+  }
 
+  function validatePasswordFormat({ password }) {
+    if (!passwordRegex.test(password)) {
+      errorMsg.value =
+        'La contraseña debe tener al menos 8 caracteres, una mayúscula, un número y un signo especial'
+      return false // Indica que la validación no pasó
+    }else{
+      errorMsg.value = ''
+    }
+    return true // Indica que la validación pasó
+  }
+
+  function validatePasswordMatch({ password, password2 }) {
+    if (password !== password2) {
+      errorMsg.value = 'Las contraseñas no coinciden'
+  
+      return false // Indica que la validación no pasó
+    } else {
+      errorMsg.value = ''
+    }
+
+    return true // Indica que la validación pasó
+  }
+
+  async function validateUsername({username}) {
     // Verifica si el nombre de usuario ya existe
     const usernameAlreadyExists = await usernameExist(username)
 
     if (usernameAlreadyExists) {
       errorMsg.value = 'El nombre de usuario ya existe. Por favor, elija otro nombre de usuario'
-      setTimeout(() => {
+      return false // Indica que la validación no pasó
+    } else {
         errorMsg.value = ''
-      }, 3000)
-      return
+      
     }
 
     if (!usernameRegex.test(username)) {
       errorMsg.value =
         'El nombre de usuario debe contener solo letras, números, guiones bajos (_) o guiones (-) y tener entre 3 y 16 caracteres'
-      setTimeout(() => {
-        errorMsg.value = ''
-      }, 3000)
-      return
-    }
-    if (password !== password2) {
-      errorMsg.value = 'Las contraseñas no coinciden'
-      setTimeout(() => {
-        errorMsg.value = ''
-      }, 3000)
-      return
-    }
-    if (!passwordRegex.test(password)) {
-      errorMsg.value =
-        'La contraseña debe tener al menos 8 caracteres, una mayúscula, un número y un signo especial'
-      setTimeout(() => {
-        errorMsg.value = ''
-      }, 3000)
-      return
+      return false // Indica que la validación no pasó
+    } else {
+      errorMsg.value = ''
     }
 
-    register(username, email, password)
+    return true // Indica que la validación pasó
   }
 
   function register(username, email, password) {
@@ -211,6 +224,9 @@ export const useAccessStore = defineStore('access', () => {
     login,
     logout,
     validateRegister,
+    validatePasswordFormat,
+    validatePasswordMatch,
+    validateUsername,
     setHaveAccount
   }
 })

@@ -28,12 +28,12 @@ const submit = () => {
 
         </Alerta>
         <div class="input-container">
-            <input v-model="formData.email" type="email" name="email" id="email" placeholder="Correo Electrónico">
+            <input @input="submit" v-model="formData.email" type="email" name="email" id="email" placeholder="Correo Electrónico">
             <span>
             </span>
         </div>
         <div class="input-container">
-            <input v-model="formData.password" type="password" name="password" id="password" placeholder="Contraseña">
+            <input  v-model="formData.password" type="password" name="password" id="password" placeholder="Contraseña">
         </div>
         <button type="submit" class="btn--primary submit">
             Iniciar Sesión
