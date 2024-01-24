@@ -1,7 +1,5 @@
 import { defineStore } from 'pinia'
-
 import { usePartidaStore } from '@/stores/partida'
-
 
 export const useContadorStore = defineStore('contador', () => {
   const partidaStore = usePartidaStore() 
@@ -26,7 +24,6 @@ export const useContadorStore = defineStore('contador', () => {
 
 
   return {
-    //COUNTADOR
     iniciarContador,
     detenerContador,
     resetearContador
