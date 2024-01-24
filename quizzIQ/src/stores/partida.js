@@ -22,6 +22,9 @@ export const usePartidaStore = defineStore('partida', () => {
     coronaContador: 0,
     progressBar: 0,
     segundosRestantes: 10,
+    showCoronaPopup: false,
+    mostrarPopupFinVidas: false,
+    mostrarPopupGanador: false,
     logedUser: null
   })
 

@@ -6,7 +6,7 @@ const partidaStore = usePartidaStore();
 </script>
  
 <template>
-    <div v-if="ruletaStore.showCoronaPopup" class="popup">
+    <div v-if="partidaStore.partidaData.showCoronaPopup" class="popup">
         <div class="popup--inner">
             <h2 class="popup--inner__title">Te ha tocado la Corona</h2>
             <span class="popup--inner__subtitle">Elige la categoría de tu pregunta</span>

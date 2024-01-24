@@ -9,7 +9,7 @@ const partidaStore = usePartidaStore()
 const router = useRouter();
 
 const volver = () => {
-    ruletaStore.mostrarPopupGanador = false
+    partidaStore.partidaData.mostrarPopupGanador = false
     ruletaStore.resetearValoresPartida()
     router.push({ name: 'home' });
     document.body.classList.remove('no-scroll')
@@ -17,7 +17,7 @@ const volver = () => {
 
 </script>
 <template>
-    <div v-if="ruletaStore.mostrarPopupGanador" class="popup">
+    <div v-if="partidaStore.partidaData.mostrarPopupGanador" class="popup">
         <div class="popup--inner">
             <div class="popup--inner__title">
                 <h2>¡Has ganado! <span>Conseguiste todas las Coronas</span></h2>

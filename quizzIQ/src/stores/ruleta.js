@@ -22,9 +22,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
   const categoria = ref('')
   const categoriaAleatoria = ref('')
   const colorAleatoria = ref('')
-  const showCoronaPopup = ref(false)
-  const mostrarPopupFinVidas = ref(false)
-  const mostrarPopupGanador = ref(false)
+
 
   // Definición de ítems para la ruleta
   const items = [
@@ -86,7 +84,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
     () => partidaStore.partidaData.vidas,
     (newValue) => {
       if (newValue === 0) {
-        mostrarPopupFinVidas.value = true
+        partidaStore.partidaData.mostrarPopupFinVidas = true
         document.body.classList.add('no-scroll')
         if (accessStore.isAuth) {
           actualizarPuntos(partidaStore.partidaData.logedUser)
@@ -117,7 +115,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
       newValue.historia
     ) {
       document.body.classList.add('no-scroll')
-      mostrarPopupGanador.value = true
+      partidaStore.partidaData.mostrarPopupGanador = true
       if (accessStore.isAuth) {
         actualizarPuntos(partidaStore.partidaData.logedUser)
       }
@@ -202,13 +200,13 @@ export const useRuletaStore = defineStore('ruleta', () => {
     }
   }
   function openCoronaPopup() {
-    showCoronaPopup.value = true
+    partidaStore.partidaData.showCoronaPopup = true
     document.body.classList.add('no-scroll') // Añadir clase para evitar desplazamiento
     partidaStore.partidaData.coronaContador = -1
   }
   // Función para cerrar el popup
   function closeCoronaPopup() {
-    showCoronaPopup.value = false
+    partidaStore.partidaData.showCoronaPopup = false
     document.body.classList.remove('no-scroll') // Eliminar clase para permitir desplazamiento
   }
   function resetearValoresPartida() {
@@ -245,9 +243,6 @@ export const useRuletaStore = defineStore('ruleta', () => {
   // Retorno de todas las propiedades y funciones del store
   return {
     items,
-    showCoronaPopup,
-    mostrarPopupFinVidas,
-    mostrarPopupGanador,
     wheelEndedCallback,
     selectCategory,
     cambiarEstadoCategoria,

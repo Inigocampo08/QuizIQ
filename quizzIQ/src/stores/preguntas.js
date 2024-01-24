@@ -30,7 +30,7 @@ export const usePreguntasStore = defineStore('preguntas', () => {
       partidaStore.partidaData.selectedCorona.isCorona = false
       // Reinicio de la ruleta y el contador después de 3 segundos
       setTimeout(() => {
-        if (!ruletaStore.mostrarPopupFinVidas) {
+        if (!partidaStore.partidaData.mostrarPopupFinVidas) {
           router.push({ name: 'ruleta' })
         } else {
           return
@@ -68,7 +68,7 @@ export const usePreguntasStore = defineStore('preguntas', () => {
         console.log('Corona')
         handleRespuestaCorrecta()
         ruletaStore.cambiarEstadoCategoria(partidaStore.partidaData.categoria)
-        if (!ruletaStore.mostrarPopupGanador) {
+        if (!partidaStore.partidaData.mostrarPopupGanador) {
           setTimeout(() => {
             router.push({ name: 'ruleta' })
           }, 1500)
@@ -88,7 +88,7 @@ export const usePreguntasStore = defineStore('preguntas', () => {
       partidaStore.partidaData.coronaContador = 0
       partidaStore.partidaData.progressBar = 0
       setTimeout(() => {
-        if (!ruletaStore.mostrarPopupFinVidas) {
+        if (!partidaStore.partidaData.mostrarPopupFinVidas) {
           router.push({ name: 'ruleta' })
         }
       }, 1500)

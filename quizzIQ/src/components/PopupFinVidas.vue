@@ -10,13 +10,13 @@ const accesStore = useAccessStore()
 const router = useRouter();
 
 const volver = () => {
-    ruletaStore.mostrarPopupFinVidas = false
+    partidaStore.partidaData.mostrarPopupFinVidas = false
     ruletaStore.resetearValoresPartida()
     router.push({ name: 'home' });
     document.body.classList.remove('no-scroll')
 };
 const seguir = () => {
-    ruletaStore.mostrarPopupFinVidas = false
+    partidaStore.partidaData.mostrarPopupFinVidas = false
     ruletaStore.resetearValoresPartida()
     router.push({ name: 'access' })
     document.body.classList.remove('no-scroll')
@@ -24,7 +24,7 @@ const seguir = () => {
 
 </script>
 <template>
-    <div v-if="ruletaStore.mostrarPopupFinVidas" class="popup">
+    <div v-if="partidaStore.partidaData.mostrarPopupFinVidas" class="popup">
         <div class="popup--inner">
             <div class="popup--inner__title">
                 <h2>Perdiste <span>Te quedaste sin vidas</span></h2>

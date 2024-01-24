@@ -24,7 +24,7 @@ onMounted(() => {
     categoria.value = partidaStore.partidaData.categoria;
     color.value = partidaStore.partidaData.color;
     contadorStore.iniciarContador()
-    ruletaStore.mostrarPopupFinVidas = false
+    partidaStore.partidaData.mostrarPopupFinVidas = false
 
 })
 </script>
