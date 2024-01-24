@@ -28,15 +28,14 @@ export const useRuletaStore = defineStore('ruleta', () => {
     {
       id: 1,
       name: 'corona',
-      htmlContent: '<img class="categoria__ruleta--icon" src="/public/corona.png" alt="Corona"/>',
+      htmlContent: '<img class="categoria__ruleta--icon" src="/corona.png" alt="Corona"/>',
       textColor: 'white',
       background: '#9b59b6'
     },
     {
       id: 2,
       name: 'deportes',
-      htmlContent:
-        '<img class="categoria__ruleta--icon" src="/public/deportes.png" alt="Deportes"/>',
+      htmlContent: '<img class="categoria__ruleta--icon" src="/deportes.png" alt="Deportes"/>',
       textColor: 'white',
       background: '#e67e22'
     },
@@ -44,37 +43,35 @@ export const useRuletaStore = defineStore('ruleta', () => {
       id: 3,
       name: 'entretenimiento',
       htmlContent:
-        '<img class="categoria__ruleta--icon" src="/public/entretenimiento.png" alt="Entretenimiento"/>',
+        '<img class="categoria__ruleta--icon" src="/entretenimiento.png" alt="Entretenimiento"/>',
       textColor: 'white',
       background: '#ff69b4'
     },
     {
       id: 4,
       name: 'geografia',
-      htmlContent:
-        '<img class="categoria__ruleta--icon" src="/public/geografia.png" alt="Geografia"/>',
+      htmlContent: '<img class="categoria__ruleta--icon" src="/geografia.png" alt="Geografia"/>',
       textColor: 'white',
       background: '#3498db'
     },
     {
       id: 5,
       name: 'historia',
-      htmlContent:
-        '<img class="categoria__ruleta--icon" src="/public/historia.png" alt="Historia"/>',
+      htmlContent: '<img class="categoria__ruleta--icon" src="/historia.png" alt="Historia"/>',
       textColor: 'white',
       background: '#f1c40f'
     },
     {
       id: 6,
       name: 'arte',
-      htmlContent: '<img class="categoria__ruleta--icon" src="/public/arte.png" alt="Arte"/>',
+      htmlContent: '<img class="categoria__ruleta--icon" src="/arte.png" alt="Arte"/>',
       textColor: 'white',
       background: '#e74c3c'
     },
     {
       id: 7,
       name: 'ciencia',
-      htmlContent: '<img class="categoria__ruleta--icon" src="/public/ciencia.png" alt="Ciencia"/>',
+      htmlContent: '<img class="categoria__ruleta--icon" src="/ciencia.png" alt="Ciencia"/>',
       textColor: 'white',
       background: '#2ecc71'
     }
@@ -148,7 +145,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
         preguntasAleatoria.value = preguntasJson.preguntas[indiceAleatorio]
         categoriaAleatoria.value = preguntasJson.categoria
         colorAleatoria.value = preguntasJson.color
-       shuffleArray(preguntasAleatoria.value.opciones)
+        shuffleArray(preguntasAleatoria.value.opciones)
         guardarDatosParida()
         router.push({ name: 'preguntas' })
       })
@@ -174,12 +171,12 @@ export const useRuletaStore = defineStore('ruleta', () => {
         console.log(preguntasJson)
 
         // Randomizar la selección de una pregunta
-        
+
         const indiceAleatorio = Math.floor(Math.random() * preguntasJson.preguntas.length)
         preguntasAleatoria.value = preguntasJson.preguntas[indiceAleatorio]
         categoriaAleatoria.value = preguntasJson.categoria
         colorAleatoria.value = preguntasJson.color
-       shuffleArray(preguntasAleatoria.value.opciones)
+        shuffleArray(preguntasAleatoria.value.opciones)
         guardarDatosParida()
         partidaStore.partidaData.selectedCorona.isCorona = true
 
@@ -227,12 +224,12 @@ export const useRuletaStore = defineStore('ruleta', () => {
       geografia: false
     })
   }
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[array[i], array[j]] = [array[j], array[i]]
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[array[i], array[j]] = [array[j], array[i]]
+    }
   }
-}
   function guardarDatosParida() {
     partidaStore.partidaData.pregunta = preguntasAleatoria.value.pregunta
     partidaStore.partidaData.opciones = preguntasAleatoria.value.opciones

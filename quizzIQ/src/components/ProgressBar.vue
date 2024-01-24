@@ -9,7 +9,7 @@ const partidaStore = usePartidaStore()
 
 <template>
     <div class="progress-bar">
-        <img class="categoria__ruleta--icon" src="/public/corona.png" alt="Corona" />
+        <img class="categoria__ruleta--icon" src="/corona.png" alt="Corona" />
         <div class="progress-bar-container">
             <div class="progress" :style="{ width: `${partidaStore.partidaData.progressBar}%` }"></div>
             <div class="divider" style="left: 33.3333%;"></div>
@@ -20,15 +20,17 @@ const partidaStore = usePartidaStore()
 
 
 <style scoped>
-.progress-bar{
+.progress-bar {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
 }
+
 .categoria__ruleta--icon {
-  width: 5rem;
+    width: 5rem;
 }
+
 .progress-bar-container {
     position: relative;
     width: 20rem;

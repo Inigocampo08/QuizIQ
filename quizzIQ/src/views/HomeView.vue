@@ -12,7 +12,7 @@ const accessStore = useAccessStore();
     <header>
         <div class="contenedor header__container">
             <RouterLink :to="{ name: 'home' }">
-                <img class="logo" src="/public/logo.jpg" alt="logo QuizIQ">
+                <img class="logo" src="/logo.jpg" alt="logo QuizIQ">
             </RouterLink>
         </div>
     </header>
