@@ -29,11 +29,11 @@ export const usePreguntasStore = defineStore('preguntas', () => {
       partidaStore.partidaData.coronaContador = 0
       partidaStore.partidaData.selectedCorona.isCorona = false
       // Reinicio de la ruleta y el contador después de 3 segundos
-      if (partidaStore.partidaData.mostrarPopupFinVidas !==false) {
-        setTimeout(() => {
+      setTimeout(() => {
+        if (!partidaStore.partidaData.mostrarPopupFinVidas) {
           router.push({ name: 'ruleta' })
-        }, 1500)
-      }
+        }
+      }, 1500)
     } else {
       // Si el tiempo no se ha agotado
       error.value = false
@@ -86,11 +86,11 @@ export const usePreguntasStore = defineStore('preguntas', () => {
       partidaStore.partidaData.coronaContador = 0
       partidaStore.partidaData.progressBar = 0
 
-      if (partidaStore.partidaData.mostrarPopupFinVidas !==false) {
-        setTimeout(() => {
+      setTimeout(() => {
+        if (!partidaStore.partidaData.mostrarPopupFinVidas) {
           router.push({ name: 'ruleta' })
-        }, 1500)
-      }
+        }
+      }, 1500)
     }
     partidaStore.partidaData.selectedCorona.isCorona = false
     if (partidaStore.partidaData.coronaContador === 3) {

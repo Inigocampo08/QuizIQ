@@ -47,7 +47,7 @@ const submit = () => {
 </template>
 <style scoped>
 .form {
-      margin: 20vh auto;
+      margin: 5% auto;
     background-color: var(--blanco);
     display: flex;
     flex-direction: column;

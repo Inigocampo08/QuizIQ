@@ -80,8 +80,11 @@ export const useRuletaStore = defineStore('ruleta', () => {
     () => partidaStore.partidaData.vidas,
     (newValue) => {
       if (newValue === 0) {
-        partidaStore.partidaData.mostrarPopupFinVidas = true
-        document.body.classList.add('no-scroll')
+        setTimeout(() => {
+          partidaStore.partidaData.mostrarPopupFinVidas = true
+          document.body.classList.add('no-scroll')
+        }, 1500)
+
         if (accessStore.isAuth) {
           actualizarPuntos(partidaStore.partidaData.logedUser)
         }
