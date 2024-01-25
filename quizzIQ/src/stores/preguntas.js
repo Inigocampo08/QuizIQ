@@ -20,9 +20,8 @@ export const usePreguntasStore = defineStore('preguntas', () => {
   const errorMsg = ref('')
 
   //variable para comprobar si se ha contestado a la pregunta y una funcion para resetearla
-  const preguntaContestada = ref(false)
   function isPreguntaContestada() {
-    preguntaContestada.value = true
+    partidaStore.partidaData.preguntaContestada = true
   }
 
   watchEffect(() => {
@@ -109,7 +108,6 @@ export const usePreguntasStore = defineStore('preguntas', () => {
     opcionesHabilitadas,
     error,
     errorMsg,
-    preguntaContestada,
     validarRespuesta
   }
 })

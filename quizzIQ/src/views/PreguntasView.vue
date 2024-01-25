@@ -26,7 +26,7 @@ onMounted(() => {
     contadorStore.iniciarContador()
     partidaStore.partidaData.mostrarPopupFinVidas = false
 
-    preguntasStore.preguntaContestada = false;
+    partidaStore.partidaData.preguntaContestada = false;
 
 })
 </script>

@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { onAuthStateChanged } from 'firebase/auth'
 import { useFirebaseAuth } from 'vuefire'
 import Home from '@/views/HomeView.vue'
-import { usePreguntasStore } from '@/stores/preguntas'
+import { usePartidaStore } from '@/stores/partida'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -23,9 +23,9 @@ const router = createRouter({
       component: () => import('@/views/RuletaView.vue'),
       beforeEnter: (to, from, next) => {
         // Asegúrate de tener correctamente inicializada la tienda de preguntas
-        const preguntasStore = usePreguntasStore()
+        const partidaStore = usePartidaStore()
         // Si la pregunta no ha sido contestada y se intenta navegar a 'ruleta', bloquea la navegación
-        if (from.name === 'preguntas' && preguntasStore.preguntaContestada === false) {
+        if (from.name === 'preguntas' && partidaStore.partidaData.preguntaContestada === false) {
           next(false)
         } else {
           next()
@@ -38,9 +38,9 @@ const router = createRouter({
       component: () => import('@/views/PreguntasView.vue'),
       beforeEnter: (to, from, next) => {
         // Asegúrate de tener correctamente inicializada la tienda de preguntas
-        const preguntasStore = usePreguntasStore()
+        const partidaStore = usePartidaStore()
         // Si la pregunta no ha sido contestada y se intenta navegar a 'ruleta', bloquea la navegación
-        if (from.name === 'ruleta' && preguntasStore.preguntaContestada !== false) {
+        if (from.name === 'ruleta' && partidaStore.partidaData.preguntaContestada !== false) {
           next(false)
         } else {
           next()

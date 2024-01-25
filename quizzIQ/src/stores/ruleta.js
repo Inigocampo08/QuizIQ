@@ -124,7 +124,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
   function wheelEndedCallback(item) {
     categoria.value = item
 
-    preguntasStore.preguntaContestada = false
+    partidaStore.partidaData.preguntaContestada = false
     if (categoria.value.name === 'corona') {
       openCoronaPopup()
     } else {
@@ -214,6 +214,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
     partidaStore.partidaData.coronaContador = 0
     partidaStore.partidaData.coronaContador = 0
     partidaStore.partidaData.puntos = 0
+    partidaStore.partidaData.preguntaContestada = false
 
     Object.assign(partidaStore.partidaData.selectedCorona, {
       isCorona: false,
