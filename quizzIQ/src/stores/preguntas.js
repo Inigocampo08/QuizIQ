@@ -19,6 +19,12 @@ export const usePreguntasStore = defineStore('preguntas', () => {
   const error = ref()
   const errorMsg = ref('')
 
+  //variable para comprobar si se ha contestado a la pregunta y una funcion para resetearla
+  const preguntaContestada = ref(false)
+  function isPreguntaContestada() {
+    preguntaContestada.value = true
+  }
+
   watchEffect(() => {
     if (partidaStore.partidaData.segundosRestantes === 0) {
       // Si el tiempo se ha agotado
@@ -91,6 +97,7 @@ export const usePreguntasStore = defineStore('preguntas', () => {
         }
       }, 1500)
     }
+    isPreguntaContestada()
     partidaStore.partidaData.selectedCorona.isCorona = false
     if (partidaStore.partidaData.coronaContador === 3) {
       router.push({ name: 'ruleta' })
@@ -102,6 +109,7 @@ export const usePreguntasStore = defineStore('preguntas', () => {
     opcionesHabilitadas,
     error,
     errorMsg,
+    preguntaContestada,
     validarRespuesta
   }
 })

@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { onAuthStateChanged } from 'firebase/auth'
 import { useFirebaseAuth } from 'vuefire'
-
 import Home from '@/views/HomeView.vue'
+import { usePreguntasStore } from '@/stores/preguntas'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,14 +20,33 @@ const router = createRouter({
     {
       path: '/ruleta',
       name: 'ruleta',
-      component: () => import('@/views/RuletaView.vue')
+      component: () => import('@/views/RuletaView.vue'),
+      beforeEnter: (to, from, next) => {
+        // Asegúrate de tener correctamente inicializada la tienda de preguntas
+        const preguntasStore = usePreguntasStore()
+        // Si la pregunta no ha sido contestada y se intenta navegar a 'ruleta', bloquea la navegación
+        if (from.name === 'preguntas' && preguntasStore.preguntaContestada === false) {
+          next(false)
+        } else {
+          next()
+        }
+      }
     },
     {
       path: '/preguntas',
       name: 'preguntas',
-      component: () => import('@/views/PreguntasView.vue')
+      component: () => import('@/views/PreguntasView.vue'),
+      beforeEnter: (to, from, next) => {
+        // Asegúrate de tener correctamente inicializada la tienda de preguntas
+        const preguntasStore = usePreguntasStore()
+        // Si la pregunta no ha sido contestada y se intenta navegar a 'ruleta', bloquea la navegación
+        if (from.name === 'ruleta' && preguntasStore.preguntaContestada !== false) {
+          next(false)
+        } else {
+          next()
+        }
+      }
     },
-
     {
       path: '/admin',
       name: 'admin',
@@ -38,8 +57,7 @@ const router = createRouter({
           path: '/perfil',
           name: 'perfil',
           component: () => import('@/views/admin/PerfilView.vue')
-        },
-       
+        }
       ]
     }
   ]

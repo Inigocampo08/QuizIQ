@@ -9,7 +9,7 @@ import { doc, increment, updateDoc } from 'firebase/firestore'
 
 import { useAccessStore } from '@/stores/access'
 import { usePartidaStore } from '@/stores/partida'
-
+import { usePreguntasStore } from '@/stores/preguntas'
 // Definición del store 'ruleta' con Pinia
 export const useRuletaStore = defineStore('ruleta', () => {
   const db = useFirestore()
@@ -17,6 +17,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
   const router = useRouter()
   const accessStore = useAccessStore()
   const partidaStore = usePartidaStore()
+  const preguntasStore = usePreguntasStore()
   // Definición de referencias reactivas
   const preguntasAleatoria = ref({})
   const categoria = ref('')
@@ -97,7 +98,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
     (newValue) => {
       if (newValue === 3) {
         openCoronaPopup()
-      } 
+      }
       partidaStore.partidaData.progressBar = 33.33 * newValue
     }
   )
@@ -123,6 +124,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
   function wheelEndedCallback(item) {
     categoria.value = item
 
+    preguntasStore.preguntaContestada = false
     if (categoria.value.name === 'corona') {
       openCoronaPopup()
     } else {
