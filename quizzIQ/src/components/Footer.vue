@@ -11,7 +11,7 @@
                     <ul>
                         <li><a href="https://www.etermax.com/privacy-es?lang=es" target="_blank">Términos y condiciones</a></li>
                         <li><a href="https://www.etermax.com/terms-es?lang=es" target="_blank">Privacidad</a></li>
-                        <li><a href="#">Ayuda</a></li>
+                        <li><a href="https://andreidev.notion.site/Manual-de-Usuario-1bd0b2004fcd49babeb60d20ae297779"  target="_blank">Ayuda</a></li>
                     </ul>
                 </div>
                 <div class="col">
