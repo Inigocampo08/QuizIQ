@@ -22,14 +22,10 @@ const cambiarPsw = () => {
             // Correo electrónico enviado exitosamente
             alert('Revise su correo electrónico para cambiar la contraseña')
             accessStore.logout()
-            ruletaStore.resetearValoresPartida()
-
-
         }).catch((error) => {
             console.log(error)
         });
     }
-    router.push({ name: 'access' })
 
 }
 </script>

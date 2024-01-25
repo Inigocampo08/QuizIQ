@@ -63,7 +63,6 @@ export const usePreguntasStore = defineStore('preguntas', () => {
     contadorStore.detenerContador()
     if (respuestaUsuario.value === partidaStore.partidaData.respuestaCorrecta) {
       if (partidaStore.partidaData.selectedCorona.isCorona) {
-        console.log('Corona')
         handleRespuestaCorrecta()
         ruletaStore.cambiarEstadoCategoria(partidaStore.partidaData.categoria)
         if (!partidaStore.partidaData.mostrarPopupGanador) {

@@ -97,9 +97,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
     (newValue) => {
       if (newValue === 3) {
         openCoronaPopup()
-      } else {
-        console.log(newValue)
-      }
+      } 
       partidaStore.partidaData.progressBar = 33.33 * newValue
     }
   )
@@ -160,7 +158,6 @@ export const useRuletaStore = defineStore('ruleta', () => {
 
   function selectCategory(category) {
     categoria.value = category
-    console.log(`Categoría seleccionada: ${categoria.value}`)
     // Hacer la solicitud GET
     axios
       .get('../../src/assets/json/preguntas.json')
@@ -171,7 +168,6 @@ export const useRuletaStore = defineStore('ruleta', () => {
         const preguntasJson = triviaData.find(
           (cat) => cat.categoria.toUpperCase() === categoria.value.toUpperCase()
         )
-        console.log(preguntasJson)
 
         // Randomizar la selección de una pregunta
 
@@ -239,7 +235,6 @@ export const useRuletaStore = defineStore('ruleta', () => {
     partidaStore.partidaData.categoria = categoriaAleatoria.value
     partidaStore.partidaData.color = colorAleatoria.value
     partidaStore.partidaData.respuestaCorrecta = preguntasAleatoria.value.respuesta_correcta
-    console.log('Partida guardada', partidaStore.partidaData)
   }
   async function actualizarPuntos(u) {
     await updateDoc(doc(db, 'users', u.email), {

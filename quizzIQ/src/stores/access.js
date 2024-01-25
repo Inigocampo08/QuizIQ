@@ -193,7 +193,6 @@ export const useAccessStore = defineStore('access', () => {
       const snapshot = await getDocs(q)
       if (snapshot.docs.length > 0) {
         errorMsg.value = 'El nombre de usuario ya existe. Por favor, elija otro nombre de usuario'
-        console.log(errorMsg.value)
         setTimeout(() => {
           errorMsg.value = ''
         }, 3000)
