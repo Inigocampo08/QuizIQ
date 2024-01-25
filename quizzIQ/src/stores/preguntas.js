@@ -33,6 +33,8 @@ export const usePreguntasStore = defineStore('preguntas', () => {
       partidaStore.partidaData.vidas--
       partidaStore.partidaData.coronaContador = 0
       partidaStore.partidaData.selectedCorona.isCorona = false
+    isPreguntaContestada()
+
       // Reinicio de la ruleta y el contador después de 3 segundos
       setTimeout(() => {
         if (!partidaStore.partidaData.mostrarPopupFinVidas) {
