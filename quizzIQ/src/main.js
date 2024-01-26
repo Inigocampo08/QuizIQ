@@ -8,7 +8,7 @@ import router from './router'
 
 // Firebase
 import { VueFire, VueFireAuth } from 'vuefire'
-import { firebaseApp } from './config/firebase'
+import { firebaseApp } from '@/config/firebase'
 
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'

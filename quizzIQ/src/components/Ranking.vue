@@ -42,7 +42,7 @@ const myUser = computed(() => {
             <tr v-if="emptyRanking">
                 <td colspan="3">Todavía No hay Datos</td>
             </tr>
-            <tr v-else v-for="(user, index) in ranking">
+            <tr :key="index" v-else v-for="(user, index) in ranking">
                 <td>{{ index + 1 }}</td>
                 <td>{{ user.username }}</td>
                 <td>{{ user.puntos }}</td>

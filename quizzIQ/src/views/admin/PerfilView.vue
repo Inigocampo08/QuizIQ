@@ -2,14 +2,12 @@
 import { useRouter } from 'vue-router';
 import Ranking from '@/components/Ranking.vue';
 import { useAccessStore } from '@/stores/access';
-import { useRuletaStore } from '@/stores/ruleta';
 
 import { useAuth } from '@/services/authFirebase'
 
 const { resetPassword } = useAuth()
 
 const accessStore = useAccessStore();
-const ruletaStore = useRuletaStore()
 
 const router = useRouter();
 

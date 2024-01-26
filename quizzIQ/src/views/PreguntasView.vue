@@ -2,13 +2,11 @@
 import { ref } from 'vue'
 import { onMounted } from 'vue'
 import { usePreguntasStore } from '@/stores/preguntas';
-import { useRuletaStore } from '@/stores/ruleta';
 import { useContadorStore } from '@/stores/contador'
 import { usePartidaStore } from '@/stores/partida'
 import Contador from '@/components/Contador.vue';
 
 
-const ruletaStore = useRuletaStore();
 const preguntasStore = usePreguntasStore();
 const contadorStore = useContadorStore()
 const partidaStore = usePartidaStore();

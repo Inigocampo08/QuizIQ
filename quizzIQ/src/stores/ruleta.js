@@ -9,7 +9,6 @@ import { doc, increment, updateDoc } from 'firebase/firestore'
 
 import { useAccessStore } from '@/stores/access'
 import { usePartidaStore } from '@/stores/partida'
-import { usePreguntasStore } from '@/stores/preguntas'
 // Definición del store 'ruleta' con Pinia
 export const useRuletaStore = defineStore('ruleta', () => {
   const db = useFirestore()
@@ -17,7 +16,6 @@ export const useRuletaStore = defineStore('ruleta', () => {
   const router = useRouter()
   const accessStore = useAccessStore()
   const partidaStore = usePartidaStore()
-  const preguntasStore = usePreguntasStore()
   // Definición de referencias reactivas
   const preguntasAleatoria = ref({})
   const categoria = ref('')
