@@ -133,7 +133,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
   function preguntasVue() {
     // Hacer la solicitud GET
     axios
-      .get('../../src/assets/json/preguntas.json')
+      .get('https://raw.githubusercontent.com/Andriucm/preguntas.json/main/db.json')
       .then((response) => {
         // Datos obtenidos
         const triviaData = response.data
@@ -160,7 +160,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
     categoria.value = category
     // Hacer la solicitud GET
     axios
-      .get('../../src/assets/json/preguntas.json')
+      .get('https://raw.githubusercontent.com/Andriucm/preguntas.json/main/db.json')
       .then((response) => {
         // Datos obtenidos
         const triviaData = response.data
