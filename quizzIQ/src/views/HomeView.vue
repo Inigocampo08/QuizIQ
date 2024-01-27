@@ -25,11 +25,19 @@ const accessStore = useAccessStore();
             <RouterLink :to="{ name: 'ruleta' }" class="btn--secondary btn">Jugar</RouterLink>
             <RouterLink :to="{ name: 'perfil' }" class="btn--secondary btn">Perfil</RouterLink>
             <button v-if="accessStore.isAuth" @click="accessStore.logout()" class=" btn--primary btn">Cerrar
+
                 Sesión</button>
+
         </div>
         <div v-else class="button__container contenedor">
             <RouterLink :to="{ name: 'ruleta' }" class="btn--primary btn">Demo</RouterLink>
             <RouterLink class="btn--secondary btn" :to="{ name: 'access' }">Iniciar sesión</RouterLink>
+
+        </div>
+
+        <div class="qr">
+            <span>Disponible en Movil</span>
+            <img src="../../public/qr.png" alt="logo QuizIQ">
         </div>
 
     </main>
@@ -87,4 +95,23 @@ main {
     width: 100%;
     font-size: 2rem;
 }
-</style>
+
+.qr {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20%;
+    max-width: 20rem;
+    z-index: 1;
+}
+
+.qr > img {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .qr {
+        display: none;
+    }
+
+}</style>

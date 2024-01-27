@@ -178,12 +178,12 @@ background-repeat: no-repeat;
     transition: all .3s;
 }
 
-.respuesta-incorrecta {
+.respuesta-incorrecta, .respuesta-incorrecta:hover, .respuesta-incorrecta:active {
     background-color: red;
 
 }
 
-.respuesta-correcta {
+.respuesta-correcta, .respuesta-correcta:hover, .respuesta-correcta:active{
     background-color: chartreuse;
 
 }
