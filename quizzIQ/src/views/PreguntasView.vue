@@ -178,11 +178,6 @@ background-repeat: no-repeat;
     transition: all .3s;
 }
 
-.respuestas:active {
-    background-color: var(--color3-active);
-    transition: all .1s;
-}
-
 .respuesta-incorrecta {
     background-color: red;
 
