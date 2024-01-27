@@ -39,7 +39,7 @@ onMounted(() => {
             </div>
         </div>
     </header>
-    <main :style="{ backgroundImage: categoria ? 'url(\'../../public/fondo-' + categoria + '.jpg\')' : 'none' }">
+    <main :style="{ backgroundImage: categoria ? 'url(\'/fondo-' + categoria + '.jpg\')' : 'none' }">
         <div class="contenedor">
 
             <div class="preguntas">
