@@ -158,6 +158,8 @@ export const useRuletaStore = defineStore('ruleta', () => {
 
   function selectCategory(category) {
     categoria.value = category
+    partidaStore.partidaData.preguntaContestada = false
+
     // Hacer la solicitud GET
     axios
       .get('https://raw.githubusercontent.com/Andriucm/preguntas.json/main/db.json')
@@ -168,9 +170,7 @@ export const useRuletaStore = defineStore('ruleta', () => {
         const preguntasJson = triviaData.find(
           (cat) => cat.categoria.toUpperCase() === categoria.value.toUpperCase()
         )
-
         // Randomizar la selección de una pregunta
-
         const indiceAleatorio = Math.floor(Math.random() * preguntasJson.preguntas.length)
         preguntasAleatoria.value = preguntasJson.preguntas[indiceAleatorio]
         categoriaAleatoria.value = preguntasJson.categoria
