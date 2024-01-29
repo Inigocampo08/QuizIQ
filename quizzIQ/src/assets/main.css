@@ -1,0 +1,200 @@
+:root {
+  /*Paleta de colores*/
+  --color1: #f31761;
+  --color1-hover: #d4005f; /* Ajustado para mayor contraste */
+  --color1-active: #c00057; /* Ajustado para mayor contraste */
+
+  --color2: #eb60ab;
+  --color2-hover: #d6609d; /* Ajustado para mayor contraste */
+  --color2-active: #c2508b; /* Ajustado para mayor contraste */
+
+  --color3: #563fab;
+  --color3-hover: #4a2f9b; /* Ajustado para mayor contraste */
+  --color3-active: #3c208b; /* Ajustado para mayor contraste */
+
+  --color4: #25cfc4;
+  --color4-hover: #1db9b8; /* Ajustado para mayor contraste */
+  --color4-active: #18a9a0;
+  --blanco: #f2f2f2;
+  --negro: #333333;
+
+  --color-corona: #9b59b6;
+  --color-geografia: #3498db;
+  --color-historia: #f1c40f;
+  --color-arte: #e74c3c;
+  --color-ciencia: #2ecc71;
+  --color-entretenimiento: #ff69b4;
+  --color-deportes: #e67e22;
+
+  /*Tipografia*/
+  --encabezado: 'Press Start 2P', system-ui;
+  --parrafo: 'Josefin Sans', sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  background: var(--blanco);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  user-select: none;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 100vw; /* Ajusta el ancho máximo al ancho de la ventana */
+}
+body {
+  margin: 0;
+  font-family: var(--parrafo);
+  font-size: 1.6rem;
+  border: solid 1px var(--negro);
+  overflow-x: hidden;
+}
+body.no-scroll {
+  overflow: hidden;
+}
+
+header {
+  height: 15vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+main {
+  min-height: 85vh;
+}
+/*Encabezados*/
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 3.8re;
+}
+
+h4 {
+  font-size: 3rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--encabezado);
+  color: var(--color1);
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+button {
+  border: none;
+}
+
+/* Estilo para los enlaces */
+a {
+  text-decoration: none;
+  background-color: transparent;
+  color: var(--color4);
+  transition: 0.5s;
+}
+
+a:hover {
+  transition: 0.5s;
+  cursor: pointer;
+  color: var(--color4-hover);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/** Personalizados */
+/* Estilo para los botones */
+.btn--primary,
+.btn--secondary {
+  padding: 2rem 3rem;
+  text-transform: uppercase;
+  border-radius: 2rem;
+  transition: all 500ms cubic-bezier(0.23, 1, 0.32, 1);
+  color: var(--blanco);
+  font-family: var(--encabezado);
+}
+.btn--primary {
+  background-color: var(--color1);
+  font-weight: bold;
+}
+.btn--primary:hover {
+  background-color: var(--color1-hover);
+}
+.btn--secondary {
+  background-color: var(--color2);
+  font-weight: bold;
+}
+.btn--secondary:hover {
+  background-color: var(--color2-hover);
+}
+
+.btn--primary:hover,
+.btn--secondary:hover {
+  color: var(--blanco);
+  transform: translateY(-4px);
+  cursor: pointer;
+}
+.btn--primary:active {
+  background-color: var(--color1-active);
+}
+.btn--secondary:active {
+  background-color: var(--color2-active);
+}
+/* Estilo para los contenido */
+.contenedor {
+  max-width: 120rem;
+  width: 90%;
+  margin: 0 auto;
+}
+/* Estilo para el encabezado en partida */
+.header-in-game {
+  font-family: var(--encabezado);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+/* Estilo para las categorias */
+.categoria__ruleta--icon {
+  width: 15%;
+}
+
+
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 50%; /* Ajusta el tamaño base para dispositivos móviles */
+  }
+
+  h1 {
+    font-size: 3.4rem; /* Ajusta el tamaño de h1 para dispositivos móviles */
+  }
+
+  h2 {
+    font-size: 2.6rem; /* Ajusta el tamaño de h2 para dispositivos móviles */
+  }
+
+  h3 {
+    font-size: 1.8rem; /* Ajusta el tamaño de h3 para dispositivos móviles */
+  }
+
+  h4 {
+    font-size: 1.6rem; /* Ajusta el tamaño de h4 para dispositivos móviles */
+  }
+
+  /* Agrega más ajustes según sea necesario para otros estilos */
+}

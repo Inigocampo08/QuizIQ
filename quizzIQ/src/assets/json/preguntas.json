@@ -1,0 +1,1538 @@
+[
+    {
+        "categoria": "historia",
+        "color": "#f1c40f",
+        "preguntas": [
+            {
+                "pregunta": "¿Quién fue el primer presidente de Estados Unidos?",
+                "opciones": [
+                    "George Washington",
+                    "Abraham Lincoln",
+                    "Thomas Jefferson",
+                    "John Adams"
+                ],
+                "respuesta_correcta": "George Washington"
+            },
+            {
+                "pregunta": "¿En qué año comenzó la Primera Guerra Mundial?",
+                "opciones": [
+                    "1914",
+                    "1918",
+                    "1939",
+                    "1905"
+                ],
+                "respuesta_correcta": "1914"
+            },
+            {
+                "pregunta": "¿Qué líder político escribió 'Mi Lucha'?",
+                "opciones": [
+                    "Joseph Stalin",
+                    "Winston Churchill",
+                    "Adolf Hitler",
+                    "Benito Mussolini"
+                ],
+                "respuesta_correcta": "Adolf Hitler"
+            },
+            {
+                "pregunta": "¿Quién fue el primer emperador romano?",
+                "opciones": [
+                    "Julio César",
+                    "Augusto",
+                    "Nerón",
+                    "Tiberio"
+                ],
+                "respuesta_correcta": "Augusto"
+            },
+            {
+                "pregunta": "¿En qué año se firmó la Declaración de Independencia de Estados Unidos?",
+                "opciones": [
+                    "1776",
+                    "1789",
+                    "1804",
+                    "1754"
+                ],
+                "respuesta_correcta": "1776"
+            },
+            {
+                "pregunta": "¿En qué año ocurrió la Revolución Rusa?",
+                "opciones": [
+                    "1917",
+                    "1920",
+                    "1930",
+                    "1940"
+                ],
+                "respuesta_correcta": "1917"
+            },
+            {
+                "pregunta": "¿Cuál fue la dinastía gobernante en la antigua China?",
+                "opciones": [
+                    "Han",
+                    "Ming",
+                    "Qing",
+                    "Song"
+                ],
+                "respuesta_correcta": "Qing"
+            },
+            {
+                "pregunta": "¿Quién fue el líder de la Revolución Cubana junto a Fidel Castro?",
+                "opciones": [
+                    "Che Guevara",
+                    "Raul Castro",
+                    "Camilo Cienfuegos",
+                    "Batista"
+                ],
+                "respuesta_correcta": "Che Guevara"
+            },
+            {
+                "pregunta": "¿En qué año se fundó la Organización de las Naciones Unidas (ONU)?",
+                "opciones": [
+                    "1945",
+                    "1950",
+                    "1960",
+                    "1970"
+                ],
+                "respuesta_correcta": "1945"
+            },
+            {
+                "pregunta": "¿Quién fue la Reina Victoria?",
+                "opciones": [
+                    "Reina del Reino Unido",
+                    "Reina de España",
+                    "Reina de Francia",
+                    "Reina de Prusia"
+                ],
+                "respuesta_correcta": "Reina del Reino Unido"
+            },
+            {
+                "pregunta": "¿En qué año comenzó la Revolución Industrial?",
+                "opciones": [
+                    "1750",
+                    "1800",
+                    "1850",
+                    "1900"
+                ],
+                "respuesta_correcta": "1750"
+            },
+            {
+                "pregunta": "¿Cuál fue la consecuencia inmediata del asesinato del Archiduque Francisco Fernando?",
+                "opciones": [
+                    "Inicio de la Primera Guerra Mundial",
+                    "Fin de la Segunda Guerra Mundial",
+                    "Revolución Rusa",
+                    "Tratado de Versalles"
+                ],
+                "respuesta_correcta": "Inicio de la Primera Guerra Mundial"
+            },
+            {
+                "pregunta": "¿Quién fue la primera persona en circunnavegar la Tierra?",
+                "opciones": [
+                    "Fernando Magallanes",
+                    "Juan Sebastián Elcano",
+                    "James Cook",
+                    "Christopher Columbus"
+                ],
+                "respuesta_correcta": "Juan Sebastián Elcano"
+            },
+            {
+                "pregunta": "¿En qué año se firmó el Tratado de Tordesillas?",
+                "opciones": [
+                    "1494",
+                    "1500",
+                    "1510",
+                    "1520"
+                ],
+                "respuesta_correcta": "1494"
+            },
+            {
+                "pregunta": "¿Qué famosa carta fue enviada por Martin Luther King Jr.?",
+                "opciones": [
+                    "Carta desde la cárcel de Birmingham",
+                    "Carta a un amigo lejano",
+                    "Carta al presidente",
+                    "Carta a los líderes mundiales"
+                ],
+                "respuesta_correcta": "Carta desde la cárcel de Birmingham"
+            },
+            {
+                "pregunta": "¿En qué año se llevó a cabo la Revolución Francesa?",
+                "opciones": [
+                    "1789",
+                    "1795",
+                    "1800",
+                    "1810"
+                ],
+                "respuesta_correcta": "1789"
+            },
+            {
+                "pregunta": "¿Cuál fue el resultado de la Batalla de Stalingrado?",
+                "opciones": [
+                    "Victoria del Ejército Rojo",
+                    "Victoria de la Wehrmacht",
+                    "Empate",
+                    "Victoria de los Aliados"
+                ],
+                "respuesta_correcta": "Victoria del Ejército Rojo"
+            },
+            {
+                "pregunta": "¿Quién fue la primera mujer en ganar un Premio Nobel?",
+                "opciones": [
+                    "Marie Curie",
+                    "Rosalind Franklin",
+                    "Dorothy Crowfoot Hodgkin",
+                    "Gerty Cori"
+                ],
+                "respuesta_correcta": "Marie Curie"
+            },
+            {
+                "pregunta": "¿Cuál fue la causa principal de la Guerra de Secesión en Estados Unidos?",
+                "opciones": [
+                    "Esclavitud",
+                    "Impuestos",
+                    "Derechos de los Estados",
+                    "Territorios del oeste"
+                ],
+                "respuesta_correcta": "Esclavitud"
+            },
+            {
+                "pregunta": "¿En qué año se proclamó la independencia de Colombia?",
+                "opciones": [
+                    "1810",
+                    "1820",
+                    "1830",
+                    "1840"
+                ],
+                "respuesta_correcta": "1810"
+            },
+            {
+                "pregunta": "¿Quién fue el fundador del Imperio Mongol?",
+                "opciones": [
+                    "Genghis Khan",
+                    "Kublai Khan",
+                    "Attila el Huno",
+                    "Tamerlán"
+                ],
+                "respuesta_correcta": "Genghis Khan"
+            },
+            {
+                "pregunta": "¿En qué año se firmó el Tratado de Utrecht?",
+                "opciones": [
+                    "1713",
+                    "1720",
+                    "1730",
+                    "1740"
+                ],
+                "respuesta_correcta": "1713"
+            },
+            {
+                "pregunta": "¿Cuál fue la primera democracia conocida en la antigüedad?",
+                "opciones": [
+                    "Atenas",
+                    "Roma",
+                    "Egipto",
+                    "Persia"
+                ],
+                "respuesta_correcta": "Atenas"
+            },
+            {
+                "pregunta": "¿Qué país fue el primer productor mundial de petróleo?",
+                "opciones": [
+                    "Estados Unidos",
+                    "Arabia Saudita",
+                    "Rusia",
+                    "Irán"
+                ],
+                "respuesta_correcta": "Estados Unidos"
+            },
+            {
+                "pregunta": "¿Quién fue el líder de la Revolución China en 1949?",
+                "opciones": [
+                    "Mao Zedong",
+                    "Chiang Kai-shek",
+                    "Sun Yat-sen",
+                    "Deng Xiaoping"
+                ],
+                "respuesta_correcta": "Mao Zedong"
+            }
+        ]
+    },
+    {
+        "categoria": "ciencia",
+        "color": "#2ecc71",
+        "preguntas": [
+            {
+                "pregunta": "¿Cuál es el elemento más abundante en la Tierra?",
+                "opciones": [
+                    "Hierro",
+                    "Oxígeno",
+                    "Carbono",
+                    "Hidrógeno"
+                ],
+                "respuesta_correcta": "Oxígeno"
+            },
+            {
+                "pregunta": "¿Como se denomina el 'Cobre' en la tabla periodica?",
+                "opciones": [
+                    "Cu",
+                    "Co",
+                    "Zn",
+                    "C"
+                ],
+                "respuesta_correcta": "Cu"
+            },
+            {
+                "pregunta": "¿Qué unidad se utiliza para medir la electricidad?",
+                "opciones": [
+                    "Vatio",
+                    "Ohmio",
+                    "Julio",
+                    "Amperio"
+                ],
+                "respuesta_correcta": "Amperio"
+            },
+            {
+                "pregunta": "¿Cuál es la molécula responsable de la transmisión genética?",
+                "opciones": [
+                    "ARN",
+                    "ADN",
+                    "ARNt",
+                    "ARNm"
+                ],
+                "respuesta_correcta": "ADN"
+            },
+            {
+                "pregunta": "¿Qué planeta tiene el día más largo?",
+                "opciones": [
+                    "Marte",
+                    "Venus",
+                    "Mercurio",
+                    "Júpiter"
+                ],
+                "respuesta_correcta": "Júpiter"
+            },
+            {
+                "pregunta": "¿Qué científico formuló la teoría de la relatividad?",
+                "opciones": [
+                    "Isaac Newton",
+                    "Albert Einstein",
+                    "Stephen Hawking",
+                    "Galileo Galilei"
+                ],
+                "respuesta_correcta": "Albert Einstein"
+            },
+            {
+                "pregunta": "¿Cuántos elementos químicos hay en la tabla periódica?",
+                "opciones": [
+                    "118",
+                    "92",
+                    "109",
+                    "103"
+                ],
+                "respuesta_correcta": "118"
+            },
+            {
+                "pregunta": "¿Qué fenómeno es responsable de la formación de un arco iris?",
+                "opciones": [
+                    "Refracción",
+                    "Reflexión",
+                    "Difracción",
+                    "Interferencia"
+                ],
+                "respuesta_correcta": "Refracción"
+            },
+            {
+                "pregunta": "¿Cuál es la velocidad de la luz en el vacío?",
+                "opciones": [
+                    "299,792 km/s",
+                    "150,000 km/s",
+                    "500,000 km/s",
+                    "200,000 km/s"
+                ],
+                "respuesta_correcta": "299,792 km/s"
+            },
+            {
+                "pregunta": "¿Qué parte del cuerpo humano controla la respiración?",
+                "opciones": [
+                    "Médula espinal",
+                    "Cerebelo",
+                    "Cerebro",
+                    "Diafragma"
+                ],
+                "respuesta_correcta": "Cerebro"
+            },
+            {
+                "pregunta": "¿Cuál es el órgano más grande del cuerpo humano?",
+                "opciones": [
+                    "Hígado",
+                    "Cerebro",
+                    "Pulmón",
+                    "Corazón"
+                ],
+                "respuesta_correcta": "Hígado"
+            },
+            {
+                "pregunta": "¿Quién descubrió la penicilina?",
+                "opciones": [
+                    "Alexander Fleming",
+                    "Louis Pasteur",
+                    "Marie Curie",
+                    "Joseph Lister"
+                ],
+                "respuesta_correcta": "Alexander Fleming"
+            },
+            {
+                "pregunta": "¿Cuál es el metal más abundante en la corteza terrestre?",
+                "opciones": [
+                    "Aluminio",
+                    "Hierro",
+                    "Cobre",
+                    "Zinc"
+                ],
+                "respuesta_correcta": "Aluminio"
+            },
+            {
+                "pregunta": "¿En qué año se lanzó el primer satélite artificial, el Sputnik 1?",
+                "opciones": [
+                    "1957",
+                    "1961",
+                    "1965",
+                    "1955"
+                ],
+                "respuesta_correcta": "1957"
+            },
+            {
+                "pregunta": "¿Qué gas es esencial para la fotosíntesis de las plantas?",
+                "opciones": [
+                    "Dióxido de carbono (CO2)",
+                    "Oxígeno (O2)",
+                    "Nitrógeno (N2)",
+                    "Hidrógeno (H2)"
+                ],
+                "respuesta_correcta": "Dióxido de carbono (CO2)"
+            },
+            {
+                "pregunta": "¿Cuál es el componente principal del gas natural?",
+                "opciones": [
+                    "Metano",
+                    "Etano",
+                    "Propano",
+                    "Butano"
+                ],
+                "respuesta_correcta": "Metano"
+            },
+            {
+                "pregunta": "¿Cuántos elementos químicos hay en la tabla periódica?",
+                "opciones": [
+                    "118",
+                    "92",
+                    "109",
+                    "103"
+                ],
+                "respuesta_correcta": "118"
+            },
+            {
+                "pregunta": "¿Qué fenómeno es responsable de la formación de un arco iris?",
+                "opciones": [
+                    "Refracción",
+                    "Reflexión",
+                    "Difracción",
+                    "Interferencia"
+                ],
+                "respuesta_correcta": "Refracción"
+            },
+            {
+                "pregunta": "¿Cuál es la velocidad de la luz en el vacío?",
+                "opciones": [
+                    "299,792 km/s",
+                    "150,000 km/s",
+                    "500,000 km/s",
+                    "200,000 km/s"
+                ],
+                "respuesta_correcta": "299,792 km/s"
+            },
+            {
+                "pregunta": "¿Qué parte del cuerpo humano controla la respiración?",
+                "opciones": [
+                    "Médula espinal",
+                    "Cerebelo",
+                    "Cerebro",
+                    "Diafragma"
+                ],
+                "respuesta_correcta": "Cerebro"
+            },
+            {
+                "pregunta": "¿Cuál es el órgano más grande del cuerpo humano?",
+                "opciones": [
+                    "Hígado",
+                    "Cerebro",
+                    "Pulmón",
+                    "Corazón"
+                ],
+                "respuesta_correcta": "Hígado"
+            },
+            {
+                "pregunta": "¿Quién descubrió la penicilina?",
+                "opciones": [
+                    "Alexander Fleming",
+                    "Louis Pasteur",
+                    "Marie Curie",
+                    "Joseph Lister"
+                ],
+                "respuesta_correcta": "Alexander Fleming"
+            },
+            {
+                "pregunta": "¿Cuál es el metal más abundante en la corteza terrestre?",
+                "opciones": [
+                    "Aluminio",
+                    "Hierro",
+                    "Cobre",
+                    "Zinc"
+                ],
+                "respuesta_correcta": "Aluminio"
+            },
+            {
+                "pregunta": "¿En qué año se lanzó el primer satélite artificial, el Sputnik 1?",
+                "opciones": [
+                    "1957",
+                    "1961",
+                    "1965",
+                    "1955"
+                ],
+                "respuesta_correcta": "1957"
+            },
+            {
+                "pregunta": "¿Qué gas es esencial para la fotosíntesis de las plantas?",
+                "opciones": [
+                    "Dióxido de carbono (CO2)",
+                    "Oxígeno (O2)",
+                    "Nitrógeno (N2)",
+                    "Hidrógeno (H2)"
+                ],
+                "respuesta_correcta": "Dióxido de carbono (CO2)"
+            },
+            {
+                "pregunta": "¿Cuál es el componente principal del gas natural?",
+                "opciones": [
+                    "Metano",
+                    "Etano",
+                    "Propano",
+                    "Butano"
+                ],
+                "respuesta_correcta": "Metano"
+            }
+        ]
+    },
+    {
+        "categoria": "geografia",
+        "color": "#3498db",
+        "preguntas": [
+            {
+                "pregunta": "¿Cuál es la capital de Brasil?",
+                "opciones": [
+                    "Sao Paulo",
+                    "Brasilia",
+                    "Río de Janeiro",
+                    "Buenos Aires"
+                ],
+                "respuesta_correcta": "Brasilia"
+            },
+            {
+                "pregunta": "¿En qué continente se encuentra el desierto del Sahara?",
+                "opciones": [
+                    "Asia",
+                    "África",
+                    "América",
+                    "Europa"
+                ],
+                "respuesta_correcta": "África"
+            },
+            {
+                "pregunta": "¿Qué río es el más largo del mundo?",
+                "opciones": [
+                    "Amazonas",
+                    "Nilo",
+                    "Misisipi",
+                    "Yangtsé"
+                ],
+                "respuesta_correcta": "Amazonas"
+            },
+            {
+                "pregunta": "¿Cuál es el país más pequeño del mundo?",
+                "opciones": [
+                    "Vaticano",
+                    "Mónaco",
+                    "Maldivas",
+                    "San Marino"
+                ],
+                "respuesta_correcta": "Vaticano"
+            },
+            {
+                "pregunta": "¿Qué montaña es la más alta del mundo?",
+                "opciones": [
+                    "Monte Everest",
+                    "Monte Kilimanjaro",
+                    "Monte Fuji",
+                    "Monte McKinley"
+                ],
+                "respuesta_correcta": "Monte Everest"
+            },
+            {
+                "pregunta": "¿Cuál es la capital de Australia?",
+                "opciones": [
+                    "Sídney",
+                    "Melbourne",
+                    "Canberra",
+                    "Brisbane"
+                ],
+                "respuesta_correcta": "Canberra"
+            },
+            {
+                "pregunta": "¿En qué océano se encuentra la isla de Madagascar?",
+                "opciones": [
+                    "Océano Atlántico",
+                    "Océano Índico",
+                    "Océano Pacífico",
+                    "Mar Mediterráneo"
+                ],
+                "respuesta_correcta": "Océano Índico"
+            },
+            {
+                "pregunta": "¿Cuál es la cadena montañosa que separa Europa de Asia?",
+                "opciones": [
+                    "Montañas Rocosas",
+                    "Himalaya",
+                    "Montes Urales",
+                    "Alpes"
+                ],
+                "respuesta_correcta": "Montes Urales"
+            },
+            {
+                "pregunta": "¿En qué país se encuentra el volcán Popocatépetl?",
+                "opciones": [
+                    "México",
+                    "Guatemala",
+                    "Chile",
+                    "Ecuador"
+                ],
+                "respuesta_correcta": "México"
+            },
+            {
+                "pregunta": "¿Cuál es el lago más profundo del mundo?",
+                "opciones": [
+                    "Lago Baikal",
+                    "Lago Titicaca",
+                    "Lago Victoria",
+                    "Lago Superior"
+                ],
+                "respuesta_correcta": "Lago Baikal"
+            },
+            {
+                "pregunta": "¿En qué país se encuentra el Canal de Panamá?",
+                "opciones": [
+                    "Colombia",
+                    "Costa Rica",
+                    "Nicaragua",
+                    "Panamá"
+                ],
+                "respuesta_correcta": "Panamá"
+            },
+            {
+                "pregunta": "¿Cuál es la segunda ciudad más poblada del mundo?",
+                "opciones": [
+                    "Delhi",
+                    "Shanghái",
+                    "Mumbai",
+                    "Pekín"
+                ],
+                "respuesta_correcta": "Shanghái"
+            },
+            {
+                "pregunta": "¿En qué país se encuentra el desierto de Atacama?",
+                "opciones": [
+                    "Argentina",
+                    "Chile",
+                    "Perú",
+                    "Bolivia"
+                ],
+                "respuesta_correcta": "Chile"
+            },
+            {
+                "pregunta": "¿Cuál es la capital de Sudáfrica?",
+                "opciones": [
+                    "Johannesburgo",
+                    "Cape Town",
+                    "Pretoria",
+                    "Bloemfontein"
+                ],
+                "respuesta_correcta": "Pretoria"
+            },
+            {
+                "pregunta": "¿En qué continente se encuentra la isla de Groenlandia?",
+                "opciones": [
+                    "Europa",
+                    "América del Norte",
+                    "Asia",
+                    "Oceanía"
+                ],
+                "respuesta_correcta": "América del Norte"
+            },
+            {
+                "pregunta": "¿Cuál es el río más largo de América del Norte?",
+                "opciones": [
+                    "Río Yukón",
+                    "Río Colorado",
+                    "Río Columbia",
+                    "Río Misisipi"
+                ],
+                "respuesta_correcta": "Río Misisipi"
+            },
+            {
+                "pregunta": "¿En qué país se encuentra la ciudad de Casablanca?",
+                "opciones": [
+                    "Egipto",
+                    "Argelia",
+                    "Marruecos",
+                    "Túnez"
+                ],
+                "respuesta_correcta": "Marruecos"
+            },
+            {
+                "pregunta": "¿Cuál es la isla más grande del mundo?",
+                "opciones": [
+                    "Australia",
+                    "Groenlandia",
+                    "Borneo",
+                    "Java"
+                ],
+                "respuesta_correcta": "Groenlandia"
+            },
+            {
+                "pregunta": "¿En qué país se encuentra la cordillera de los Andes?",
+                "opciones": [
+                    "Argentina",
+                    "Chile",
+                    "Perú",
+                    "Ecuador"
+                ],
+                "respuesta_correcta": "Chile"
+            },
+            {
+                "pregunta": "¿Cuál es el país más grande del mundo por superficie terrestre?",
+                "opciones": [
+                    "Canadá",
+                    "China",
+                    "Estados Unidos",
+                    "Rusia"
+                ],
+                "respuesta_correcta": "Rusia"
+            },
+            {
+                "pregunta": "¿En qué océano se encuentra la Gran Barrera de Coral?",
+                "opciones": [
+                    "Océano Atlántico",
+                    "Océano Índico",
+                    "Océano Pacífico",
+                    "Mar del Norte"
+                ],
+                "respuesta_correcta": "Océano Pacífico"
+            },
+            {
+                "pregunta": "¿Cuál es la capital de Irlanda?",
+                "opciones": [
+                    "Edimburgo",
+                    "Belfast",
+                    "Dublín",
+                    "Cardiff"
+                ],
+                "respuesta_correcta": "Dublín"
+            },
+            {
+                "pregunta": "¿En qué país se encuentra el río Danubio?",
+                "opciones": [
+                    "Austria",
+                    "Hungría",
+                    "Rumanía",
+                    "República Checa"
+                ],
+                "respuesta_correcta": "Hungría"
+            },
+            {
+                "pregunta": "¿Cuál es el punto más alto de África?",
+                "opciones": [
+                    "Monte Kilimanjaro",
+                    "Monte Kenia",
+                    "Monte Elbrús",
+                    "Monte Atlas"
+                ],
+                "respuesta_correcta": "Monte Kilimanjaro"
+            },
+            {
+                "pregunta": "¿En qué país se encuentra el volcán Cotopaxi?",
+                "opciones": [
+                    "Perú",
+                    "Colombia",
+                    "Ecuador",
+                    "Venezuela"
+                ],
+                "respuesta_correcta": "Ecuador"
+            }
+        ]
+    },
+    {
+        "categoria": "arte",
+        "color": "#e74c3c",
+        "preguntas": [
+            {
+                "pregunta": "¿Quién pintó la obra 'La noche estrellada'?",
+                "opciones": [
+                    "Pablo Picasso",
+                    "Claude Monet",
+                    "Vincent van Gogh",
+                    "Leonardo da Vinci"
+                ],
+                "respuesta_correcta": "Vincent van Gogh"
+            },
+            {
+                "pregunta": "¿Qué movimiento artístico es conocido por sus formas geométricas y colores primarios?",
+                "opciones": [
+                    "Cubismo",
+                    "Impresionismo",
+                    "Renacimiento",
+                    "Barroco"
+                ],
+                "respuesta_correcta": "Cubismo"
+            },
+            {
+                "pregunta": "¿Cuál es el instrumento musical más antiguo?",
+                "opciones": [
+                    "Flauta",
+                    "Tambor",
+                    "Arpa",
+                    "Lira"
+                ],
+                "respuesta_correcta": "Flauta"
+            },
+            {
+                "pregunta": "¿Qué escultura representa a un hombre desnudo sosteniendo una lanza?",
+                "opciones": [
+                    "La Piedad",
+                    "David",
+                    "El Pensador",
+                    "La Victoria de Samotracia"
+                ],
+                "respuesta_correcta": "El Pensador"
+            },
+            {
+                "pregunta": "¿Qué artista es conocido por sus pinturas de latas de sopa y retratos de celebridades?",
+                "opciones": [
+                    "Andy Warhol",
+                    "Salvador Dalí",
+                    "Frida Kahlo",
+                    "Jackson Pollock"
+                ],
+                "respuesta_correcta": "Andy Warhol"
+            },
+            {
+                "pregunta": "¿En qué ciudad se encuentra la famosa obra arquitectónica 'La Sagrada Familia'?",
+                "opciones": [
+                    "Roma",
+                    "Barcelona",
+                    "París",
+                    "Berlín"
+                ],
+                "respuesta_correcta": "Barcelona"
+            },
+            {
+                "pregunta": "¿Cuál de estas pinturas es conocida como 'La Gioconda'?",
+                "opciones": [
+                    "El Grito",
+                    "La Noche Estrellada",
+                    "Las Meninas",
+                    "Mona Lisa"
+                ],
+                "respuesta_correcta": "Mona Lisa"
+            },
+            {
+                "pregunta": "¿Quién es conocido como el 'padre del surrealismo'?",
+                "opciones": [
+                    "Salvador Dalí",
+                    "Pablo Picasso",
+                    "René Magritte",
+                    "Joan Miró"
+                ],
+                "respuesta_correcta": "Salvador Dalí"
+            },
+            {
+                "pregunta": "¿Qué estilo arquitectónico es característico de las pirámides egipcias?",
+                "opciones": [
+                    "Gótico",
+                    "Románico",
+                    "Egipcio",
+                    "Barroco"
+                ],
+                "respuesta_correcta": "Egipcio"
+            },
+            {
+                "pregunta": "¿Cuál de estas obras pertenece al movimiento impresionista?",
+                "opciones": [
+                    "Los jugadores de cartas",
+                    "La balsa de la Medusa",
+                    "Impresión, sol naciente",
+                    "El nacimiento de Venus"
+                ],
+                "respuesta_correcta": "Impresión, sol naciente"
+            },
+            {
+                "pregunta": "¿Qué pintor fue un destacado representante del movimiento neoclásico?",
+                "opciones": [
+                    "Francisco Goya",
+                    "Jacques-Louis David",
+                    "Eugène Delacroix",
+                    "William Turner"
+                ],
+                "respuesta_correcta": "Jacques-Louis David"
+            },
+            {
+                "pregunta": "¿Quién es conocido por sus esculturas de figuras humanoides con formas cúbicas y geométricas?",
+                "opciones": [
+                    "Auguste Rodin",
+                    "Constantin Brâncuși",
+                    "Henry Moore",
+                    "Pablo Picasso"
+                ],
+                "respuesta_correcta": "Constantin Brâncuși"
+            },
+            {
+                "pregunta": "¿Cuál de las siguientes obras literarias inspiró la creación de la pintura 'La Libertad guiando al pueblo'?",
+                "opciones": [
+                    "La Ilíada",
+                    "Los miserables",
+                    "Cantar de mio Cid",
+                    "La Divina Comedia"
+                ],
+                "respuesta_correcta": "La Divina Comedia"
+            },
+            {
+                "pregunta": "¿Qué movimiento artístico buscaba representar la realidad de manera objetiva y detallada?",
+                "opciones": [
+                    "Realismo",
+                    "Romanticismo",
+                    "Simbolismo",
+                    "Fauvismo"
+                ],
+                "respuesta_correcta": "Realismo"
+            },
+            {
+                "pregunta": "¿Cuál es la obra más famosa del escultor italiano Michelangelo?",
+                "opciones": [
+                    "La última cena",
+                    "David",
+                    "La Pietà",
+                    "Moisés"
+                ],
+                "respuesta_correcta": "David"
+            },
+            {
+                "pregunta": "¿Qué pintor fue conocido por sus retratos de Marilyn Monroe y latas de sopa Campbell's?",
+                "opciones": [
+                    "Jackson Pollock",
+                    "Frida Kahlo",
+                    "Andy Warhol",
+                    "Claude Monet"
+                ],
+                "respuesta_correcta": "Andy Warhol"
+            },
+            {
+                "pregunta": "¿En qué período artístico se desarrolló la técnica del claroscuro?",
+                "opciones": [
+                    "Renacimiento",
+                    "Barroco",
+                    "Romanticismo",
+                    "Cubismo"
+                ],
+                "respuesta_correcta": "Renacimiento"
+            },
+            {
+                "pregunta": "¿Qué famoso arquitecto diseñó la Ópera de Sídney?",
+                "opciones": [
+                    "Le Corbusier",
+                    "Frank Lloyd Wright",
+                    "Zaha Hadid",
+                    "Jørn Utzon"
+                ],
+                "respuesta_correcta": "Jørn Utzon"
+            },
+            {
+                "pregunta": "¿En qué ciudad se encuentra el Museo del Louvre?",
+                "opciones": [
+                    "Londres",
+                    "Nueva York",
+                    "París",
+                    "Roma"
+                ],
+                "respuesta_correcta": "París"
+            },
+            {
+                "pregunta": "¿Cuál de estas pinturas es obra de Vincent van Gogh?",
+                "opciones": [
+                    "La persistencia de la memoria",
+                    "La noche estrellada",
+                    "La última cena",
+                    "El nacimiento de Venus"
+                ],
+                "respuesta_correcta": "La noche estrellada"
+            },
+            {
+                "pregunta": "¿Qué famoso arquitecto diseñó la Torre Eiffel?",
+                "opciones": [
+                    "Antoni Gaudí",
+                    "Gustave Eiffel",
+                    "Frank Gehry",
+                    "I. M. Pei"
+                ],
+                "respuesta_correcta": "Gustave Eiffel"
+            },
+            {
+                "pregunta": "¿En qué ciudad se encuentra el Museo Frida Kahlo, también conocido como 'La Casa Azul'?",
+                "opciones": [
+                    "Ciudad de México",
+                    "Barcelona",
+                    "París",
+                    "Nueva York"
+                ],
+                "respuesta_correcta": "Ciudad de México"
+            },
+            {
+                "pregunta": "¿Qué pintor es conocido por sus obras surrealistas y su famoso reloj derretido?",
+                "opciones": [
+                    "Salvador Dalí",
+                    "René Magritte",
+                    "Joan Miró",
+                    "Pablo Picasso"
+                ],
+                "respuesta_correcta": "Salvador Dalí"
+            },
+            {
+                "pregunta": "¿Cuál es la capital de Italia?",
+                "opciones": [
+                    "Berlín",
+                    "Madrid",
+                    "Roma",
+                    "Londres"
+                ],
+                "respuesta_correcta": "Roma"
+            },
+            {
+                "pregunta": "¿Qué pintor impresionista es conocido por sus nenúfares?",
+                "opciones": [
+                    "Edouard Manet",
+                    "Claude Monet",
+                    "Pierre-Auguste Renoir",
+                    "Camille Pissarro"
+                ],
+                "respuesta_correcta": "Claude Monet"
+            }
+        ]
+    },
+    {
+        "categoria": "deportes",
+        "color": "#e67e22",
+        "preguntas": [
+            {
+                "pregunta": "¿Qué deporte se juega en un campo llamado 'court'?",
+                "opciones": [
+                    "Fútbol",
+                    "Béisbol",
+                    "Tenis",
+                    "Baloncesto"
+                ],
+                "respuesta_correcta": "Tenis"
+            },
+            {
+                "pregunta": "¿Qué equipo ha ganado más campeonatos de la NBA?",
+                "opciones": [
+                    "Chicago Bulls",
+                    "Los Angeles Lakers",
+                    "Boston Celtics",
+                    "Golden State Warriors"
+                ],
+                "respuesta_correcta": "Boston Celtics"
+            },
+            {
+                "pregunta": "¿En qué país se originó el deporte del cricket?",
+                "opciones": [
+                    "India",
+                    "Inglaterra",
+                    "Australia",
+                    "Sudáfrica"
+                ],
+                "respuesta_correcta": "Inglaterra"
+            },
+            {
+                "pregunta": "¿Cuál es el deporte nacional de Japón?",
+                "opciones": [
+                    "Karate",
+                    "Sumo",
+                    "Judo",
+                    "Kendo"
+                ],
+                "respuesta_correcta": "Sumo"
+            },
+            {
+                "pregunta": "¿Quién es considerado el mejor jugador de fútbol de todos los tiempos?",
+                "opciones": [
+                    "Pelé",
+                    "Diego Maradona",
+                    "Lionel Messi",
+                    "Cristiano Ronaldo"
+                ],
+                "respuesta_correcta": "Pelé"
+            },
+            {
+                "pregunta": "¿En qué país se celebra el torneo de tenis 'Wimbledon'?",
+                "opciones": [
+                    "Estados Unidos",
+                    "Reino Unido",
+                    "Francia",
+                    "Australia"
+                ],
+                "respuesta_correcta": "Reino Unido"
+            },
+            {
+                "pregunta": "¿Cuántos jugadores componen un equipo de baloncesto en la cancha durante un juego?",
+                "opciones": [
+                    "5",
+                    "6",
+                    "7",
+                    "8"
+                ],
+                "respuesta_correcta": "5"
+            },
+            {
+                "pregunta": "¿Cuál es el deporte más popular en Brasil?",
+                "opciones": [
+                    "Fútbol",
+                    "Voleibol",
+                    "Surf",
+                    "Atletismo"
+                ],
+                "respuesta_correcta": "Fútbol"
+            },
+            {
+                "pregunta": "¿En qué país se celebra el famoso evento de carreras de automóviles 'Monaco Grand Prix'?",
+                "opciones": [
+                    "Italia",
+                    "Alemania",
+                    "Francia",
+                    "Mónaco"
+                ],
+                "respuesta_correcta": "Mónaco"
+            },
+            {
+                "pregunta": "¿Quién es conocido como 'El Rey' en el mundo del baloncesto?",
+                "opciones": [
+                    "Michael Jordan",
+                    "LeBron James",
+                    "Kobe Bryant",
+                    "Magic Johnson"
+                ],
+                "respuesta_correcta": "Michael Jordan"
+            },
+            {
+                "pregunta": "¿Cuál es el único país que ha participado en cada edición de los Juegos Olímpicos modernos?",
+                "opciones": [
+                    "Estados Unidos",
+                    "Reino Unido",
+                    "Grecia",
+                    "Francia"
+                ],
+                "respuesta_correcta": "Grecia"
+            },
+            {
+                "pregunta": "¿En qué año se celebró la primera Copa Mundial de la FIFA?",
+                "opciones": [
+                    "1930",
+                    "1950",
+                    "1966",
+                    "1978"
+                ],
+                "respuesta_correcta": "1930"
+            },
+            {
+                "pregunta": "¿Cuál de los siguientes deportes se juega con un palo largo y una pelota pequeña?",
+                "opciones": [
+                    "Hockey sobre césped",
+                    "Golf",
+                    "Críquet",
+                    "Lacrosse"
+                ],
+                "respuesta_correcta": "Golf"
+            },
+            {
+                "pregunta": "¿Cuál es el deporte acuático que se practica con una tabla y una vela?",
+                "opciones": [
+                    "Surf",
+                    "Vela",
+                    "Esquí acuático",
+                    "Windsurf"
+                ],
+                "respuesta_correcta": "Windsurf"
+            },
+            {
+                "pregunta": "¿En qué ciudad se llevó a cabo la primera edición de los Juegos Olímpicos modernos en 1896?",
+                "opciones": [
+                    "París",
+                    "Atenas",
+                    "Roma",
+                    "Londres"
+                ],
+                "respuesta_correcta": "Atenas"
+            },
+            {
+                "pregunta": "¿Cuál de las siguientes disciplinas es una categoría de los Juegos Olímpicos de Invierno?",
+                "opciones": [
+                    "Salto de longitud",
+                    "Snowboard",
+                    "Vóley playa",
+                    "Gimnasia rítmica"
+                ],
+                "respuesta_correcta": "Snowboard"
+            },
+            {
+                "pregunta": "¿Qué país ganó la Copa Mundial de la FIFA 2018?",
+                "opciones": [
+                    "Francia",
+                    "Alemania",
+                    "Brasil",
+                    "Argentina"
+                ],
+                "respuesta_correcta": "Francia"
+            },
+            {
+                "pregunta": "¿Cuál es el nombre completo del famoso boxeador 'Sugar Ray' Leonard?",
+                "opciones": [
+                    "Ray Charles Leonard",
+                    "Leonard Ray Robinson",
+                    "Ray Leonard Robinson",
+                    "Leonard Sugar Ray"
+                ],
+                "respuesta_correcta": "Ray Charles Leonard"
+            },
+            {
+                "pregunta": "¿En qué deporte se utiliza una pista llamada 'pista de hielo'?",
+                "opciones": [
+                    "Patinaje artístico",
+                    "Hockey sobre hielo",
+                    "Patinaje de velocidad",
+                    "Curling"
+                ],
+                "respuesta_correcta": "Hockey sobre hielo"
+            },
+            {
+                "pregunta": "¿Quién es conocido como el 'relámpago' y ha ganado varias medallas de oro en carreras de velocidad?",
+                "opciones": [
+                    "Usain Bolt",
+                    "Michael Phelps",
+                    "Carl Lewis",
+                    "Jesse Owens"
+                ],
+                "respuesta_correcta": "Usain Bolt"
+            },
+            {
+                "pregunta": "¿En qué deporte los jugadores compiten para ganar el 'Green Jacket'?",
+                "opciones": [
+                    "Tenis",
+                    "Golf",
+                    "Béisbol",
+                    "Fútbol americano"
+                ],
+                "respuesta_correcta": "Golf"
+            },
+            {
+                "pregunta": "¿Cuál es el deporte conocido como 'el deporte rey'?",
+                "opciones": [
+                    "Fútbol",
+                    "Baloncesto",
+                    "Críquet",
+                    "Tenis"
+                ],
+                "respuesta_correcta": "Fútbol"
+            },
+            {
+                "pregunta": "¿Cuál de las siguientes ciudades ha albergado los Juegos Olímpicos más veces?",
+                "opciones": [
+                    "Londres",
+                    "Atenas",
+                    "París",
+                    "Los Ángeles"
+                ],
+                "respuesta_correcta": "Los Ángeles"
+            },
+            {
+                "pregunta": "¿En qué año se celebró la primera edición de la Copa Mundial de Rugby?",
+                "opciones": [
+                    "1987",
+                    "1995",
+                    "2003",
+                    "2011"
+                ],
+                "respuesta_correcta": "1987"
+            },
+            {
+                "pregunta": "¿Cuál de los siguientes es un deporte de raqueta que se juega en una cancha cerrada?",
+                "opciones": [
+                    "Squash",
+                    "Tenis de mesa",
+                    "Bádminton",
+                    "Pádel"
+                ],
+                "respuesta_correcta": "Squash"
+            }
+        ]
+    },
+    {
+        "categoria": "entretenimiento",
+        "color": "#ff69b4",
+        "preguntas": [
+            {
+                "pregunta": "¿Qué actor interpretó a Iron Man en las películas de Marvel?",
+                "opciones": [
+                    "Chris Evans",
+                    "Chris Hemsworth",
+                    "Robert Downey Jr.",
+                    "Mark Ruffalo"
+                ],
+                "respuesta_correcta": "Robert Downey Jr."
+            },
+            {
+                "pregunta": "¿Qué banda de rock lanzó el álbum 'The Dark Side of the Moon'?",
+                "opciones": [
+                    "The Rolling Stones",
+                    "Led Zeppelin",
+                    "Pink Floyd",
+                    "The Beatles"
+                ],
+                "respuesta_correcta": "Pink Floyd"
+            },
+            {
+                "pregunta": "¿Cuál es la película con más premios Óscar de la historia?",
+                "opciones": [
+                    "Titanic",
+                    "El Señor de los Anillos: El Retorno del Rey",
+                    "Ben-Hur",
+                    "La La Land"
+                ],
+                "respuesta_correcta": "El Señor de los Anillos: El Retorno del Rey"
+            },
+            {
+                "pregunta": "¿Quién es el creador de la serie de televisión 'Los Simpson'?",
+                "opciones": [
+                    "Seth MacFarlane",
+                    "Matt Groening",
+                    "Seth Green",
+                    "Mike Judge"
+                ],
+                "respuesta_correcta": "Matt Groening"
+            },
+            {
+                "pregunta": "¿Qué juego de mesa utiliza un tablero con casillas como 'Salida', 'Cárcel' y 'Estacionamiento gratuito'?",
+                "opciones": [
+                    "Monopoly",
+                    "Scrabble",
+                    "Risk",
+                    "Trivial"
+                ],
+                "respuesta_correcta": "Monopoly"
+            },
+            {
+                "pregunta": "¿Cuál es la película animada de Pixar que presenta a un ratón chef?",
+                "opciones": [
+                    "Cars",
+                    "Ratatouille",
+                    "Up",
+                    "Toy Story"
+                ],
+                "respuesta_correcta": "Ratatouille"
+            },
+            {
+                "pregunta": "¿En qué año se lanzó la primera película de Star Wars?",
+                "opciones": [
+                    "1975",
+                    "1977",
+                    "1980",
+                    "1983"
+                ],
+                "respuesta_correcta": "1977"
+            },
+            {
+                "pregunta": "¿Cuál es el nombre del protagonista en la película 'Forrest Gump'?",
+                "opciones": [
+                    "Jack Dawson",
+                    "Forrest Gump",
+                    "Tom Hanks",
+                    "Edward Bloom"
+                ],
+                "respuesta_correcta": "Forrest Gump"
+            },
+            {
+                "pregunta": "¿Qué personaje interpretó Heath Ledger en 'El caballero de la noche'?",
+                "opciones": [
+                    "Batman",
+                    "Dos Caras",
+                    "Joker",
+                    "Bane"
+                ],
+                "respuesta_correcta": "Joker"
+            },
+            {
+                "pregunta": "¿Quién es la protagonista femenina en la película 'Crepúsculo'?",
+                "opciones": [
+                    "Bella Swan",
+                    "Hermione Granger",
+                    "Katniss Everdeen",
+                    "Tris Prior"
+                ],
+                "respuesta_correcta": "Bella Swan"
+            },
+            {
+                "pregunta": "¿Qué actor interpretó a Neo en 'The Matrix'?",
+                "opciones": [
+                    "Keanu Reeves",
+                    "Laurence Fishburne",
+                    "Hugo Weaving",
+                    "Carrie-Anne Moss"
+                ],
+                "respuesta_correcta": "Keanu Reeves"
+            },
+            {
+                "pregunta": "¿En qué película famosa aparece la frase 'Aquí está Johnny'?",
+                "opciones": [
+                    "The Shining",
+                    "Psycho",
+                    "Silence of the Lambs",
+                    "The Exorcist"
+                ],
+                "respuesta_correcta": "The Shining"
+            },
+            {
+                "pregunta": "¿Cuál es el título de la primera película de la saga 'Jurassic Park'?",
+                "opciones": [
+                    "The Lost World",
+                    "Jurassic World",
+                    "Jurassic Park",
+                    "Jurassic Kingdom"
+                ],
+                "respuesta_correcta": "Jurassic Park"
+            },
+            {
+                "pregunta": "¿Quién dirigió la película 'Pulp Fiction'?",
+                "opciones": [
+                    "Quentin Tarantino",
+                    "Martin Scorsese",
+                    "Steven Spielberg",
+                    "Christopher Nolan"
+                ],
+                "respuesta_correcta": "Quentin Tarantino"
+            },
+            {
+                "pregunta": "¿En qué película aparece el personaje Jack Dawson?",
+                "opciones": [
+                    "Titanic",
+                    "Inception",
+                    "The Revenant",
+                    "The Departed"
+                ],
+                "respuesta_correcta": "Titanic"
+            },
+            {
+                "pregunta": "¿Cuál es el título de la primera película de Harry Potter?",
+                "opciones": [
+                    "Harry Potter y el misterio del príncipe",
+                    "Harry Potter y las Reliquias de la Muerte",
+                    "Harry Potter y la piedra filosofal",
+                    "Harry Potter y el cáliz de fuego"
+                ],
+                "respuesta_correcta": "Harry Potter y la piedra filosofal"
+            },
+            {
+                "pregunta": "¿Quién interpretó a Hannibal Lecter en 'The Silence of the Lambs'?",
+                "opciones": [
+                    "Anthony Hopkins",
+                    "Mads Mikkelsen",
+                    "Brian Cox",
+                    "Javier Bardem"
+                ],
+                "respuesta_correcta": "Anthony Hopkins"
+            },
+            {
+                "pregunta": "¿Cuál es la película que cuenta la historia de un pez payaso llamado Nemo?",
+                "opciones": [
+                    "Finding Dory",
+                    "The Little Mermaid",
+                    "Finding Nemo",
+                    "Shark Tale"
+                ],
+                "respuesta_correcta": "Finding Nemo"
+            },
+            {
+                "pregunta": "¿Cuál es el título de la película basada en los cómics de Marvel que presenta a un grupo de héroes?",
+                "opciones": [
+                    "Justice League",
+                    "The Avengers",
+                    "X-Men",
+                    "Fantastic Four"
+                ],
+                "respuesta_correcta": "The Avengers"
+            },
+            {
+                "pregunta": "¿Quién es el director de la trilogía 'The Lord of the Rings'?",
+                "opciones": [
+                    "Steven Spielberg",
+                    "George Lucas",
+                    "Christopher Nolan",
+                    "Peter Jackson"
+                ],
+                "respuesta_correcta": "Peter Jackson"
+            },
+            {
+                "pregunta": "¿Cuál es la película de ciencia ficción dirigida por Ridley Scott que presenta al androide llamado David?",
+                "opciones": [
+                    "Blade Runner",
+                    "The Matrix",
+                    "Interstellar",
+                    "Prometheus"
+                ],
+                "respuesta_correcta": "Prometheus"
+            },
+            {
+                "pregunta": "¿Quién es el actor principal en la película 'Deadpool'?",
+                "opciones": [
+                    "Ryan Reynolds",
+                    "Chris Evans",
+                    "Robert Downey Jr.",
+                    "Hugh Jackman"
+                ],
+                "respuesta_correcta": "Ryan Reynolds"
+            },
+            {
+                "pregunta": "¿Qué película cuenta la historia del joven mago que descubre que es un brujo?",
+                "opciones": [
+                    "The Hobbit",
+                    "Percy Jackson",
+                    "Harry Potter",
+                    "The Chronicles of Narnia"
+                ],
+                "respuesta_correcta": "Harry Potter"
+            },
+            {
+                "pregunta": "¿Cuál es el título de la película que presenta a un equipo de superhéroes adolescentes con habilidades especiales?",
+                "opciones": [
+                    "Power Rangers",
+                    "X-Men: First Class",
+                    "Teen Titans Go! To the Movies",
+                    "The Incredibles"
+                ],
+                "respuesta_correcta": "Teen Titans Go! To the Movies"
+            }
+        ]
+    }
+]
