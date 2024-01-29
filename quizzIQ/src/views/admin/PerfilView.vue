@@ -91,10 +91,11 @@ header {
     color: var(--color1);
     text-shadow: 3px 5px 2px rgba(255, 255, 255, 0.6);
     font-weight: bold;
-
+    
 }
 
 .user-info__button:hover {
+    cursor: pointer;
     transition: .3s;
     color: var(--color1-hover);
 
